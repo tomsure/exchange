@@ -459,6 +459,7 @@ function connect() {
 			var response = jQuery.parseJSON(data.body);
 			alert(' timeout cancel')
 			$('#cancelModal').modal('hide')
+			$('#confirmModal').modal('hide')
 		});
 		stompClient.subscribe('/gateway/c2cPay-' + sessionId, function (data) { //订阅确认
 			var response = jQuery.parseJSON(data.body);
