@@ -8,15 +8,16 @@
   </parent>
   <groupId>com.exchage</groupId>
   <artifactId>exchange</artifactId>
+  
   <packaging>pom</packaging>
   <modules>
-  <module>exchange-parent</module>
-  <module>exchange-framework</module>
-  <module>exchange-manage</module>
-  <module>exchange-middle</module>
-  <module>exchange-website</module>
-  <module>exchange-website-admin</module>
-  <module>exchange-market</module>
-  <module>exchange-c2c</module>
+	  <module>exchange-parent</module>
+	  <module>exchange-framework</module>
+	  <module>exchange-manage</module>
+	  <module>exchange-middle</module>
+	  <module>exchange-website</module>
+	  <module>exchange-website-admin</module>
+	  <module>exchange-market</module>
+	  <module>exchange-c2c</module>
   </modules>
 </project>
