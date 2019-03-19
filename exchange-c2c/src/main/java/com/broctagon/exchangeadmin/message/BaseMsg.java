@@ -14,6 +14,9 @@ public class BaseMsg {
 	private int WSID;
 	private String SessionID;
 	private String RequestID;
+	
+	private Object resData;
+	
 	public int getTag() {
 		return Tag;
 	}
@@ -38,4 +41,12 @@ public class BaseMsg {
 	public void setRequestID(String requestID) {
 		RequestID = requestID;
 	}
+	public Object getResData() {
+		return resData;
+	}
+	public void setResData(Object resData) {
+		this.resData = resData;
+	}
+	
+	
 }

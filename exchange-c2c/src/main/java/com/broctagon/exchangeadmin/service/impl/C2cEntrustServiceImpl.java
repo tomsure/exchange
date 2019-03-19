@@ -3,6 +3,7 @@ package com.broctagon.exchangeadmin.service.impl;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -177,7 +178,7 @@ public class C2cEntrustServiceImpl implements C2cEntrustService{
 		C2cEntrustModel c2cEntrustModel = new C2cEntrustModel();
 		c2cEntrustModel.setUserId(c2cEntrustListReq.getUserId());
 		c2cEntrustModel.setCoinName(c2cEntrustListReq.getCoinName());
-		List<C2cEntrustModel> c2cEntrustModels = c2cEntrustDao.findByCoinAndUserId(c2cEntrustModel);
+		List<Map<String,Object>> c2cEntrustModels = c2cEntrustDao.findByCoinAndUserId(c2cEntrustModel);
 		
 		C2cUserEntrustListRes c2cUserEntrustListRes = new C2cUserEntrustListRes();
 		c2cUserEntrustListRes.setOrderList(c2cEntrustModels);

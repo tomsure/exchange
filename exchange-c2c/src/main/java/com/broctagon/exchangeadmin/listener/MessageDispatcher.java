@@ -78,7 +78,7 @@ public class MessageDispatcher {
 			case RabbitmqConstants.TAG_QUERY_USER_HISTORYTRADE_LIST_REQ://用戶已成交列表
 				baseMsgRes = c2cTradeService.findUserHistoryTrade(req);
 				break;
-			case RabbitmqConstants.TAG_QUERY_USER_CURRENT_TRADE_REQ://用户挂单列表
+			case RabbitmqConstants.TAG_QUERY_USER_CURRENT_TRADE_REQ://用户挂单未成交列表 0-2
 				baseMsgRes = c2cTradeService.findCurrentTrade(req);
 				break;				
 			case RabbitmqConstants.TAG_TRADE_MARKET_REQ://昨日行情今日行情，最新成交价

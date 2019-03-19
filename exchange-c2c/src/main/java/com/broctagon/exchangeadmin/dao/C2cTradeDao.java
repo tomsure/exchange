@@ -30,12 +30,12 @@ public interface C2cTradeDao {
 	public int updateTradeStatus(C2cTradeModel c2cTradeModel);
 	public int cancelTrade(C2cTradeModel c2cTradeModel);
 	
-	public List<C2cMarketModel> findHistoryMarket(String coinName);
-	public List<C2cMarketModel> findUserHistoryTrade(C2cEntrustModel c2cEnturstModel);
-	public List<C2cTradeDetailModel> findCurrentTrade(C2cEntrustModel c2cEnturstModel);
+	public List<Map<String,Object>> findHistoryMarket(String coinName);
+	public List<Map<String,Object>> findUserHistoryTrade(C2cEntrustModel c2cEnturstModel);
+	public List<Map<String,Object>> findCurrentTrade(C2cEntrustModel c2cEnturstModel);
 	
-	public List<C2cTradeDetailModel> findCurrentMerchantTrade(C2cEntrustModel c2cEnturstModel);
-	public List<C2cMarketModel> findMerchantHistoryTrade(C2cEntrustModel c2cEnturstModel);
+	public List<Map<String,Object>> findCurrentMerchantTrade(C2cEntrustModel c2cEnturstModel);
+	public List<Map<String,Object>> findMerchantHistoryTrade(C2cEntrustModel c2cEnturstModel);
 	public List<C2cTradeVolumeModel> findTradeVolume(String coinName);
 	public Double findLastTrade(String coinName);
 	
