@@ -2204,7 +2204,7 @@ background-color: red;
 	background-color: white!important;
 }
 .withdrawAddressContent{
-	overflow-y: scroll;
+	/* overflow-y: scroll; */
 }
 
 .AddAccountModal .modal-body{
