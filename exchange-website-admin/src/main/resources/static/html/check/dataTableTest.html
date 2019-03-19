@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>表格行添加数据测试</title>
+		<!-- Bootstrap -->
+        <link rel="stylesheet" href="../../css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="../../css/plugins/bootstrap-table/bootstrap-table.min.css" />
+		<!--<link rel="stylesheet" type="text/css" href="../../css/font-awesome.css" />-->
+		<link rel="stylesheet" type="text/css" href="../../dist/icomoon/style.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/animate.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/common.backup.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+        
+	</head>
+	<body>
+		<div style="width:500px">
+	        <table id="table" border="1" width="500px" class="display  hover cell-border  border-blue-1" >
+	            <tr width="150px">
+	                <th width="70px">用户名</th>
+	                <th width="70px">密码</th>
+	                <th width="30px">操作</th>
+	            </tr>
+	        </table>
+	    </div>
+	    <input type="button" value="添加行" onclick="addRow();" />
+	    <input type="button" value="测试数据" onclick="ceshi();" />
+		<script src="../../js/jquery.min.js"></script>
+	    <script src="../../js/bootstrap.min.js"></script>
+	    <script src="../../dist/hAdmin/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+	    <script src="../../js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+	    <script src="../../js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+	    <!-- layer javascript -->
+        <script src="../../js/plugins/layer/layer.min.js"></script>
+	    <script src="../../jsCustom/process_config.js"></script>
+	    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+        <script type="text/javascript">
+
+	        $(document).ready(function () {
+	            $("#table").DataTable()
+	        });
+	        var i = 0;
+	        //添加行
+	        function addRow() {
+	            i++;
+	            var rowTem = '<tr class="tr_' + i + '">'
+	                + '<td><input type="Text" id="txt' + i + '" /></td>'
+	                + '<td><input type="Text" id="pwd' + i + '"/></td>'
+	                + '<td><a href="#" onclick=delRow('+i+') >删除</a></td>'
+	                + '</tr>';
+	           //var tableHtml = $("#table tbody").html();
+	           // tableHtml += rowTem;
+	              $("#table tbody:last").append(rowTem);
+	          //  $("#table tbody").html(tableHtml);
+	
+	        }
+	        //删除行
+	        function delRow(_id) {
+	            $("#table .tr_"+_id).hide();
+	            i--;
+	        }
+	        //进行测试
+	        function ceshi() {
+	            var str1 = '';
+	            for( var j=1;j<=i;j++){
+	                var str = $("#" + "txt" + j).val();
+	                str1 += str;
+	            }
+	            alert(str1);
+	        }
+	    </script>
+	</body>
+</html>

@@ -1,0 +1,49 @@
+id: 21
+
+
+server:
+    port: 9098
+
+spring:
+
+
+    rabbitmq:
+        listener:
+            simple:
+                acknowledge-mode: none
+    
+
+    datasource:
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://169.254.90.90:3306/exchange?useUnicode=true&characterEncoding=utf-8&autoReconnect=true
+        username: root
+        password: Aa123456*&^
+        
+mybatis: 
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.broctagon.exchangeadmin.model       
+
+
+redis:
+    database: 1
+    host: 169.254.90.90
+    port: 6379
+    password: qweasdzxc
+    pool:
+      maxIdle: 20
+      minIdle: 2
+
+
+                
+mq:
+    host: 169.254.90.90
+    port: 5672
+    username: mquser
+    password: qweasdzxc
+    vhost: /ExchangeVH_v2
+    exchange: t_node_grp
+    queue: 
+        key.c2c.req: key.c2c.req
+        key_c2c_manager_res: key_c2c_manager_res
+    routingKey:
+        userlogin: WebSrv.

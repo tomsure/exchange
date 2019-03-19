@@ -1,0 +1,133 @@
+/*磁贴*/
+body{
+	background: #edeef0;
+}
+
+.imgContent{
+	/*border: 1px solid red;*/
+	text-align: center;
+	padding: 0!important;
+	margin-bottom: 60px;
+}
+.imgBox{
+	width: 280px;
+	height: 400px;
+
+	margin: 0 auto;
+	position: relative;
+
+}
+.imgBox1{
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+
+
+
+}
+.imgBox1 img{
+	width: 100%;
+	height: 100%;
+}
+.imgNewsStatus{
+	width: 280px;
+	margin: 0 auto;
+	height: 60px;
+	background-color: white;
+	line-height: 3;
+	font-size: 20px;
+}
+.imgNewsTitle{
+	z-index: 1111;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	padding: 10px;
+	height: 80px;
+	font-size: 20px;
+	background-color: rgba(0,0,0,0.4);
+	color: white;
+
+}
+
+.editBar{
+	position: absolute;
+	margin-top: 50%;
+
+    /*width: 100%;*/
+
+    width: 160px;
+    margin-left: 21%;
+    z-index: 200;
+}
+.circle{
+	display: inline-block;
+	width: 80px;
+	height: 80px;
+	border-radius: 100px;
+	background-color:rgba(255,255,255,0.4);
+	
+     display: table-cell;
+		    vertical-align: middle;
+		    text-align: center;
+		    z-index: 100;
+}
+.editBar span{
+	display: inline-block;
+	margin-right: 8%;
+	color: white;
+
+}
+
+.styleColor{
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.5);
+	position: absolute;
+	top: 0;
+	z-index: 100;
+}
+
+.icon-look2:before{
+	color: white;
+	font-size: 20px;
+}
+.icon-edit{
+	font-size: 20px;
+}
+.imgNewsStatus .icon{
+	margin-right: 10px;
+	font-size: 20px;
+	font-weight: 600;
+	position: relative;
+    top: 2px;
+}
+
+.createContent{
+	position: relative;
+}
+
+.positionBox{
+	width: 280px;
+	height: 460px;
+	background: white;
+	
+	box-shadow:  0px 1px 15px 3px lightgray;
+	margin: 0 auto;
+    
+}
+.createBox{
+   padding-top:150px;
+}
+.createBox .icon{
+	font-size: 50px;
+}
+.createBox p{
+	margin-top: 10px;
+	font-size: 24px;
+	color: #2b7dfb;
+}
+
+/*轮播*/
+
+

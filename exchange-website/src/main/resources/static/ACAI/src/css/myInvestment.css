@@ -1,0 +1,40 @@
+
+.headerInfoList li{
+	float: left;
+	background-color: #4A90E2;;
+	color: white;
+	padding: 0.2rem;
+	margin-right: 0.3rem;
+	border-radius: 5px;
+	width:10.416666666666666666666666666667%;
+	
+	
+}
+.tabBox,.contentTop{
+	width: 100%;
+	
+	padding-top: 0.5rem;
+	
+	
+}
+.tabBox{
+	background-color: white;
+	padding: 0 0.3rem;
+}
+.contentTop{
+	margin-bottom: 0.18rem;
+
+	
+}
+
+.cl{zoom:1;}
+.cl::after{content:'';display:block;height:0;visibility:hidden;clear:both;}
+.operationBtn{
+	border: 0;
+	background-color: white;
+	border: 1px solid #4990e2;
+	color: #4990e2;
+	padding: 0.05rem 0.12rem;
+	margin: 0.08rem;
+	border-radius: 2px;
+}

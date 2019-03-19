@@ -1,0 +1,82 @@
+id: 21
+
+
+server:
+    port: 9092
+
+spring:
+
+
+
+
+    mail:
+        host: smtp.163.com
+        username: 13249928868@163.com
+        password: ai209414
+        port: 465
+        auth: true
+        properties:
+            mail:
+                auth: true
+                smtp:
+                    socketFactory:
+                        port: 465
+                        class: javax.net.ssl.SSLSocketFactory
+
+    rabbitmq:
+        listener:
+            simple:
+                acknowledge-mode: none
+    
+    
+    
+    
+    jpa:
+        show-sql: true
+        hibernate:
+            naming:
+                physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        
+    
+
+    datasource:
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://169.254.90.90:3306/exchange?useUnicode=true&characterEncoding=utf-8&autoReconnect=true
+        username: root
+        password: Aa123456*&^
+        
+        
+
+
+redis:
+    database: 1
+    host: 169.254.90.90
+    port: 6379
+    password: qweasdzxc
+    pool:
+      maxIdle: 20
+      minIdle: 2
+
+
+                
+mq:
+    host: 169.254.90.90
+    port: 5672
+    username: mquser
+    password: qweasdzxc
+    vhost: /ExchangeVH_v2
+    exchange: t_node_grp
+    queue: 
+        Login: manger_bkey
+    routingKey:
+        userlogin: WebSrv.
+        
+default:
+    c2cBaseCoin: BTC
+    baseCoin: BTC
+    token: RKT/BTC
+    count: 50
+    timeframe: M1
+
+candle:
+  timeframes: M1,M5,M15,M30,H1,H4,H12,D1,W1,MN

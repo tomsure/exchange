@@ -1,0 +1,118 @@
+<<<<<<< HEAD
+{
+    "data": {
+        "moduleClassification": null,
+        "moduleAll": null,
+        "moduleLink": [
+            {
+                "linkId": "4363",
+                "arriveNum": 1,
+                "level": 1,
+                "moduleId": "1",
+                "users": [
+                    {
+                        "id": "5675",
+                        "userName": "王五"
+                    },
+                    {
+                        "id": "5854",
+                        "userName": "张三"
+                    },
+                    {
+                        "id": "9556",
+                        "userName": "李四"
+                    }
+                ]
+            }
+        ],
+        "jurisdictionUser": [
+            {
+                "id": "9556",
+                "userName": "李四"
+            },
+            {
+                "id": "5675",
+                "userName": "王五"
+            },
+            {
+                "id": "5854",
+                "userName": "张三"
+            },
+            {
+                "id": "2134",
+                "userName": "赵明明"
+            }
+        ]
+    },
+    "message": "查询成功",
+    "code": 0
+}
+	
+=======
+
+{
+	"data": {
+		"moduleClassification": null,
+		"moduleAll": null,
+		"moduleLink": [
+			{
+				"linkId": "4363",
+				"arriveNum": 1,
+				"level": 1,
+				"moduleId": "1",
+				"users": [{
+						"id": "5675",
+						"userName": "王五"
+					},
+					 {
+						"id": "5854",
+						"userName": "张三"
+					},
+					 {
+						"id": "9556",
+						"userName": "李四"
+					}
+				],
+				"operate":""
+			},
+			{
+				"linkId": "4363",
+				"arriveNum": 1,
+				"level": 2,
+				"moduleId": "1",
+				"users": [{
+						"id": "5675",
+						"userName": "111"
+					},
+					 {
+						"id": "5854",
+						"userName": "222"
+					},
+					 {
+						"id": "9556",
+						"userName": "333"
+					}
+				]
+			}
+		],
+		"jurisdictionUser": [
+			{
+				"id": "9556",
+				"userName": "李四"
+			}, {
+				"id": "5675",
+				"userName": "王五"
+			}, {
+				"id": "5854",
+				"userName": "张三"
+			}, {
+				"id": "2134",
+				"userName": "赵明明"
+			}
+		]
+	},
+	"message": "查询成功",
+	"code": 0
+}
+
+>>>>>>> branch 'Dev' of http://192.168.1.137:8888/root/ACAE.git

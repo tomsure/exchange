@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>加减测试</title>
+		<!-- Bootstrap -->
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="../css/plugins/bootstrap-table/bootstrap-table.min.css" />
+		<!--<link rel="stylesheet" type="text/css" href="../../css/font-awesome.css" />-->
+		<link rel="stylesheet" type="text/css" href="../dist/icomoon/style.css" />
+		<link rel="stylesheet" type="text/css" href="../css/animate.css" />
+		<link rel="stylesheet" type="text/css" href="../style/common.backup.css" />
+		<link rel="stylesheet" type="text/css" href="../css/style.css" />
+	</head>
+	<body>
+		<div>
+			<a onClick="a('+');">+</a>
+			<input type="text" id="inputVal" onblur="b(this.value)"
+				onkeyup="this.value=this.value.replace(/\D/gi,'')" value="1" />
+			<a onClick="a('-');">-</a>
+		</div>
+		<script>
+			//执行加减的方法
+			function a(flag){
+				console.log('falg是111111:',flag)
+				var nowVal = $("#inputVal").val();
+				if(flag == '+'){
+					$("#inputVal").val(parseInt(nowVal)+1);
+					if(nowVal > 5){
+						return;
+					}
+				}else if(flag == '-'){
+					$("#inputVal").val(parseInt(nowVal)-1);
+					if(nowVal < 1){
+						return;
+					}
+				}
+			}
+			//如果输入框中没值，将输入框中的值重置为1，触发以下方法
+			function b(nowVal){
+				console.log('nowVal的值是22222：',nowVal);
+				if(nowVal.length == 0){
+					$("#inputVal").val(1);
+				}
+			}
+		</script>
+		<script src="../js/jquery.min.js"></script>
+	    <script src="../js/bootstrap.min.js"></script>
+	    <script src="../jsCustom/checkConfig.js"></script>
+	</body>
+</html>

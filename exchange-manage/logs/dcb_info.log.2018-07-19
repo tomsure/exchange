@@ -1,0 +1,644 @@
+2018-07-19 16:03:51  INFO SpringbootApp:48 -Starting SpringbootApp on WIN-D6GQ0BR0KA1 with PID 3600 (D:\kuangjiayuanma\ACAE-Dev-9fcf2924268e3d28905db98da722a71ee113ed84\ACAE\web\exchange\exchange-manage\target\classes started by Administrator in D:\kuangjiayuanma\ACAE-Dev-9fcf2924268e3d28905db98da722a71ee113ed84\ACAE\web\exchange\exchange-manage)
+2018-07-19 16:03:51  INFO SpringbootApp:593 -No active profile set, falling back to default profiles: default
+2018-07-19 16:03:51  INFO AnnotationConfigEmbeddedWebApplicationContext:583 -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@778d1062: startup date [Thu Jul 19 16:03:51 CST 2018]; root of context hierarchy
+2018-07-19 16:03:51  INFO Version:30 -HV000001: Hibernate Validator 5.3.5.Final
+2018-07-19 16:03:52  INFO RepositoryConfigurationDelegate:165 -Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-07-19 16:03:52  INFO PostProcessorRegistrationDelegate$BeanPostProcessorChecker:325 -Bean 'org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration' of type [org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration$$EnhancerBySpringCGLIB$$93e59e6d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-07-19 16:03:53  INFO TomcatEmbeddedServletContainer:89 -Tomcat initialized with port(s): 9090 (http)
+2018-07-19 16:03:53  INFO ContextLoader:276 -Root WebApplicationContext: initialization completed in 2338 ms
+2018-07-19 16:03:53  INFO ServletRegistrationBean:190 -Mapping servlet: 'dispatcherServlet' to [/]
+2018-07-19 16:03:53  INFO FilterRegistrationBean:258 -Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-07-19 16:03:53  INFO FilterRegistrationBean:258 -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-07-19 16:03:53  INFO FilterRegistrationBean:258 -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-07-19 16:03:53  INFO FilterRegistrationBean:258 -Mapping filter: 'requestContextFilter' to: [/*]
+2018-07-19 16:03:54  INFO RequestMappingHandlerAdapter:534 -Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@778d1062: startup date [Thu Jul 19 16:03:51 CST 2018]; root of context hierarchy
+2018-07-19 16:03:54  INFO RequestMappingHandlerMapping:543 -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-07-19 16:03:54  INFO RequestMappingHandlerMapping:543 -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-07-19 16:03:54  INFO SimpleUrlHandlerMapping:362 -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-19 16:03:54  INFO SimpleUrlHandlerMapping:362 -Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-19 16:03:54  INFO SimpleUrlHandlerMapping:362 -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-19 16:03:55  INFO AnnotationMBeanExporter:431 -Registering beans for JMX exposure on startup
+2018-07-19 16:03:55  INFO AnnotationMBeanExporter:916 -Bean with name 'rabbitConnectionFactory' has been autodetected for JMX exposure
+2018-07-19 16:03:55  INFO AnnotationMBeanExporter:678 -Located managed bean 'rabbitConnectionFactory': registering with JMX server as MBean [org.springframework.amqp.rabbit.connection:name=rabbitConnectionFactory,type=CachingConnectionFactory]
+2018-07-19 16:03:55  INFO DefaultLifecycleProcessor:343 -Starting beans in phase -2147482648
+2018-07-19 16:03:55  INFO DefaultLifecycleProcessor:343 -Starting beans in phase 2147483647
+2018-07-19 16:03:55  INFO AutoConfigurationReportLoggingInitializer:101 -
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2018-07-19 16:03:55 ERROR LoggingFailureAnalysisReporter:42 -
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The Tomcat connector configured to listen on port 9090 failed to start. The port may already be in use or the connector may be misconfigured.
+
+Action:
+
+Verify the connector's configuration, identify and stop any process that's listening on port 9090, or configure this application to listen on another port.
+
+2018-07-19 16:03:55  INFO AnnotationConfigEmbeddedWebApplicationContext:984 -Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@778d1062: startup date [Thu Jul 19 16:03:51 CST 2018]; root of context hierarchy
+2018-07-19 16:03:55  INFO DefaultLifecycleProcessor:358 -Stopping beans in phase 2147483647
+2018-07-19 16:03:55  INFO DefaultLifecycleProcessor:358 -Stopping beans in phase -2147482648
+2018-07-19 16:03:55  INFO AnnotationMBeanExporter:449 -Unregistering JMX-exposed beans on shutdown
+2018-07-19 16:03:55  INFO AnnotationMBeanExporter:241 -Unregistering JMX-exposed beans
+2018-07-19 16:04:41  INFO SpringbootApp:48 -Starting SpringbootApp on WIN-D6GQ0BR0KA1 with PID 4508 (D:\kuangjiayuanma\ACAE-Dev-9fcf2924268e3d28905db98da722a71ee113ed84\ACAE\web\exchange\exchange-manage\target\classes started by Administrator in D:\kuangjiayuanma\ACAE-Dev-9fcf2924268e3d28905db98da722a71ee113ed84\ACAE\web\exchange\exchange-manage)
+2018-07-19 16:04:41  INFO SpringbootApp:593 -No active profile set, falling back to default profiles: default
+2018-07-19 16:04:41  INFO AnnotationConfigEmbeddedWebApplicationContext:583 -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@778d1062: startup date [Thu Jul 19 16:04:41 CST 2018]; root of context hierarchy
+2018-07-19 16:04:42  INFO Version:30 -HV000001: Hibernate Validator 5.3.5.Final
+2018-07-19 16:04:42  INFO RepositoryConfigurationDelegate:165 -Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-07-19 16:04:43  INFO PostProcessorRegistrationDelegate$BeanPostProcessorChecker:325 -Bean 'org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration' of type [org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration$$EnhancerBySpringCGLIB$$93e59e6d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-07-19 16:04:43  INFO TomcatEmbeddedServletContainer:89 -Tomcat initialized with port(s): 9090 (http)
+2018-07-19 16:04:43  INFO ContextLoader:276 -Root WebApplicationContext: initialization completed in 2197 ms
+2018-07-19 16:04:44  INFO ServletRegistrationBean:190 -Mapping servlet: 'dispatcherServlet' to [/]
+2018-07-19 16:04:44  INFO FilterRegistrationBean:258 -Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-07-19 16:04:44  INFO FilterRegistrationBean:258 -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-07-19 16:04:44  INFO FilterRegistrationBean:258 -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-07-19 16:04:44  INFO FilterRegistrationBean:258 -Mapping filter: 'requestContextFilter' to: [/*]
+2018-07-19 16:04:44  INFO RequestMappingHandlerAdapter:534 -Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@778d1062: startup date [Thu Jul 19 16:04:41 CST 2018]; root of context hierarchy
+2018-07-19 16:04:44  INFO RequestMappingHandlerMapping:543 -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-07-19 16:04:44  INFO RequestMappingHandlerMapping:543 -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-07-19 16:04:44  INFO SimpleUrlHandlerMapping:362 -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-19 16:04:44  INFO SimpleUrlHandlerMapping:362 -Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-19 16:04:44  INFO SimpleUrlHandlerMapping:362 -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-19 16:04:45  INFO AnnotationMBeanExporter:431 -Registering beans for JMX exposure on startup
+2018-07-19 16:04:45  INFO AnnotationMBeanExporter:916 -Bean with name 'rabbitConnectionFactory' has been autodetected for JMX exposure
+2018-07-19 16:04:45  INFO AnnotationMBeanExporter:678 -Located managed bean 'rabbitConnectionFactory': registering with JMX server as MBean [org.springframework.amqp.rabbit.connection:name=rabbitConnectionFactory,type=CachingConnectionFactory]
+2018-07-19 16:04:45  INFO DefaultLifecycleProcessor:343 -Starting beans in phase -2147482648
+2018-07-19 16:04:45  INFO DefaultLifecycleProcessor:343 -Starting beans in phase 2147483647
+2018-07-19 16:04:45  INFO TomcatEmbeddedServletContainer:201 -Tomcat started on port(s): 9090 (http)
+2018-07-19 16:04:45  INFO SpringbootApp:57 -Started SpringbootApp in 4.525 seconds (JVM running for 5.05)
+2018-07-19 16:05:23  INFO DispatcherServlet:489 -FrameworkServlet 'dispatcherServlet': initialization started
+2018-07-19 16:05:23  INFO DispatcherServlet:508 -FrameworkServlet 'dispatcherServlet': initialization completed in 23 ms
+2018-07-19 16:19:33  INFO RunWeb:48 -Starting RunWeb on WIN-D6GQ0BR0KA1 with PID 10048 (D:\kuangjiayuanma\ACAE-Dev-9fcf2924268e3d28905db98da722a71ee113ed84\ACAE\web\exchange\exchange-manage\target\classes started by Administrator in D:\kuangjiayuanma\ACAE-Dev-9fcf2924268e3d28905db98da722a71ee113ed84\ACAE\web\exchange\exchange-manage)
+2018-07-19 16:19:33  INFO RunWeb:593 -No active profile set, falling back to default profiles: default
+2018-07-19 16:19:33  INFO AnnotationConfigEmbeddedWebApplicationContext:583 -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@778d1062: startup date [Thu Jul 19 16:19:33 CST 2018]; root of context hierarchy
+2018-07-19 16:19:33  INFO Version:30 -HV000001: Hibernate Validator 5.3.5.Final
+2018-07-19 16:19:34  INFO RepositoryConfigurationDelegate:165 -Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-07-19 16:19:34  INFO PostProcessorRegistrationDelegate$BeanPostProcessorChecker:325 -Bean 'org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration' of type [org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration$$EnhancerBySpringCGLIB$$89efae06] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-07-19 16:19:35  INFO TomcatEmbeddedServletContainer:89 -Tomcat initialized with port(s): 9090 (http)
+2018-07-19 16:19:35  INFO ContextLoader:276 -Root WebApplicationContext: initialization completed in 2015 ms
+2018-07-19 16:19:35  INFO ServletRegistrationBean:190 -Mapping servlet: 'dispatcherServlet' to [/]
+2018-07-19 16:19:35  INFO FilterRegistrationBean:258 -Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-07-19 16:19:35  INFO FilterRegistrationBean:258 -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-07-19 16:19:35  INFO FilterRegistrationBean:258 -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-07-19 16:19:35  INFO FilterRegistrationBean:258 -Mapping filter: 'requestContextFilter' to: [/*]
+2018-07-19 16:19:35  INFO RequestMappingHandlerAdapter:534 -Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@778d1062: startup date [Thu Jul 19 16:19:33 CST 2018]; root of context hierarchy
+2018-07-19 16:19:36  INFO RequestMappingHandlerMapping:543 -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-07-19 16:19:36  INFO RequestMappingHandlerMapping:543 -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-07-19 16:19:36  INFO SimpleUrlHandlerMapping:362 -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-19 16:19:36  INFO SimpleUrlHandlerMapping:362 -Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-19 16:19:36  INFO SimpleUrlHandlerMapping:362 -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-19 16:19:36  INFO AnnotationMBeanExporter:431 -Registering beans for JMX exposure on startup
+2018-07-19 16:19:36  INFO AnnotationMBeanExporter:916 -Bean with name 'rabbitConnectionFactory' has been autodetected for JMX exposure
+2018-07-19 16:19:36  INFO AnnotationMBeanExporter:678 -Located managed bean 'rabbitConnectionFactory': registering with JMX server as MBean [org.springframework.amqp.rabbit.connection:name=rabbitConnectionFactory,type=CachingConnectionFactory]
+2018-07-19 16:19:36  INFO DefaultLifecycleProcessor:343 -Starting beans in phase -2147482648
+2018-07-19 16:19:36  INFO DefaultLifecycleProcessor:343 -Starting beans in phase 2147483647
+2018-07-19 16:19:36  INFO AutoConfigurationReportLoggingInitializer:101 -
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2018-07-19 16:19:36 ERROR LoggingFailureAnalysisReporter:42 -
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The Tomcat connector configured to listen on port 9090 failed to start. The port may already be in use or the connector may be misconfigured.
+
+Action:
+
+Verify the connector's configuration, identify and stop any process that's listening on port 9090, or configure this application to listen on another port.
+
+2018-07-19 16:19:36  INFO AnnotationConfigEmbeddedWebApplicationContext:984 -Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@778d1062: startup date [Thu Jul 19 16:19:33 CST 2018]; root of context hierarchy
+2018-07-19 16:19:36  INFO DefaultLifecycleProcessor:358 -Stopping beans in phase 2147483647
+2018-07-19 16:19:36  INFO DefaultLifecycleProcessor:358 -Stopping beans in phase -2147482648
+2018-07-19 16:19:36  INFO AnnotationMBeanExporter:449 -Unregistering JMX-exposed beans on shutdown
+2018-07-19 16:19:36  INFO AnnotationMBeanExporter:241 -Unregistering JMX-exposed beans
+2018-07-19 16:19:57  INFO RunWeb:48 -Starting RunWeb on WIN-D6GQ0BR0KA1 with PID 2904 (D:\kuangjiayuanma\ACAE-Dev-9fcf2924268e3d28905db98da722a71ee113ed84\ACAE\web\exchange\exchange-manage\target\classes started by Administrator in D:\kuangjiayuanma\ACAE-Dev-9fcf2924268e3d28905db98da722a71ee113ed84\ACAE\web\exchange\exchange-manage)
+2018-07-19 16:19:57  INFO RunWeb:593 -No active profile set, falling back to default profiles: default
+2018-07-19 16:19:57  INFO AnnotationConfigEmbeddedWebApplicationContext:583 -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@778d1062: startup date [Thu Jul 19 16:19:57 CST 2018]; root of context hierarchy
+2018-07-19 16:19:58  INFO Version:30 -HV000001: Hibernate Validator 5.3.5.Final
+2018-07-19 16:19:58  INFO RepositoryConfigurationDelegate:165 -Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-07-19 16:19:59  INFO PostProcessorRegistrationDelegate$BeanPostProcessorChecker:325 -Bean 'org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration' of type [org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration$$EnhancerBySpringCGLIB$$93e59e6d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-07-19 16:19:59  INFO TomcatEmbeddedServletContainer:89 -Tomcat initialized with port(s): 9090 (http)
+2018-07-19 16:19:59  INFO ContextLoader:276 -Root WebApplicationContext: initialization completed in 2035 ms
+2018-07-19 16:20:00  INFO ServletRegistrationBean:190 -Mapping servlet: 'dispatcherServlet' to [/]
+2018-07-19 16:20:00  INFO FilterRegistrationBean:258 -Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-07-19 16:20:00  INFO FilterRegistrationBean:258 -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-07-19 16:20:00  INFO FilterRegistrationBean:258 -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-07-19 16:20:00  INFO FilterRegistrationBean:258 -Mapping filter: 'requestContextFilter' to: [/*]
+2018-07-19 16:20:00  INFO RequestMappingHandlerAdapter:534 -Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@778d1062: startup date [Thu Jul 19 16:19:57 CST 2018]; root of context hierarchy
+2018-07-19 16:20:00  INFO RequestMappingHandlerMapping:543 -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-07-19 16:20:00  INFO RequestMappingHandlerMapping:543 -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-07-19 16:20:00  INFO SimpleUrlHandlerMapping:362 -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-19 16:20:00  INFO SimpleUrlHandlerMapping:362 -Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-19 16:20:00  INFO SimpleUrlHandlerMapping:362 -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-19 16:20:01  INFO AnnotationMBeanExporter:431 -Registering beans for JMX exposure on startup
+2018-07-19 16:20:01  INFO AnnotationMBeanExporter:916 -Bean with name 'rabbitConnectionFactory' has been autodetected for JMX exposure
+2018-07-19 16:20:01  INFO AnnotationMBeanExporter:678 -Located managed bean 'rabbitConnectionFactory': registering with JMX server as MBean [org.springframework.amqp.rabbit.connection:name=rabbitConnectionFactory,type=CachingConnectionFactory]
+2018-07-19 16:20:01  INFO DefaultLifecycleProcessor:343 -Starting beans in phase -2147482648
+2018-07-19 16:20:01  INFO DefaultLifecycleProcessor:343 -Starting beans in phase 2147483647
+2018-07-19 16:20:01  INFO TomcatEmbeddedServletContainer:201 -Tomcat started on port(s): 9090 (http)
+2018-07-19 16:20:01  INFO RunWeb:57 -Started RunWeb in 4.133 seconds (JVM running for 4.572)
+2018-07-19 16:50:09  INFO SpringbootApp:48 -Starting SpringbootApp on WIN-D6GQ0BR0KA1 with PID 11148 (D:\kuangjiayuanma\ACAE-Dev-9fcf2924268e3d28905db98da722a71ee113ed84\ACAE\web\exchange\exchange-manage\target\classes started by Administrator in D:\kuangjiayuanma\ACAE-Dev-9fcf2924268e3d28905db98da722a71ee113ed84\ACAE\web\exchange\exchange-manage)
+2018-07-19 16:50:09  INFO SpringbootApp:593 -No active profile set, falling back to default profiles: default
+2018-07-19 16:50:09  INFO AnnotationConfigEmbeddedWebApplicationContext:583 -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@778d1062: startup date [Thu Jul 19 16:50:09 CST 2018]; root of context hierarchy
+2018-07-19 16:50:10  INFO Version:30 -HV000001: Hibernate Validator 5.3.5.Final
+2018-07-19 16:50:10  INFO RepositoryConfigurationDelegate:165 -Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-07-19 16:50:11  INFO PostProcessorRegistrationDelegate$BeanPostProcessorChecker:325 -Bean 'org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration' of type [org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration$$EnhancerBySpringCGLIB$$7eac1683] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-07-19 16:50:12  INFO TomcatEmbeddedServletContainer:89 -Tomcat initialized with port(s): 9090 (http)
+2018-07-19 16:50:12  INFO ContextLoader:276 -Root WebApplicationContext: initialization completed in 2440 ms
+2018-07-19 16:50:12  INFO ServletRegistrationBean:190 -Mapping servlet: 'dispatcherServlet' to [/]
+2018-07-19 16:50:12  INFO FilterRegistrationBean:258 -Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-07-19 16:50:12  INFO FilterRegistrationBean:258 -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-07-19 16:50:12  INFO FilterRegistrationBean:258 -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-07-19 16:50:12  INFO FilterRegistrationBean:258 -Mapping filter: 'requestContextFilter' to: [/*]
+2018-07-19 16:50:12  WARN AnnotationConfigEmbeddedWebApplicationContext:551 -Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'messageUtil': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'id' in value "${id}"
+2018-07-19 16:50:12  INFO AutoConfigurationReportLoggingInitializer:101 -
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2018-07-19 16:50:12 ERROR SpringApplication:771 -Application startup failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'messageUtil': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'id' in value "${id}"
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:372)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1264)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:553)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:761)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:867)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.broctagon.exchangeadmin.SpringbootApp.main(SpringbootApp.java:10)
+Caused by: java.lang.IllegalArgumentException: Could not resolve placeholder 'id' in value "${id}"
+	at org.springframework.util.PropertyPlaceholderHelper.parseStringValue(PropertyPlaceholderHelper.java:174)
+	at org.springframework.util.PropertyPlaceholderHelper.replacePlaceholders(PropertyPlaceholderHelper.java:126)
+	at org.springframework.core.env.AbstractPropertyResolver.doResolvePlaceholders(AbstractPropertyResolver.java:236)
+	at org.springframework.core.env.AbstractPropertyResolver.resolveRequiredPlaceholders(AbstractPropertyResolver.java:210)
+	at org.springframework.context.support.PropertySourcesPlaceholderConfigurer$2.resolveStringValue(PropertySourcesPlaceholderConfigurer.java:172)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveEmbeddedValue(AbstractBeanFactory.java:831)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1086)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1066)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:585)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:366)
+	... 17 more
+2018-07-19 17:14:45  INFO SpringbootApp:48 -Starting SpringbootApp on WIN-D6GQ0BR0KA1 with PID 3972 (D:\kuangjiayuanma\ACAE-Dev-9fcf2924268e3d28905db98da722a71ee113ed84\ACAE\web\exchange\exchange-manage\target\classes started by Administrator in D:\kuangjiayuanma\ACAE-Dev-9fcf2924268e3d28905db98da722a71ee113ed84\ACAE\web\exchange\exchange-manage)
+2018-07-19 17:14:45  INFO SpringbootApp:593 -No active profile set, falling back to default profiles: default
+2018-07-19 17:14:45  INFO AnnotationConfigEmbeddedWebApplicationContext:583 -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@778d1062: startup date [Thu Jul 19 17:14:45 CST 2018]; root of context hierarchy
+2018-07-19 17:14:45  INFO Version:30 -HV000001: Hibernate Validator 5.3.5.Final
+2018-07-19 17:14:46  INFO RepositoryConfigurationDelegate:165 -Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-07-19 17:14:46  INFO PostProcessorRegistrationDelegate$BeanPostProcessorChecker:325 -Bean 'org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration' of type [org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration$$EnhancerBySpringCGLIB$$9f7b6e2c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-07-19 17:14:47  INFO TomcatEmbeddedServletContainer:89 -Tomcat initialized with port(s): 9090 (http)
+2018-07-19 17:14:47  INFO ContextLoader:276 -Root WebApplicationContext: initialization completed in 2229 ms
+2018-07-19 17:14:47  INFO ServletRegistrationBean:190 -Mapping servlet: 'dispatcherServlet' to [/]
+2018-07-19 17:14:47  INFO FilterRegistrationBean:258 -Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-07-19 17:14:47  INFO FilterRegistrationBean:258 -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-07-19 17:14:47  INFO FilterRegistrationBean:258 -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-07-19 17:14:47  INFO FilterRegistrationBean:258 -Mapping filter: 'requestContextFilter' to: [/*]
+2018-07-19 17:14:47  WARN AnnotationConfigEmbeddedWebApplicationContext:551 -Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'messageUtil': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'id' in value "${id}"
+2018-07-19 17:14:47  INFO AutoConfigurationReportLoggingInitializer:101 -
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2018-07-19 17:14:47 ERROR SpringApplication:771 -Application startup failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'messageUtil': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'id' in value "${id}"
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:372)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1264)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:553)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:761)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:867)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.broctagon.exchangeadmin.SpringbootApp.main(SpringbootApp.java:10)
+Caused by: java.lang.IllegalArgumentException: Could not resolve placeholder 'id' in value "${id}"
+	at org.springframework.util.PropertyPlaceholderHelper.parseStringValue(PropertyPlaceholderHelper.java:174)
+	at org.springframework.util.PropertyPlaceholderHelper.replacePlaceholders(PropertyPlaceholderHelper.java:126)
+	at org.springframework.core.env.AbstractPropertyResolver.doResolvePlaceholders(AbstractPropertyResolver.java:236)
+	at org.springframework.core.env.AbstractPropertyResolver.resolveRequiredPlaceholders(AbstractPropertyResolver.java:210)
+	at org.springframework.context.support.PropertySourcesPlaceholderConfigurer$2.resolveStringValue(PropertySourcesPlaceholderConfigurer.java:172)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveEmbeddedValue(AbstractBeanFactory.java:831)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1086)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1066)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:585)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:366)
+	... 17 more
+2018-07-19 17:15:39  INFO SpringbootApp:48 -Starting SpringbootApp on WIN-D6GQ0BR0KA1 with PID 9644 (D:\kuangjiayuanma\ACAE-Dev-9fcf2924268e3d28905db98da722a71ee113ed84\ACAE\web\exchange\exchange-manage\target\classes started by Administrator in D:\kuangjiayuanma\ACAE-Dev-9fcf2924268e3d28905db98da722a71ee113ed84\ACAE\web\exchange\exchange-manage)
+2018-07-19 17:15:39  INFO SpringbootApp:593 -No active profile set, falling back to default profiles: default
+2018-07-19 17:15:39  INFO AnnotationConfigEmbeddedWebApplicationContext:583 -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@56528192: startup date [Thu Jul 19 17:15:39 CST 2018]; root of context hierarchy
+2018-07-19 17:15:40  INFO Version:30 -HV000001: Hibernate Validator 5.3.5.Final
+2018-07-19 17:15:40  INFO RepositoryConfigurationDelegate:165 -Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-07-19 17:15:41  INFO PostProcessorRegistrationDelegate$BeanPostProcessorChecker:325 -Bean 'org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration' of type [org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration$$EnhancerBySpringCGLIB$$9e2efe76] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-07-19 17:15:41  INFO TomcatEmbeddedServletContainer:89 -Tomcat initialized with port(s): 9090 (http)
+2018-07-19 17:15:42  INFO ContextLoader:276 -Root WebApplicationContext: initialization completed in 2392 ms
+2018-07-19 17:15:42  INFO ServletRegistrationBean:190 -Mapping servlet: 'dispatcherServlet' to [/]
+2018-07-19 17:15:42  INFO FilterRegistrationBean:258 -Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-07-19 17:15:42  INFO FilterRegistrationBean:258 -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-07-19 17:15:42  INFO FilterRegistrationBean:258 -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-07-19 17:15:42  INFO FilterRegistrationBean:258 -Mapping filter: 'requestContextFilter' to: [/*]
+2018-07-19 17:15:42  INFO RequestMappingHandlerAdapter:534 -Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@56528192: startup date [Thu Jul 19 17:15:39 CST 2018]; root of context hierarchy
+2018-07-19 17:15:42  INFO RequestMappingHandlerMapping:543 -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-07-19 17:15:42  INFO RequestMappingHandlerMapping:543 -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-07-19 17:15:42  INFO SimpleUrlHandlerMapping:362 -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-19 17:15:42  INFO SimpleUrlHandlerMapping:362 -Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-19 17:15:42  INFO SimpleUrlHandlerMapping:362 -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-19 17:15:43  INFO AnnotationMBeanExporter:431 -Registering beans for JMX exposure on startup
+2018-07-19 17:15:43  INFO AnnotationMBeanExporter:916 -Bean with name 'rabbitConnectionFactory' has been autodetected for JMX exposure
+2018-07-19 17:15:43  INFO AnnotationMBeanExporter:678 -Located managed bean 'rabbitConnectionFactory': registering with JMX server as MBean [org.springframework.amqp.rabbit.connection:name=rabbitConnectionFactory,type=CachingConnectionFactory]
+2018-07-19 17:15:43  INFO DefaultLifecycleProcessor:343 -Starting beans in phase -2147482648
+2018-07-19 17:15:43  INFO DefaultLifecycleProcessor:343 -Starting beans in phase 2147483647
+2018-07-19 17:15:43  INFO TomcatEmbeddedServletContainer:201 -Tomcat started on port(s): 9090 (http)
+2018-07-19 17:15:43  INFO SpringbootApp:57 -Started SpringbootApp in 4.493 seconds (JVM running for 4.94)
+2018-07-19 17:22:45  INFO SpringbootApp:48 -Starting SpringbootApp on WIN-D6GQ0BR0KA1 with PID 11004 (D:\kuangjiayuanma\ACAE-Dev-9fcf2924268e3d28905db98da722a71ee113ed84\ACAE\web\exchange\exchange-manage\target\classes started by Administrator in D:\kuangjiayuanma\ACAE-Dev-9fcf2924268e3d28905db98da722a71ee113ed84\ACAE\web\exchange\exchange-manage)
+2018-07-19 17:22:45  INFO SpringbootApp:593 -No active profile set, falling back to default profiles: default
+2018-07-19 17:22:45  INFO AnnotationConfigEmbeddedWebApplicationContext:583 -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@56528192: startup date [Thu Jul 19 17:22:45 CST 2018]; root of context hierarchy
+2018-07-19 17:22:45  INFO Version:30 -HV000001: Hibernate Validator 5.3.5.Final
+2018-07-19 17:22:46  INFO RepositoryConfigurationDelegate:165 -Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-07-19 17:22:46  INFO PostProcessorRegistrationDelegate$BeanPostProcessorChecker:325 -Bean 'org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration' of type [org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration$$EnhancerBySpringCGLIB$$7695f9de] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-07-19 17:22:47  INFO TomcatEmbeddedServletContainer:89 -Tomcat initialized with port(s): 9090 (http)
+2018-07-19 17:22:47  INFO ContextLoader:276 -Root WebApplicationContext: initialization completed in 2071 ms
+2018-07-19 17:22:47  INFO ServletRegistrationBean:190 -Mapping servlet: 'dispatcherServlet' to [/]
+2018-07-19 17:22:47  INFO FilterRegistrationBean:258 -Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-07-19 17:22:47  INFO FilterRegistrationBean:258 -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-07-19 17:22:47  INFO FilterRegistrationBean:258 -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-07-19 17:22:47  INFO FilterRegistrationBean:258 -Mapping filter: 'requestContextFilter' to: [/*]
+2018-07-19 17:22:47 ERROR ForgivingExceptionHandler:124 -An unexpected connection driver error occured
+java.net.SocketException: Socket Closed
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116)
+	at java.net.SocketInputStream.read(SocketInputStream.java:171)
+	at java.net.SocketInputStream.read(SocketInputStream.java:141)
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:246)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:265)
+	at java.io.DataInputStream.readUnsignedByte(DataInputStream.java:288)
+	at com.rabbitmq.client.impl.Frame.readFrom(Frame.java:91)
+	at com.rabbitmq.client.impl.SocketFrameHandler.readFrame(SocketFrameHandler.java:164)
+	at com.rabbitmq.client.impl.AMQConnection$MainLoop.run(AMQConnection.java:571)
+	at java.lang.Thread.run(Thread.java:748)
+2018-07-19 17:22:47  WARN AnnotationConfigEmbeddedWebApplicationContext:551 -Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'rabbitAdmin' defined in class path resource [com/broctagon/exchangeadmin/config/RabbitConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.amqp.rabbit.core.RabbitAdmin]: Factory method 'rabbitAdmin' threw exception; nested exception is org.springframework.amqp.AmqpIOException: java.io.IOException
+2018-07-19 17:22:47  INFO AutoConfigurationReportLoggingInitializer:101 -
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2018-07-19 17:22:47 ERROR SpringApplication:771 -Application startup failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'rabbitAdmin' defined in class path resource [com/broctagon/exchangeadmin/config/RabbitConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.amqp.rabbit.core.RabbitAdmin]: Factory method 'rabbitAdmin' threw exception; nested exception is org.springframework.amqp.AmqpIOException: java.io.IOException
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1173)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1067)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:513)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:761)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:867)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.broctagon.exchangeadmin.SpringbootApp.main(SpringbootApp.java:10)
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.amqp.rabbit.core.RabbitAdmin]: Factory method 'rabbitAdmin' threw exception; nested exception is org.springframework.amqp.AmqpIOException: java.io.IOException
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:189)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:588)
+	... 18 more
+Caused by: org.springframework.amqp.AmqpIOException: java.io.IOException
+	at org.springframework.amqp.rabbit.support.RabbitExceptionTranslator.convertRabbitAccessException(RabbitExceptionTranslator.java:71)
+	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.createBareConnection(AbstractConnectionFactory.java:368)
+	at org.springframework.amqp.rabbit.connection.CachingConnectionFactory.createConnection(CachingConnectionFactory.java:565)
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.doExecute(RabbitTemplate.java:1430)
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.execute(RabbitTemplate.java:1411)
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.execute(RabbitTemplate.java:1387)
+	at org.springframework.amqp.rabbit.core.RabbitAdmin.declareQueue(RabbitAdmin.java:232)
+	at com.broctagon.exchangeadmin.config.RabbitConfig.rabbitAdmin(RabbitConfig.java:62)
+	at com.broctagon.exchangeadmin.config.RabbitConfig$$EnhancerBySpringCGLIB$$a7531735.CGLIB$rabbitAdmin$3(<generated>)
+	at com.broctagon.exchangeadmin.config.RabbitConfig$$EnhancerBySpringCGLIB$$a7531735$$FastClassBySpringCGLIB$$fc820a35.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:358)
+	at com.broctagon.exchangeadmin.config.RabbitConfig$$EnhancerBySpringCGLIB$$a7531735.rabbitAdmin(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:162)
+	... 19 more
+Caused by: java.io.IOException
+	at com.rabbitmq.client.impl.AMQChannel.wrap(AMQChannel.java:105)
+	at com.rabbitmq.client.impl.AMQChannel.wrap(AMQChannel.java:101)
+	at com.rabbitmq.client.impl.AMQChannel.exnWrappingRpc(AMQChannel.java:123)
+	at com.rabbitmq.client.impl.AMQConnection.start(AMQConnection.java:381)
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:909)
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:859)
+	at com.rabbitmq.client.ConnectionFactory.newConnection(ConnectionFactory.java:1000)
+	at org.springframework.amqp.rabbit.connection.AbstractConnectionFactory.createBareConnection(AbstractConnectionFactory.java:356)
+	... 35 more
+Caused by: com.rabbitmq.client.ShutdownSignalException: connection error; protocol method: #method<connection.close>(reply-code=530, reply-text=NOT_ALLOWED - access to vhost '/ExchangeVH_v3' refused for user 'lsq984', class-id=10, method-id=40)
+	at com.rabbitmq.utility.ValueOrException.getValue(ValueOrException.java:66)
+	at com.rabbitmq.utility.BlockingValueOrException.uninterruptibleGetValue(BlockingValueOrException.java:32)
+	at com.rabbitmq.client.impl.AMQChannel$BlockingRpcContinuation.getReply(AMQChannel.java:366)
+	at com.rabbitmq.client.impl.AMQChannel.privateRpc(AMQChannel.java:229)
+	at com.rabbitmq.client.impl.AMQChannel.exnWrappingRpc(AMQChannel.java:117)
+	... 40 more
+2018-07-19 17:26:52  INFO SpringbootApp:48 -Starting SpringbootApp on WIN-D6GQ0BR0KA1 with PID 11064 (D:\kuangjiayuanma\ACAE-Dev-9fcf2924268e3d28905db98da722a71ee113ed84\ACAE\web\exchange\exchange-manage\target\classes started by Administrator in D:\kuangjiayuanma\ACAE-Dev-9fcf2924268e3d28905db98da722a71ee113ed84\ACAE\web\exchange\exchange-manage)
+2018-07-19 17:26:52  INFO SpringbootApp:593 -No active profile set, falling back to default profiles: default
+2018-07-19 17:26:52  INFO AnnotationConfigEmbeddedWebApplicationContext:583 -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@56528192: startup date [Thu Jul 19 17:26:52 CST 2018]; root of context hierarchy
+2018-07-19 17:26:53  INFO Version:30 -HV000001: Hibernate Validator 5.3.5.Final
+2018-07-19 17:26:53  INFO RepositoryConfigurationDelegate:165 -Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-07-19 17:26:54  INFO PostProcessorRegistrationDelegate$BeanPostProcessorChecker:325 -Bean 'org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration' of type [org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration$$EnhancerBySpringCGLIB$$2b584285] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-07-19 17:26:54  INFO TomcatEmbeddedServletContainer:89 -Tomcat initialized with port(s): 9090 (http)
+2018-07-19 17:26:55  INFO ContextLoader:276 -Root WebApplicationContext: initialization completed in 2171 ms
+2018-07-19 17:26:55  INFO ServletRegistrationBean:190 -Mapping servlet: 'dispatcherServlet' to [/]
+2018-07-19 17:26:55  INFO FilterRegistrationBean:258 -Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-07-19 17:26:55  INFO FilterRegistrationBean:258 -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-07-19 17:26:55  INFO FilterRegistrationBean:258 -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-07-19 17:26:55  INFO FilterRegistrationBean:258 -Mapping filter: 'requestContextFilter' to: [/*]
+2018-07-19 17:26:55  INFO CachingConnectionFactory:360 -Created new connection: rabbitConnectionFactory#4d666b41:0/SimpleConnection@74cf8b28 [delegate=amqp://lsq984@192.168.1.222:5672//ExchangeVH_v2, localPort= 55677]
+2018-07-19 17:26:55  INFO RabbitAdmin:481 -Auto-declaring a non-durable or auto-delete Exchange (t_node_grp) durable:false, auto-delete:false. It will be deleted by the broker if it shuts down, and can be redeclared by closing and reopening the connection.
+2018-07-19 17:26:56  INFO RequestMappingHandlerAdapter:534 -Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@56528192: startup date [Thu Jul 19 17:26:52 CST 2018]; root of context hierarchy
+2018-07-19 17:26:56  INFO RequestMappingHandlerMapping:543 -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-07-19 17:26:56  INFO RequestMappingHandlerMapping:543 -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-07-19 17:26:56  INFO SimpleUrlHandlerMapping:362 -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-19 17:26:56  INFO SimpleUrlHandlerMapping:362 -Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-19 17:26:56  INFO SimpleUrlHandlerMapping:362 -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-19 17:26:56  INFO AnnotationMBeanExporter:431 -Registering beans for JMX exposure on startup
+2018-07-19 17:26:56  INFO AnnotationMBeanExporter:916 -Bean with name 'rabbitConnectionFactory' has been autodetected for JMX exposure
+2018-07-19 17:26:56  INFO AnnotationMBeanExporter:678 -Located managed bean 'rabbitConnectionFactory': registering with JMX server as MBean [org.springframework.amqp.rabbit.connection:name=rabbitConnectionFactory,type=CachingConnectionFactory]
+2018-07-19 17:26:56  INFO DefaultLifecycleProcessor:343 -Starting beans in phase -2147482648
+2018-07-19 17:26:56  INFO DefaultLifecycleProcessor:343 -Starting beans in phase 2147483647
+2018-07-19 17:26:56  INFO TomcatEmbeddedServletContainer:201 -Tomcat started on port(s): 9090 (http)
+2018-07-19 17:26:56  INFO SpringbootApp:57 -Started SpringbootApp in 4.584 seconds (JVM running for 5.06)
+2018-07-19 17:53:00  INFO SpringbootApp:48 -Starting SpringbootApp on WIN-D6GQ0BR0KA1 with PID 5840 (D:\kuangjiayuanma\ACAE-Dev-9fcf2924268e3d28905db98da722a71ee113ed84\ACAE\web\exchange\exchange-manage\target\classes started by Administrator in D:\kuangjiayuanma\ACAE-Dev-9fcf2924268e3d28905db98da722a71ee113ed84\ACAE\web\exchange\exchange-manage)
+2018-07-19 17:53:00  INFO SpringbootApp:593 -No active profile set, falling back to default profiles: default
+2018-07-19 17:53:00  INFO AnnotationConfigEmbeddedWebApplicationContext:583 -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@56528192: startup date [Thu Jul 19 17:53:00 CST 2018]; root of context hierarchy
+2018-07-19 17:53:00  INFO Version:30 -HV000001: Hibernate Validator 5.3.5.Final
+2018-07-19 17:53:01  INFO RepositoryConfigurationDelegate:165 -Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-07-19 17:53:02  INFO PostProcessorRegistrationDelegate$BeanPostProcessorChecker:325 -Bean 'org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration' of type [org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration$$EnhancerBySpringCGLIB$$2b584285] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-07-19 17:53:02  INFO TomcatEmbeddedServletContainer:89 -Tomcat initialized with port(s): 9090 (http)
+2018-07-19 17:53:02  INFO ContextLoader:276 -Root WebApplicationContext: initialization completed in 2591 ms
+2018-07-19 17:53:03  INFO ServletRegistrationBean:190 -Mapping servlet: 'dispatcherServlet' to [/]
+2018-07-19 17:53:03  INFO FilterRegistrationBean:258 -Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-07-19 17:53:03  INFO FilterRegistrationBean:258 -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-07-19 17:53:03  INFO FilterRegistrationBean:258 -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-07-19 17:53:03  INFO FilterRegistrationBean:258 -Mapping filter: 'requestContextFilter' to: [/*]
+2018-07-19 17:53:03  INFO CachingConnectionFactory:360 -Created new connection: rabbitConnectionFactory#66f66866:0/SimpleConnection@737edcfa [delegate=amqp://lsq984@192.168.1.222:5672//ExchangeVH_v2, localPort= 56609]
+2018-07-19 17:53:03  INFO RabbitAdmin:481 -Auto-declaring a non-durable or auto-delete Exchange (t_node_grp) durable:false, auto-delete:false. It will be deleted by the broker if it shuts down, and can be redeclared by closing and reopening the connection.
+2018-07-19 17:53:04  INFO RequestMappingHandlerAdapter:534 -Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@56528192: startup date [Thu Jul 19 17:53:00 CST 2018]; root of context hierarchy
+2018-07-19 17:53:04  INFO RequestMappingHandlerMapping:543 -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-07-19 17:53:04  INFO RequestMappingHandlerMapping:543 -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-07-19 17:53:04  INFO SimpleUrlHandlerMapping:362 -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-19 17:53:04  INFO SimpleUrlHandlerMapping:362 -Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-19 17:53:04  INFO SimpleUrlHandlerMapping:362 -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-19 17:53:04  INFO AnnotationMBeanExporter:431 -Registering beans for JMX exposure on startup
+2018-07-19 17:53:04  INFO AnnotationMBeanExporter:916 -Bean with name 'rabbitConnectionFactory' has been autodetected for JMX exposure
+2018-07-19 17:53:04  INFO AnnotationMBeanExporter:678 -Located managed bean 'rabbitConnectionFactory': registering with JMX server as MBean [org.springframework.amqp.rabbit.connection:name=rabbitConnectionFactory,type=CachingConnectionFactory]
+2018-07-19 17:53:04  INFO DefaultLifecycleProcessor:343 -Starting beans in phase -2147482648
+2018-07-19 17:53:04  INFO DefaultLifecycleProcessor:343 -Starting beans in phase 2147483647
+2018-07-19 17:53:05  INFO TomcatEmbeddedServletContainer:201 -Tomcat started on port(s): 9090 (http)
+2018-07-19 17:53:05  INFO SpringbootApp:57 -Started SpringbootApp in 5.269 seconds (JVM running for 5.759)
+2018-07-19 17:54:53  INFO SpringbootApp:48 -Starting SpringbootApp on WIN-D6GQ0BR0KA1 with PID 9764 (D:\kuangjiayuanma\ACAE-Dev-9fcf2924268e3d28905db98da722a71ee113ed84\ACAE\web\exchange\exchange-manage\target\classes started by Administrator in D:\kuangjiayuanma\ACAE-Dev-9fcf2924268e3d28905db98da722a71ee113ed84\ACAE\web\exchange\exchange-manage)
+2018-07-19 17:54:53  INFO SpringbootApp:593 -No active profile set, falling back to default profiles: default
+2018-07-19 17:54:53  INFO AnnotationConfigEmbeddedWebApplicationContext:583 -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@56528192: startup date [Thu Jul 19 17:54:53 CST 2018]; root of context hierarchy
+2018-07-19 17:54:53  INFO Version:30 -HV000001: Hibernate Validator 5.3.5.Final
+2018-07-19 17:54:54  INFO RepositoryConfigurationDelegate:165 -Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-07-19 17:54:55  INFO PostProcessorRegistrationDelegate$BeanPostProcessorChecker:325 -Bean 'org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration' of type [org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration$$EnhancerBySpringCGLIB$$e5812b48] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-07-19 17:54:55  INFO TomcatEmbeddedServletContainer:89 -Tomcat initialized with port(s): 9090 (http)
+2018-07-19 17:54:55  INFO ContextLoader:276 -Root WebApplicationContext: initialization completed in 2439 ms
+2018-07-19 17:54:56  INFO ServletRegistrationBean:190 -Mapping servlet: 'dispatcherServlet' to [/]
+2018-07-19 17:54:56  INFO FilterRegistrationBean:258 -Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-07-19 17:54:56  INFO FilterRegistrationBean:258 -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-07-19 17:54:56  INFO FilterRegistrationBean:258 -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-07-19 17:54:56  INFO FilterRegistrationBean:258 -Mapping filter: 'requestContextFilter' to: [/*]
+2018-07-19 17:54:56  INFO CachingConnectionFactory:360 -Created new connection: rabbitConnectionFactory#15b986cd:0/SimpleConnection@2f19f2aa [delegate=amqp://lsq984@192.168.1.222:5672//ExchangeVH_v2, localPort= 56631]
+2018-07-19 17:54:56  INFO RabbitAdmin:481 -Auto-declaring a non-durable or auto-delete Exchange (t_node_grp) durable:false, auto-delete:false. It will be deleted by the broker if it shuts down, and can be redeclared by closing and reopening the connection.
+2018-07-19 17:54:57  INFO RequestMappingHandlerAdapter:534 -Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@56528192: startup date [Thu Jul 19 17:54:53 CST 2018]; root of context hierarchy
+2018-07-19 17:54:57  INFO RequestMappingHandlerMapping:543 -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-07-19 17:54:57  INFO RequestMappingHandlerMapping:543 -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-07-19 17:54:57  INFO SimpleUrlHandlerMapping:362 -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-19 17:54:57  INFO SimpleUrlHandlerMapping:362 -Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-19 17:54:57  INFO SimpleUrlHandlerMapping:362 -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-19 17:54:57  INFO AnnotationMBeanExporter:431 -Registering beans for JMX exposure on startup
+2018-07-19 17:54:57  INFO AnnotationMBeanExporter:916 -Bean with name 'rabbitConnectionFactory' has been autodetected for JMX exposure
+2018-07-19 17:54:57  INFO AnnotationMBeanExporter:678 -Located managed bean 'rabbitConnectionFactory': registering with JMX server as MBean [org.springframework.amqp.rabbit.connection:name=rabbitConnectionFactory,type=CachingConnectionFactory]
+2018-07-19 17:54:58  INFO DefaultLifecycleProcessor:343 -Starting beans in phase -2147482648
+2018-07-19 17:54:58  INFO DefaultLifecycleProcessor:343 -Starting beans in phase 2147483647
+2018-07-19 17:54:58  INFO TomcatEmbeddedServletContainer:201 -Tomcat started on port(s): 9090 (http)
+2018-07-19 17:54:58  INFO SpringbootApp:57 -Started SpringbootApp in 5.146 seconds (JVM running for 5.637)
+2018-07-19 18:07:38  INFO SpringbootApp:48 -Starting SpringbootApp on WIN-D6GQ0BR0KA1 with PID 11976 (D:\kuangjiayuanma\ACAE-Dev-9fcf2924268e3d28905db98da722a71ee113ed84\ACAE\web\exchange\exchange-manage\target\classes started by Administrator in D:\kuangjiayuanma\ACAE-Dev-9fcf2924268e3d28905db98da722a71ee113ed84\ACAE\web\exchange\exchange-manage)
+2018-07-19 18:07:38  INFO SpringbootApp:593 -No active profile set, falling back to default profiles: default
+2018-07-19 18:07:38  INFO AnnotationConfigEmbeddedWebApplicationContext:583 -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@56528192: startup date [Thu Jul 19 18:07:38 CST 2018]; root of context hierarchy
+2018-07-19 18:07:38  INFO Version:30 -HV000001: Hibernate Validator 5.3.5.Final
+2018-07-19 18:07:39  INFO RepositoryConfigurationDelegate:165 -Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-07-19 18:07:39  INFO PostProcessorRegistrationDelegate$BeanPostProcessorChecker:325 -Bean 'org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration' of type [org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration$$EnhancerBySpringCGLIB$$6ecc6d2b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-07-19 18:07:40  INFO TomcatEmbeddedServletContainer:89 -Tomcat initialized with port(s): 9090 (http)
+2018-07-19 18:07:40  INFO ContextLoader:276 -Root WebApplicationContext: initialization completed in 2455 ms
+2018-07-19 18:07:41  INFO ServletRegistrationBean:190 -Mapping servlet: 'dispatcherServlet' to [/]
+2018-07-19 18:07:41  INFO FilterRegistrationBean:258 -Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-07-19 18:07:41  INFO FilterRegistrationBean:258 -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-07-19 18:07:41  INFO FilterRegistrationBean:258 -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-07-19 18:07:41  INFO FilterRegistrationBean:258 -Mapping filter: 'requestContextFilter' to: [/*]
+2018-07-19 18:07:41  INFO CachingConnectionFactory:360 -Created new connection: rabbitConnectionFactory#62b3df3a:0/SimpleConnection@60297f36 [delegate=amqp://lsq984@192.168.1.222:5672//ExchangeVH_v2, localPort= 57409]
+2018-07-19 18:07:41  INFO RabbitAdmin:481 -Auto-declaring a non-durable or auto-delete Exchange (t_node_grp) durable:false, auto-delete:false. It will be deleted by the broker if it shuts down, and can be redeclared by closing and reopening the connection.
+2018-07-19 18:07:42  INFO RequestMappingHandlerAdapter:534 -Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@56528192: startup date [Thu Jul 19 18:07:38 CST 2018]; root of context hierarchy
+2018-07-19 18:07:42  INFO RequestMappingHandlerMapping:543 -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-07-19 18:07:42  INFO RequestMappingHandlerMapping:543 -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-07-19 18:07:42  INFO SimpleUrlHandlerMapping:362 -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-19 18:07:42  INFO SimpleUrlHandlerMapping:362 -Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-19 18:07:42  INFO SimpleUrlHandlerMapping:362 -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-19 18:07:43  INFO AnnotationMBeanExporter:431 -Registering beans for JMX exposure on startup
+2018-07-19 18:07:43  INFO AnnotationMBeanExporter:916 -Bean with name 'rabbitConnectionFactory' has been autodetected for JMX exposure
+2018-07-19 18:07:43  INFO AnnotationMBeanExporter:678 -Located managed bean 'rabbitConnectionFactory': registering with JMX server as MBean [org.springframework.amqp.rabbit.connection:name=rabbitConnectionFactory,type=CachingConnectionFactory]
+2018-07-19 18:07:43  INFO DefaultLifecycleProcessor:343 -Starting beans in phase -2147482648
+2018-07-19 18:07:43  INFO DefaultLifecycleProcessor:343 -Starting beans in phase 2147483647
+2018-07-19 18:07:43  INFO TomcatEmbeddedServletContainer:201 -Tomcat started on port(s): 9090 (http)
+2018-07-19 18:07:43  INFO SpringbootApp:57 -Started SpringbootApp in 5.424 seconds (JVM running for 5.92)
+2018-07-19 18:10:25  INFO SpringbootApp:48 -Starting SpringbootApp on WIN-D6GQ0BR0KA1 with PID 11672 (D:\kuangjiayuanma\ACAE-Dev-9fcf2924268e3d28905db98da722a71ee113ed84\ACAE\web\exchange\exchange-manage\target\classes started by Administrator in D:\kuangjiayuanma\ACAE-Dev-9fcf2924268e3d28905db98da722a71ee113ed84\ACAE\web\exchange\exchange-manage)
+2018-07-19 18:10:25  INFO SpringbootApp:593 -No active profile set, falling back to default profiles: default
+2018-07-19 18:10:25  INFO AnnotationConfigEmbeddedWebApplicationContext:583 -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@56528192: startup date [Thu Jul 19 18:10:25 CST 2018]; root of context hierarchy
+2018-07-19 18:10:26  INFO Version:30 -HV000001: Hibernate Validator 5.3.5.Final
+2018-07-19 18:10:27  INFO RepositoryConfigurationDelegate:165 -Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-07-19 18:10:27  INFO PostProcessorRegistrationDelegate$BeanPostProcessorChecker:325 -Bean 'org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration' of type [org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration$$EnhancerBySpringCGLIB$$3a630d79] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-07-19 18:10:28  INFO TomcatEmbeddedServletContainer:89 -Tomcat initialized with port(s): 9090 (http)
+2018-07-19 18:10:28  INFO ContextLoader:276 -Root WebApplicationContext: initialization completed in 2452 ms
+2018-07-19 18:10:28  INFO ServletRegistrationBean:190 -Mapping servlet: 'dispatcherServlet' to [/]
+2018-07-19 18:10:28  INFO FilterRegistrationBean:258 -Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-07-19 18:10:28  INFO FilterRegistrationBean:258 -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-07-19 18:10:28  INFO FilterRegistrationBean:258 -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-07-19 18:10:28  INFO FilterRegistrationBean:258 -Mapping filter: 'requestContextFilter' to: [/*]
+2018-07-19 18:10:28  INFO CachingConnectionFactory:360 -Created new connection: rabbitConnectionFactory#3e1162e7:0/SimpleConnection@73386d72 [delegate=amqp://lsq984@192.168.1.222:5672//ExchangeVH_v2, localPort= 57529]
+2018-07-19 18:10:28  INFO RabbitAdmin:481 -Auto-declaring a non-durable or auto-delete Exchange (t_node_grp) durable:false, auto-delete:false. It will be deleted by the broker if it shuts down, and can be redeclared by closing and reopening the connection.
+2018-07-19 18:10:29  INFO RequestMappingHandlerAdapter:534 -Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@56528192: startup date [Thu Jul 19 18:10:25 CST 2018]; root of context hierarchy
+2018-07-19 18:10:29  INFO RequestMappingHandlerMapping:543 -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-07-19 18:10:29  INFO RequestMappingHandlerMapping:543 -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-07-19 18:10:29  INFO SimpleUrlHandlerMapping:362 -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-19 18:10:29  INFO SimpleUrlHandlerMapping:362 -Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-19 18:10:29  INFO SimpleUrlHandlerMapping:362 -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-19 18:10:30  INFO AnnotationMBeanExporter:431 -Registering beans for JMX exposure on startup
+2018-07-19 18:10:30  INFO AnnotationMBeanExporter:916 -Bean with name 'rabbitConnectionFactory' has been autodetected for JMX exposure
+2018-07-19 18:10:30  INFO AnnotationMBeanExporter:678 -Located managed bean 'rabbitConnectionFactory': registering with JMX server as MBean [org.springframework.amqp.rabbit.connection:name=rabbitConnectionFactory,type=CachingConnectionFactory]
+2018-07-19 18:10:30  INFO DefaultLifecycleProcessor:343 -Starting beans in phase -2147482648
+2018-07-19 18:10:30  INFO DefaultLifecycleProcessor:343 -Starting beans in phase 2147483647
+2018-07-19 18:10:30  INFO TomcatEmbeddedServletContainer:201 -Tomcat started on port(s): 9090 (http)
+2018-07-19 18:10:30  INFO SpringbootApp:57 -Started SpringbootApp in 5.199 seconds (JVM running for 5.684)
+2018-07-19 18:13:57  INFO SpringbootApp:48 -Starting SpringbootApp on WIN-D6GQ0BR0KA1 with PID 11588 (D:\kuangjiayuanma\ACAE-Dev-9fcf2924268e3d28905db98da722a71ee113ed84\ACAE\web\exchange\exchange-manage\target\classes started by Administrator in D:\kuangjiayuanma\ACAE-Dev-9fcf2924268e3d28905db98da722a71ee113ed84\ACAE\web\exchange\exchange-manage)
+2018-07-19 18:13:57  INFO SpringbootApp:593 -No active profile set, falling back to default profiles: default
+2018-07-19 18:13:57  INFO AnnotationConfigEmbeddedWebApplicationContext:583 -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@56528192: startup date [Thu Jul 19 18:13:57 CST 2018]; root of context hierarchy
+2018-07-19 18:13:57  INFO Version:30 -HV000001: Hibernate Validator 5.3.5.Final
+2018-07-19 18:13:58  INFO RepositoryConfigurationDelegate:165 -Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-07-19 18:13:58  INFO PostProcessorRegistrationDelegate$BeanPostProcessorChecker:325 -Bean 'org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration' of type [org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration$$EnhancerBySpringCGLIB$$6ecc6d2b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-07-19 18:13:59  INFO TomcatEmbeddedServletContainer:89 -Tomcat initialized with port(s): 9090 (http)
+2018-07-19 18:13:59  INFO ContextLoader:276 -Root WebApplicationContext: initialization completed in 2426 ms
+2018-07-19 18:13:59  INFO ServletRegistrationBean:190 -Mapping servlet: 'dispatcherServlet' to [/]
+2018-07-19 18:13:59  INFO FilterRegistrationBean:258 -Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-07-19 18:14:00  INFO FilterRegistrationBean:258 -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-07-19 18:14:00  INFO FilterRegistrationBean:258 -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-07-19 18:14:00  INFO FilterRegistrationBean:258 -Mapping filter: 'requestContextFilter' to: [/*]
+2018-07-19 18:14:00  INFO CachingConnectionFactory:360 -Created new connection: rabbitConnectionFactory#62b3df3a:0/SimpleConnection@60297f36 [delegate=amqp://lsq984@192.168.1.222:5672//ExchangeVH_v2, localPort= 57686]
+2018-07-19 18:14:00  INFO RabbitAdmin:481 -Auto-declaring a non-durable or auto-delete Exchange (t_node_grp) durable:false, auto-delete:false. It will be deleted by the broker if it shuts down, and can be redeclared by closing and reopening the connection.
+2018-07-19 18:14:00  INFO RequestMappingHandlerAdapter:534 -Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@56528192: startup date [Thu Jul 19 18:13:57 CST 2018]; root of context hierarchy
+2018-07-19 18:14:01  INFO RequestMappingHandlerMapping:543 -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-07-19 18:14:01  INFO RequestMappingHandlerMapping:543 -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-07-19 18:14:01  INFO SimpleUrlHandlerMapping:362 -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-19 18:14:01  INFO SimpleUrlHandlerMapping:362 -Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-19 18:14:01  INFO SimpleUrlHandlerMapping:362 -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-19 18:14:02  INFO AnnotationMBeanExporter:431 -Registering beans for JMX exposure on startup
+2018-07-19 18:14:02  INFO AnnotationMBeanExporter:916 -Bean with name 'rabbitConnectionFactory' has been autodetected for JMX exposure
+2018-07-19 18:14:02  INFO AnnotationMBeanExporter:678 -Located managed bean 'rabbitConnectionFactory': registering with JMX server as MBean [org.springframework.amqp.rabbit.connection:name=rabbitConnectionFactory,type=CachingConnectionFactory]
+2018-07-19 18:14:02  INFO DefaultLifecycleProcessor:343 -Starting beans in phase -2147482648
+2018-07-19 18:14:02  INFO DefaultLifecycleProcessor:343 -Starting beans in phase 2147483647
+2018-07-19 18:14:02  INFO TomcatEmbeddedServletContainer:201 -Tomcat started on port(s): 9090 (http)
+2018-07-19 18:14:02  INFO SpringbootApp:57 -Started SpringbootApp in 5.43 seconds (JVM running for 5.961)
+2018-07-19 18:25:41  INFO SpringbootApp:48 -Starting SpringbootApp on WIN-D6GQ0BR0KA1 with PID 11800 (D:\kuangjiayuanma\ACAE-Dev-9fcf2924268e3d28905db98da722a71ee113ed84\ACAE\web\exchange\exchange-manage\target\classes started by Administrator in D:\kuangjiayuanma\ACAE-Dev-9fcf2924268e3d28905db98da722a71ee113ed84\ACAE\web\exchange\exchange-manage)
+2018-07-19 18:25:41  INFO SpringbootApp:593 -No active profile set, falling back to default profiles: default
+2018-07-19 18:25:41  INFO AnnotationConfigEmbeddedWebApplicationContext:583 -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@56528192: startup date [Thu Jul 19 18:25:41 CST 2018]; root of context hierarchy
+2018-07-19 18:25:41  INFO Version:30 -HV000001: Hibernate Validator 5.3.5.Final
+2018-07-19 18:25:42  INFO RepositoryConfigurationDelegate:165 -Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-07-19 18:25:42  INFO PostProcessorRegistrationDelegate$BeanPostProcessorChecker:325 -Bean 'org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration' of type [org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration$$EnhancerBySpringCGLIB$$e237e4ad] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-07-19 18:25:43  INFO TomcatEmbeddedServletContainer:89 -Tomcat initialized with port(s): 9090 (http)
+2018-07-19 18:25:43  INFO ContextLoader:276 -Root WebApplicationContext: initialization completed in 2489 ms
+2018-07-19 18:25:43  INFO ServletRegistrationBean:190 -Mapping servlet: 'dispatcherServlet' to [/]
+2018-07-19 18:25:43  INFO FilterRegistrationBean:258 -Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-07-19 18:25:43  INFO FilterRegistrationBean:258 -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-07-19 18:25:43  INFO FilterRegistrationBean:258 -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-07-19 18:25:43  INFO FilterRegistrationBean:258 -Mapping filter: 'requestContextFilter' to: [/*]
+2018-07-19 18:25:44  INFO CachingConnectionFactory:360 -Created new connection: rabbitConnectionFactory#236ab296:0/SimpleConnection@7cf7aee [delegate=amqp://lsq984@192.168.1.222:5672//ExchangeVH_v2, localPort= 58240]
+2018-07-19 18:25:44  INFO RabbitAdmin:481 -Auto-declaring a non-durable or auto-delete Exchange (t_node_grp) durable:false, auto-delete:false. It will be deleted by the broker if it shuts down, and can be redeclared by closing and reopening the connection.
+2018-07-19 18:25:44  INFO RequestMappingHandlerAdapter:534 -Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@56528192: startup date [Thu Jul 19 18:25:41 CST 2018]; root of context hierarchy
+2018-07-19 18:25:44  INFO RequestMappingHandlerMapping:543 -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-07-19 18:25:44  INFO RequestMappingHandlerMapping:543 -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-07-19 18:25:45  INFO SimpleUrlHandlerMapping:362 -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-19 18:25:45  INFO SimpleUrlHandlerMapping:362 -Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-19 18:25:45  INFO SimpleUrlHandlerMapping:362 -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-19 18:25:45  INFO AnnotationMBeanExporter:431 -Registering beans for JMX exposure on startup
+2018-07-19 18:25:45  INFO AnnotationMBeanExporter:916 -Bean with name 'rabbitConnectionFactory' has been autodetected for JMX exposure
+2018-07-19 18:25:45  INFO AnnotationMBeanExporter:678 -Located managed bean 'rabbitConnectionFactory': registering with JMX server as MBean [org.springframework.amqp.rabbit.connection:name=rabbitConnectionFactory,type=CachingConnectionFactory]
+2018-07-19 18:25:45  INFO DefaultLifecycleProcessor:343 -Starting beans in phase -2147482648
+2018-07-19 18:25:45  INFO DefaultLifecycleProcessor:343 -Starting beans in phase 2147483647
+2018-07-19 18:25:45  INFO TomcatEmbeddedServletContainer:201 -Tomcat started on port(s): 9090 (http)
+2018-07-19 18:25:45  INFO SpringbootApp:57 -Started SpringbootApp in 5.356 seconds (JVM running for 5.858)
+2018-07-19 18:26:54  INFO SpringbootApp:48 -Starting SpringbootApp on WIN-D6GQ0BR0KA1 with PID 1176 (D:\kuangjiayuanma\ACAE-Dev-9fcf2924268e3d28905db98da722a71ee113ed84\ACAE\web\exchange\exchange-manage\target\classes started by Administrator in D:\kuangjiayuanma\ACAE-Dev-9fcf2924268e3d28905db98da722a71ee113ed84\ACAE\web\exchange\exchange-manage)
+2018-07-19 18:26:54  INFO SpringbootApp:593 -No active profile set, falling back to default profiles: default
+2018-07-19 18:26:54  INFO AnnotationConfigEmbeddedWebApplicationContext:583 -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@56528192: startup date [Thu Jul 19 18:26:54 CST 2018]; root of context hierarchy
+2018-07-19 18:26:55  INFO Version:30 -HV000001: Hibernate Validator 5.3.5.Final
+2018-07-19 18:26:55  INFO RepositoryConfigurationDelegate:165 -Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-07-19 18:26:56  INFO PostProcessorRegistrationDelegate$BeanPostProcessorChecker:325 -Bean 'org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration' of type [org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration$$EnhancerBySpringCGLIB$$acc23f6d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-07-19 18:26:56  INFO TomcatEmbeddedServletContainer:89 -Tomcat initialized with port(s): 9090 (http)
+2018-07-19 18:26:57  INFO ContextLoader:276 -Root WebApplicationContext: initialization completed in 2482 ms
+2018-07-19 18:26:57  INFO ServletRegistrationBean:190 -Mapping servlet: 'dispatcherServlet' to [/]
+2018-07-19 18:26:57  INFO FilterRegistrationBean:258 -Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-07-19 18:26:57  INFO FilterRegistrationBean:258 -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-07-19 18:26:57  INFO FilterRegistrationBean:258 -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-07-19 18:26:57  INFO FilterRegistrationBean:258 -Mapping filter: 'requestContextFilter' to: [/*]
+2018-07-19 18:26:57  INFO CachingConnectionFactory:360 -Created new connection: rabbitConnectionFactory#669d2b1b:0/SimpleConnection@1f9d6c7b [delegate=amqp://lsq984@192.168.1.222:5672//ExchangeVH_v2, localPort= 58292]
+2018-07-19 18:26:57  INFO RabbitAdmin:481 -Auto-declaring a non-durable or auto-delete Exchange (t_node_grp) durable:false, auto-delete:false. It will be deleted by the broker if it shuts down, and can be redeclared by closing and reopening the connection.
+2018-07-19 18:26:58  INFO RequestMappingHandlerAdapter:534 -Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@56528192: startup date [Thu Jul 19 18:26:54 CST 2018]; root of context hierarchy
+2018-07-19 18:26:58  INFO RequestMappingHandlerMapping:543 -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-07-19 18:26:58  INFO RequestMappingHandlerMapping:543 -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-07-19 18:26:58  INFO SimpleUrlHandlerMapping:362 -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-19 18:26:58  INFO SimpleUrlHandlerMapping:362 -Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-19 18:26:58  INFO SimpleUrlHandlerMapping:362 -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-19 18:26:59  INFO AnnotationMBeanExporter:431 -Registering beans for JMX exposure on startup
+2018-07-19 18:26:59  INFO AnnotationMBeanExporter:916 -Bean with name 'rabbitConnectionFactory' has been autodetected for JMX exposure
+2018-07-19 18:26:59  INFO AnnotationMBeanExporter:678 -Located managed bean 'rabbitConnectionFactory': registering with JMX server as MBean [org.springframework.amqp.rabbit.connection:name=rabbitConnectionFactory,type=CachingConnectionFactory]
+2018-07-19 18:26:59  INFO DefaultLifecycleProcessor:343 -Starting beans in phase -2147482648
+2018-07-19 18:26:59  INFO DefaultLifecycleProcessor:343 -Starting beans in phase 2147483647
+2018-07-19 18:26:59  INFO TomcatEmbeddedServletContainer:201 -Tomcat started on port(s): 9090 (http)
+2018-07-19 18:26:59  INFO SpringbootApp:57 -Started SpringbootApp in 5.264 seconds (JVM running for 5.763)
+2018-07-19 18:36:44  INFO SpringbootApp:48 -Starting SpringbootApp on WIN-D6GQ0BR0KA1 with PID 8316 (D:\kuangjiayuanma\ACAE-Dev-9fcf2924268e3d28905db98da722a71ee113ed84\ACAE\web\exchange\exchange-manage\target\classes started by Administrator in D:\kuangjiayuanma\ACAE-Dev-9fcf2924268e3d28905db98da722a71ee113ed84\ACAE\web\exchange\exchange-manage)
+2018-07-19 18:36:44  INFO SpringbootApp:593 -No active profile set, falling back to default profiles: default
+2018-07-19 18:36:44  INFO AnnotationConfigEmbeddedWebApplicationContext:583 -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@56528192: startup date [Thu Jul 19 18:36:44 CST 2018]; root of context hierarchy
+2018-07-19 18:36:45  INFO Version:30 -HV000001: Hibernate Validator 5.3.5.Final
+2018-07-19 18:36:45  INFO RepositoryConfigurationDelegate:165 -Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-07-19 18:36:46  INFO PostProcessorRegistrationDelegate$BeanPostProcessorChecker:325 -Bean 'org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration' of type [org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration$$EnhancerBySpringCGLIB$$1a133518] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-07-19 18:36:47  INFO TomcatEmbeddedServletContainer:89 -Tomcat initialized with port(s): 9090 (http)
+2018-07-19 18:36:47  INFO ContextLoader:276 -Root WebApplicationContext: initialization completed in 2694 ms
+2018-07-19 18:36:47  INFO ServletRegistrationBean:190 -Mapping servlet: 'dispatcherServlet' to [/]
+2018-07-19 18:36:47  INFO FilterRegistrationBean:258 -Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-07-19 18:36:47  INFO FilterRegistrationBean:258 -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-07-19 18:36:47  INFO FilterRegistrationBean:258 -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-07-19 18:36:47  INFO FilterRegistrationBean:258 -Mapping filter: 'requestContextFilter' to: [/*]
+2018-07-19 18:36:47  INFO CachingConnectionFactory:360 -Created new connection: rabbitConnectionFactory#350b3a17:0/SimpleConnection@584f5497 [delegate=amqp://lsq984@192.168.1.222:5672//ExchangeVH_v2, localPort= 58814]
+2018-07-19 18:36:47  INFO RabbitAdmin:481 -Auto-declaring a non-durable or auto-delete Exchange (t_node_grp) durable:false, auto-delete:false. It will be deleted by the broker if it shuts down, and can be redeclared by closing and reopening the connection.
+2018-07-19 18:36:48  INFO RequestMappingHandlerAdapter:534 -Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@56528192: startup date [Thu Jul 19 18:36:44 CST 2018]; root of context hierarchy
+2018-07-19 18:36:48  INFO RequestMappingHandlerMapping:543 -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-07-19 18:36:48  INFO RequestMappingHandlerMapping:543 -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-07-19 18:36:48  INFO SimpleUrlHandlerMapping:362 -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-19 18:36:48  INFO SimpleUrlHandlerMapping:362 -Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-19 18:36:48  INFO SimpleUrlHandlerMapping:362 -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-19 18:36:49  INFO AnnotationMBeanExporter:431 -Registering beans for JMX exposure on startup
+2018-07-19 18:36:49  INFO AnnotationMBeanExporter:916 -Bean with name 'rabbitConnectionFactory' has been autodetected for JMX exposure
+2018-07-19 18:36:49  INFO AnnotationMBeanExporter:678 -Located managed bean 'rabbitConnectionFactory': registering with JMX server as MBean [org.springframework.amqp.rabbit.connection:name=rabbitConnectionFactory,type=CachingConnectionFactory]
+2018-07-19 18:36:49  INFO DefaultLifecycleProcessor:343 -Starting beans in phase -2147482648
+2018-07-19 18:36:49  INFO DefaultLifecycleProcessor:343 -Starting beans in phase 2147483647
+2018-07-19 18:36:49  INFO TomcatEmbeddedServletContainer:201 -Tomcat started on port(s): 9090 (http)
+2018-07-19 18:36:49  INFO SpringbootApp:57 -Started SpringbootApp in 5.671 seconds (JVM running for 6.192)
+2018-07-19 19:00:46  INFO SpringbootApp:48 -Starting SpringbootApp on WIN-D6GQ0BR0KA1 with PID 10416 (D:\kuangjiayuanma\ACAE-Dev-9fcf2924268e3d28905db98da722a71ee113ed84\ACAE\web\exchange\exchange-manage\target\classes started by Administrator in D:\kuangjiayuanma\ACAE-Dev-9fcf2924268e3d28905db98da722a71ee113ed84\ACAE\web\exchange\exchange-manage)
+2018-07-19 19:00:46  INFO SpringbootApp:593 -No active profile set, falling back to default profiles: default
+2018-07-19 19:00:46  INFO AnnotationConfigEmbeddedWebApplicationContext:583 -Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@56528192: startup date [Thu Jul 19 19:00:46 CST 2018]; root of context hierarchy
+2018-07-19 19:00:46  INFO Version:30 -HV000001: Hibernate Validator 5.3.5.Final
+2018-07-19 19:00:47  INFO RepositoryConfigurationDelegate:165 -Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-07-19 19:00:47  INFO PostProcessorRegistrationDelegate$BeanPostProcessorChecker:325 -Bean 'org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration' of type [org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration$$EnhancerBySpringCGLIB$$1a133518] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-07-19 19:00:48  INFO TomcatEmbeddedServletContainer:89 -Tomcat initialized with port(s): 9090 (http)
+2018-07-19 19:00:48  INFO ContextLoader:276 -Root WebApplicationContext: initialization completed in 2801 ms
+2018-07-19 19:00:49  INFO ServletRegistrationBean:190 -Mapping servlet: 'dispatcherServlet' to [/]
+2018-07-19 19:00:49  INFO FilterRegistrationBean:258 -Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-07-19 19:00:49  INFO FilterRegistrationBean:258 -Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-07-19 19:00:49  INFO FilterRegistrationBean:258 -Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-07-19 19:00:49  INFO FilterRegistrationBean:258 -Mapping filter: 'requestContextFilter' to: [/*]
+2018-07-19 19:00:49  INFO CachingConnectionFactory:360 -Created new connection: rabbitConnectionFactory#350b3a17:0/SimpleConnection@584f5497 [delegate=amqp://lsq984@192.168.1.222:5672//ExchangeVH_v2, localPort= 59834]
+2018-07-19 19:00:49  INFO RabbitAdmin:481 -Auto-declaring a non-durable or auto-delete Exchange (t_node_grp) durable:false, auto-delete:false. It will be deleted by the broker if it shuts down, and can be redeclared by closing and reopening the connection.
+2018-07-19 19:00:50  INFO RequestMappingHandlerAdapter:534 -Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@56528192: startup date [Thu Jul 19 19:00:46 CST 2018]; root of context hierarchy
+2018-07-19 19:00:50  INFO RequestMappingHandlerMapping:543 -Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-07-19 19:00:50  INFO RequestMappingHandlerMapping:543 -Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-07-19 19:00:50  INFO SimpleUrlHandlerMapping:362 -Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-19 19:00:50  INFO SimpleUrlHandlerMapping:362 -Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-19 19:00:50  INFO SimpleUrlHandlerMapping:362 -Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-19 19:00:51  INFO AnnotationMBeanExporter:431 -Registering beans for JMX exposure on startup
+2018-07-19 19:00:51  INFO AnnotationMBeanExporter:916 -Bean with name 'rabbitConnectionFactory' has been autodetected for JMX exposure
+2018-07-19 19:00:51  INFO AnnotationMBeanExporter:678 -Located managed bean 'rabbitConnectionFactory': registering with JMX server as MBean [org.springframework.amqp.rabbit.connection:name=rabbitConnectionFactory,type=CachingConnectionFactory]
+2018-07-19 19:00:51  INFO DefaultLifecycleProcessor:343 -Starting beans in phase -2147482648
+2018-07-19 19:00:51  INFO DefaultLifecycleProcessor:343 -Starting beans in phase 2147483647
+2018-07-19 19:00:51  INFO TomcatEmbeddedServletContainer:201 -Tomcat started on port(s): 9090 (http)
+2018-07-19 19:00:51  INFO SpringbootApp:57 -Started SpringbootApp in 5.991 seconds (JVM running for 6.51)

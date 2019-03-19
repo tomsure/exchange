@@ -1,0 +1,76 @@
+<!-- <?xml version="1.0" encoding="UTF-8" ?> -->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.broctagon.exchangeadmin.dao.C2cEntrustDao">
+
+	<select id="findAll" resultType="C2cEntrustModel">
+	select * from t_c2c_entrust;
+	</select>
+	
+	<select id="findLastId" resultType="Integer">
+	SELECT LAST_INSERT_ID(); 
+	</select>
+	
+	<select id="findById" parameterType="Integer" resultType="C2cEntrustModel">
+	select * from t_c2c_entrust where id=#{id};
+	</select>
+	
+	<select id="findByCoinAndUserId" parameterType="C2cEntrustModel" resultType="C2cEntrustModel">
+	select * from t_c2c_entrust where coinName=#{coinName} and userId=#{userId} and status=0 and amount>0;
+	</select>
+	
+    <select id="findSellByCoin" parameterType="String" resultType="C2cEntrustModel">
+	select * from t_c2c_entrust where entrustType=1 and coinName=#{coinName} and status=0 and amount>0 order by price desc limit 5;
+	</select>
+	
+	<select id="findBuyByCoin" parameterType="String" resultType="C2cEntrustModel">
+	select * from t_c2c_entrust where entrustType=0 and coinName=#{coinName} and status=0 and amount>0 order by price asc limit 5;
+	</select>
+		
+	<insert id="save" parameterType="C2cEntrustModel" keyProperty="id" useGeneratedKeys="true">
+	insert into t_c2c_entrust(coinName, userId, price, amount, entrustType, status) values(#{coinName}, #{userId}, #{price}, #{amount}, #{entrustType}, #{status});
+	</insert>
+	
+	<update id="subtractAmount"  parameterType="C2cEntrustModel">
+	update t_c2c_entrust e set amount=e.amount-#{amount} where id=#{id};
+	</update>
+	
+	<update id="updateAmount"  parameterType="C2cEntrustModel">
+	update t_c2c_entrust e set amount=e.amount+#{amount} where id=#{id};
+	</update>
+	
+	<update id="updateStatus"  parameterType="C2cEntrustModel">
+	update t_c2c_entrust set status=#{status} where id=#{id};
+	</update>
+	
+	<delete id="deleteByEntrustId" parameterType="Integer">
+	delete from t_c2c_entrust where id=#{id};
+	</delete>
+		
+		
+		
+	<update id="updateAssets"  parameterType="java.util.Map">
+	UPDATE user_assets
+	SET Available = Available + #{count},
+	 Frozen = Frozen - #{count}
+	WHERE
+		UserID = #{userId}
+	and CoinID = (
+		SELECT ID from coin where CoinName = #{coinName}
+	)
+	</update>
+	
+	
+	
+	<update id="updateAssets1"  parameterType="java.util.Map">
+	UPDATE user_assets
+	SET Available = Available - #{count},
+	 Frozen = Frozen + #{count}
+	WHERE
+		UserID = #{userId}
+	and CoinID = (
+		SELECT ID from coin where CoinName = #{coinName}
+	)
+	</update>
+		
+</mapper> 

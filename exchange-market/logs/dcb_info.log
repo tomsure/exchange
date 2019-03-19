@@ -1,0 +1,15 @@
+2018-09-26 13:52:17  INFO App:48 -Starting App on WIN-D6GQ0BR0KA1 with PID 7896 (E:\ACAE\web\exchange\exchange-market\target\classes started by Administrator in E:\ACAE\web\exchange\exchange-market)
+2018-09-26 13:52:17  INFO App:593 -No active profile set, falling back to default profiles: default
+2018-09-26 13:52:17  INFO AnnotationConfigApplicationContext:583 -Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@79efed2d: startup date [Wed Sep 26 13:52:17 CST 2018]; root of context hierarchy
+2018-09-26 13:52:18  INFO RepositoryConfigurationDelegate:165 -Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-09-26 13:52:18  INFO PostProcessorRegistrationDelegate$BeanPostProcessorChecker:325 -Bean 'org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration' of type [org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration$$EnhancerBySpringCGLIB$$2b0c6864] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-09-26 13:52:19  INFO CachingConnectionFactory:360 -Created new connection: rabbitConnectionFactory#35e5d0e5:0/SimpleConnection@2a79d4b1 [delegate=amqp://lsq984@192.168.1.109:5672//ExchangeVH_v2, localPort= 55217]
+2018-09-26 13:52:19  INFO RabbitAdmin:481 -Auto-declaring a non-durable or auto-delete Exchange (t_node_grp) durable:false, auto-delete:false. It will be deleted by the broker if it shuts down, and can be redeclared by closing and reopening the connection.
+2018-09-26 13:52:19  INFO RabbitAdmin:491 -Auto-declaring a non-durable, auto-delete, or exclusive Queue (HISTORICAL_MARKET) durable:false, auto-delete:true, exclusive:false. It will be redeclared if the broker stops and is restarted while the connection factory is alive, but all messages will be lost.
+2018-09-26 13:52:19  INFO RabbitAdmin:491 -Auto-declaring a non-durable, auto-delete, or exclusive Queue (DAY_MARKET) durable:false, auto-delete:true, exclusive:false. It will be redeclared if the broker stops and is restarted while the connection factory is alive, but all messages will be lost.
+2018-09-26 13:52:20  INFO AnnotationMBeanExporter:431 -Registering beans for JMX exposure on startup
+2018-09-26 13:52:20  INFO AnnotationMBeanExporter:916 -Bean with name 'rabbitConnectionFactory' has been autodetected for JMX exposure
+2018-09-26 13:52:20  INFO AnnotationMBeanExporter:678 -Located managed bean 'rabbitConnectionFactory': registering with JMX server as MBean [org.springframework.amqp.rabbit.connection:name=rabbitConnectionFactory,type=CachingConnectionFactory]
+2018-09-26 13:52:20  INFO DefaultLifecycleProcessor:343 -Starting beans in phase -2147482648
+2018-09-26 13:52:20  INFO DefaultLifecycleProcessor:343 -Starting beans in phase 2147483647
+2018-09-26 13:52:20  INFO App:57 -Started App in 2.803 seconds (JVM running for 3.477)

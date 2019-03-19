@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../dist/bootstrap-3.3.5-dist/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="../src/css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="../dist/layer/skin/layer.css"/>
+		<link rel="stylesheet" type="text/css" href="../src/css/public.css" />
+		<link rel="stylesheet" type="text/css" href="../src/css/myInvestment.css" />
+		<link rel="stylesheet" type="text/css" href="../src/css/transactionRecord.css"/>
+	</head>
+
+	<body>
+		<div class="contentBox">
+			<div class="leftMenuBox">
+				<div class="logoBox">
+					<img src="" class="logo" />
+				</div>
+				<div class="menu">
+					<ul>
+						<li>
+							<p>我的投资</p>
+							<p class="meunSelect meunSelectText">我的股票</p>
+						</li>
+						<li>
+							<p>交易记录</p>
+							<p class="meunSelect">股票交易</p>
+						</li>
+						<li>
+							<p >账户中心</p>
+							<p class="meunSelect">账户余额</p>
+							<p class="meunSelect">银行卡</p>
+						</li>
+						<li>
+							<p>个人中心</p>
+							<p class="meunSelect">个人信息</p>
+							<p class="meunSelect">账户信息</p>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="rightContentBox ">
+				<div class="contentTop ">
+					<ul class="headerInfoList cl">
+						<li><span>总盈亏:</span><span></span></li>
+						<li><span>浮动盈亏：</span><span></span></li>
+						<li><span>总盈利率：</span><span></span></li>
+						<li><span>浮动盈利率：</span><span></span></li>
+						<li><span>总市值：</span><span></span></li>
+						<li><span>可用资金：</span><span></span></li>
+					</ul>
+				</div>
+				<div class="tabBox">
+					<ul id="myTab" class="nav nav-tabs">
+						<li class="active">
+							<a href="#home" data-toggle="tab">
+								持仓
+							</a>
+						</li>
+						<li>
+							<a href="#ios" data-toggle="tab">自选</a>
+						</li>
+
+					</ul>
+					<div id="myTabContent"  class="myTableContent tab-content">
+						<div class="tab-pane fade in active" id="home">
+							<table id="positionTable"></table>
+						</div>
+						<div class="tab-pane fade" id="ios">
+							<table class="table " id="selfSelectionTable"></table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="transactionModal layerCommon hide" id="transactionModal">
+			<div class="transactionModalLeftBox">
+				<div class="">
+					<span>买入</span><span>卖出</span>
+				</div>
+				<div class="">
+					<laber>委托买入</laber><span></span>
+				</div>
+				<div style="">
+	<form class="bs-example bs-example-form" role="form">
+		
+		<div class="input-group">
+			<span class="input-group-addon">-</span>
+			<input type="text" class="form-control">
+			<span class="input-group-addon">+</span>
+		</div>
+		<div class="input-group">
+			<span class="input-group-addon">-</span>
+			<input type="text" class="form-control">
+			<span class="input-group-addon">+</span>
+		</div>
+	</form>
+</div>
+				<p><laber>可买数量：</laber><span></span>股    =$<span></span></p>
+				<p><laber>可用资金：</laber><span></span>元</p>
+				<div class="">
+					<button class="" id="closeBtn">关闭</button><button>立即<span id="">买入</span></button>
+				</div>
+			</div>
+			<div class="transactionModalRightBox">
+				<div class="">
+					<ul>
+						<li>11</li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</div>
+				<div class="">
+					<ul>
+						<li>11</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="../dist/jquery.min.js"></script>
+	<script src="../dist/layer/layer.min.js"></script>
+	<script type="text/javascript" src="../dist/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+	<script src="../dist/bootstrap-Table/bootstrap-table.min.js"></script>
+	<script src="../dist/bootstrap-Table/locale/bootstrap-table-zh-CN.min.js"></script>
+	<script src="../src/js/menu.js"></script>
+	<script src="../src/js/myInvestment.js"></script>
+	
+
+</html>

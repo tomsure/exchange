@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>用户管理-删除用户</title>
+		<!-- Bootstrap -->
+        <link rel="stylesheet" href="../../css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="../../css/plugins/bootstrap-table/bootstrap-table.min.css" />
+		<link rel="stylesheet" type="text/css" href="../../dist/icomoon/style.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/animate.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/common.backup.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	</head>
+	<body>
+		<div class="container" id="rejectSuc">
+	        <div class="ibox float-e-margins" style="height: 350px;">
+	            <div class="ibox-title">
+	            	<h5 style="font-size: 22px;color:#49586c;margin-top: -5px;">删除用户</h5>
+	            </div>
+	            <div class="col-lg-offset-5 col-lg-7">
+	            	<p class="rejectInfo" style="margin: 30px 0px;">用户<span class="loginName"></span>已从系统中删除。</p>
+	            </div>
+	            <div class="col-lg-offset-5 col-lg-7">
+	            	<button type="button" class="btn closeBtn shutdownBtn">关闭</button>
+	            </div>
+	        </div>
+		</div>
+		<script src="../../js/jquery.min.js"></script>
+	    <script src="../../js/bootstrap.min.js"></script>
+	    <script src="../../dist/hAdmin/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+	    <script src="../../js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+	    <script src="../../js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+	    <!-- layer javascript -->
+        <script src="../../js/plugins/layer/layer.min.js"></script>
+	    <script>
+	    	$(function(){
+	    		var inputValue = localStorage.getItem("#inputUser");
+	    		console.log('获取到的inputValue值是：',inputValue)
+	    		$(".loginName").text(inputValue);
+	    		$(".shutdownBtn").click(function(){
+	    			location.href="./user_management.html";
+	    			$.ajax({
+						type:"get",
+						url:"../../mockJson/userManagement.json",//这里路径是参考主页面相对于json文件路径
+						async:true,
+						success:function(d){
+							console.log('获取的数据应该是：',d.data[0]);
+						},
+						error:function(err){
+							console.log(err);
+						}
+					});
+	    		})
+	    		
+	    	})
+	    </script>
+	</body>
+</html>
+

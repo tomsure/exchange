@@ -1,0 +1,51 @@
+.userBox{
+	background-color: #1d2939;
+    width: 150px;
+    height: 115px;
+    padding: 20px;
+    border-radius: 5px;
+    margin-right: 30px;
+}
+.userBox li{
+	position: relative;
+	bottom: 17px;
+	cursor: pointer;
+	
+}
+ .userBox li .media-body p{
+ 	text-align: left;
+ 	
+ }
+ .userBox li .media-body p span[class^="icon"]:before{
+ 	margin-right: 10px;
+ }
+.userText{
+	font-size: 20px;
+	color: #7f94b1;
+	text-align: center;
+}
+.count-info{
+	margin-right: 30px;
+	font-size: 25px;
+}
+.userMark:before{
+	display: inline-block;
+	position:absolute;
+	bottom: 20px;
+	left: 52px;
+	color: #1d2939;
+	font-size: 30px;
+	transform:rotate(30deg);
+	-ms-transform:rotate(30deg); /* IE 9 */
+	-webkit-transform:rotate(30deg); /* Safari and Chrome */
+}
+.logoImgBox{
+	display: inline-block;
+	width:167px;
+	height: 23px;
+}
+
+.logoImgBox img{
+	width: 100%;
+	height: 100%;
+}

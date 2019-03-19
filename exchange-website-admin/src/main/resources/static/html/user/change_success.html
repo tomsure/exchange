@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>用户管理-修改用户成功</title>
+		<!-- Bootstrap -->
+        <link rel="stylesheet" href="../../css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="../../css/plugins/bootstrap-table/bootstrap-table.min.css" />
+		<!--<link rel="stylesheet" type="text/css" href="../../css/font-awesome.css" />-->
+		<link rel="stylesheet" type="text/css" href="../../dist/icomoon/style.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/animate.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/common.backup.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	</head>
+	<body>
+		<div class="container">
+	        <div class="ibox float-e-margins">
+	            <div class="ibox-title">
+	            	<h5 style="font-size: 22px;color:#49586c;margin-top: -5px;">修改用户</h5>
+	            </div>
+	            <div class="content">
+	            	<form class="form-horizontal mt60">
+	            		
+	            		<div class="form-group">
+							<label for="inputUser" class="col-lg-2 control-label" style="font-size: 24px;color: #49586C;">账户信息</label>
+						</div>
+	            		<div class="form-group smallGroup">
+							<label for="inputUser" class="col-lg-2 control-label">用户名*：</label>
+							<div class="col-lg-10">
+								<input type="text" id="inputUser">
+							</div>
+						</div>
+						<div class="form-group smallGroup">
+							<label for="inputUserName" class="col-lg-2 control-label">姓名*：</label>
+							<div class="col-lg-10">
+								<input type="text" id="inputUserName">
+							</div>
+						</div>
+					    <div class="form-group smallGroup">
+							<label for="inputEmail" class="col-lg-2 control-label">邮箱*：</label>
+							<div class="col-lg-10">
+								<input type="email" id="inputEmail">
+							</div>
+						</div>
+						<div class="form-group smallGroup">
+							<label for="selects" class="col-lg-2 control-label">业务角色*:</label>
+							<div class="col-lg-10">
+								<div class="input-group">
+							        <input type="text" id="selects">
+							</div>
+						</div>
+						<!--<div class="form-group createUsers mt30">
+							<p>.  创建用户caocao成功，初始化的密码邮件发送至caocao@qq.com邮箱</p>
+						</div>-->
+						<div class="form-group smallGroup">
+			            	<div class="col-lg-offset-5 col-lg-7">
+			            		<button type="button" class="btn closesBtn">关闭</button>
+			            	</div>
+			            	
+			            </div>
+					</form>
+					
+	            </div>
+	            <!--<div class="successInfo container">保存成功！</div>-->
+	            
+	        </div>
+		</div>
+		<script src="../../js/jquery.min.js"></script>
+	    <script src="../../js/bootstrap.min.js"></script>
+	    <script src="../../dist/hAdmin/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+	    <script src="../../js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+	    <script src="../../js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+	    <script src="../../jsCustom/user_management.js"></script>
+	    <script>
+	    	$(function(){
+	    		var inputValue = localStorage.getItem("#inputUsers");
+	    		var inputUserValue = localStorage.getItem("#inputUserNames");
+	    		var inputEmailValue = localStorage.getItem("#inputEmails");
+	    		var inputSelectsValue = localStorage.getItem("#selectss");
+	    		console.log('获取到的inputValue值是：',inputValue)
+	    		$("#inputUser").val(inputValue);
+	    		$("#inputUserName").val(inputUserValue);
+	    		$("#inputEmail").val(inputEmailValue);
+	    		$("#selects").val(inputSelectsValue);
+	    		$('.closesBtn').click(function(){
+	    			location.href="user_management.html"
+	    		})
+	    	})
+	    </script>
+	</body>
+</html>
+

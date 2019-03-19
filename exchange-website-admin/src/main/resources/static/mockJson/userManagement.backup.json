@@ -1,0 +1,35 @@
+//[
+//	{"name":"张三","jobNum":"001","userName":"zhangsan","role":"监管审核-1","handle":""},
+//	{"name":"李四","jobNum":"002","userName":"lisi","role":"监管审核-2","handle":""},
+//	{"name":"王五","jobNum":"003","userName":"wangwu","role":"资讯管理","handle":""},
+//	{"name":"赵六","jobNum":"004","userName":"zhaoliu","role":"公告管理","handle":""},
+//	{"name":"孙乾","jobNum":"005","userName":"sunqian","role":"保荐机构管理","handle":""},
+//	{"name":"小七","jobNum":"006","userName":"xiaoqi","role":"监管审核-初级","handle":""},
+//	{"name":"曹操","jobNum":"007","userName":"caocao","role":"监管审核-中级","handle":""},
+//	{"name":"周瑜","jobNum":"008","userName":"zhouyu","role":"监管审核-高级","handle":""},
+//	{"name":"李白","jobNum":"009","userName":"libai","role":"监管审核-终审","handle":""},
+//	{"name":"诸葛亮","jobNum":"010","userName":"zhugeliang","role":"公告运营","handle":""},
+//	{"name":"司马懿","jobNum":"011","userName":"simayi","role":"资讯运营","handle":""},
+//	{"name":"张飞","jobNum":"012","userName":"zhangfei","role":"监管审核-2","handle":""}
+//
+//]	
+{
+    "data": [{
+        "id": "1",
+        "loginName": "admin",
+        "userName": "超级管理员",
+        "userCode": "emp001",
+        "status": 0,
+        "type": 1,
+        "email": "13331@qq.com",
+        "phone": "13800000000",
+        "tel": "0755-2532518",
+        "birthday": "1997-02-21",
+        "description": "小明",
+        "roleList": [{"id": "123","name": "小红","code": "role001"}]
+    }],
+    "message": "成功",
+    "code": 0
+}
+
+

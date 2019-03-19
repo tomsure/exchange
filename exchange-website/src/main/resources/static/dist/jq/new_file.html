@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8" />
+		<link href="css/css.css" rel="stylesheet" type="text/css">
+		<script src="../jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+
+		<div class="in exhibition_hall">
+			<div id="" class="roundabout_box">
+				<ul>
+				</ul>
+			</div>
+			<div class="clear"></div>
+			<div style="text-align: center;" >
+				<button class="web-goodsBtn-prev" >上一个</button>
+				<button class="web-goodsBtn-next" >下一个</button>
+			</div>
+		</div>
+
+		<script src="js/jquery.roundabout.min.js"></script>
+		<script type="text/javascript">
+			var imgSrc = [
+				{
+					img: "img/zt1.png",
+					cont: "Picture information01"
+				},
+				{
+					img: "img/zt2.png",
+					cont: "Picture information01"
+				},
+				{
+					img: "img/zt3.png",
+					cont: "Picture information01"
+				},
+				{
+					img: "img/zt4.png",
+					cont: "Picture information01"
+				}
+			]
+		</script>
+		<script type="text/javascript">
+			var liDoms = '';
+			$.each(imgSrc, function(i,e) {
+				liDoms += '<li><a href="#"><img src="'+e.img+'" alt=""><span class="text">Picture information 3</span></a></li>';
+			});
+			$(".roundabout_box ul").append(liDoms);
+			$('.roundabout_box ul').roundabout({
+				duration: 1000, 			// 运动速度
+				minScale: 0.6,				// 最小缩放值
+				autoplay: true,				// 自动播放
+				autoplayDuration: 5000,		// 自动播放的时间
+				minOpacity: 0.6,				// 最小的透明度
+				maxOpacity: 1,				// 最小的透明度
+				reflect: true,				// 为true时是从左向右移动，为false从右向左移动
+				startingChild: 3,			// 默认的显示第几张图片
+				autoplayInitialDelay: 5000, // 从第几秒时，开始自动播放（默认毫秒）开始的第一次管用
+				autoplayPauseOnHover: true, // 鼠标移入元素内是否自动播放，为true不播放，false还自动播
+				enableDrag: true,			// 在移动端可以拖拽播放
+				dragAxis: "x",
+				triggerFocusEvents: true,			// 触发焦点事件
+				triggerBlurEvents: true,			// 触发失去焦点事件
+				btnPrev:".web-goodsBtn-prev", // 左按钮
+				btnPrevCallback: function() { // 左按钮切换回调
+					// 当前轮播的方法
+					var ithis = $(".roundabout-in-focus");
+				},
+				btnNext:".web-goodsBtn-next", // 右按钮
+				btnNextCallback: function() { // 右侧按钮切换回调
+					// 当前轮播的方法
+					var ithis = $(".roundabout-in-focus");
+				},
+				clickToFocus: true,					// 点击当前轮播设为焦点
+				clickToFocusCallback: function() {	// 点击当前轮播设为焦点回调
+					console.log(12)
+				},
+				responsive: false					// 窗口变化响应
+			});
+		</script>
+	</body>
+</html>

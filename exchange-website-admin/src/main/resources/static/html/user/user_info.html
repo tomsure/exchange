@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>用户管理-用户信息</title>
+		<!-- Bootstrap -->
+        <link rel="stylesheet" href="../../css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="../../css/plugins/bootstrap-table/bootstrap-table.min.css" />
+		<link rel="stylesheet" type="text/css" href="../../dist/icomoon/style.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/animate.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/common.backup.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	</head>
+	<body>
+		<div class="container">
+	        <div class="ibox float-e-margins">
+	            <div class="ibox-title">
+	            	<h5 style="font-size: 22px;color:#49586c;margin-top: -5px;">用户信息</h5>
+	            </div>
+	            <div class="content">
+	            	<form class="form-horizontal mt60">
+	            		
+	            		<div class="form-group">
+							<label for="inputUser" class="col-lg-2 control-label" style="font-size: 24px;color: #49586C;">账户信息</label>
+						</div>
+	            		<div class="form-group smallGroup">
+							<label for="inputUser" class="col-lg-2 control-label">用户名*：</label>
+							<div class="col-lg-10">
+								<input type="text" id="inputUser" disabled="disabled">
+							</div>
+						</div>
+						<div class="form-group smallGroup">
+							<label for="inputUserName" class="col-lg-2 control-label">姓名*：</label>
+							<div class="col-lg-10">
+								<input type="text" id="inputUserName" disabled="disabled">
+							</div>
+						</div>
+					    <div class="form-group smallGroup">
+							<label for="inputEmail" class="col-lg-2 control-label">邮箱*：</label>
+							<div class="col-lg-10">
+								<input type="email" id="inputEmail" disabled="disabled">
+							</div>
+						</div>
+						<div class="form-group smallGroup">
+							<label for="selects" class="col-lg-2 control-label">业务角色*:</label>
+							<div class="col-lg-10">
+								<div class="input-group">
+							        <input type="text" disabled="disabled" id="selects">
+							</div>
+						</div>
+						<!--<div class="form-group createUsers mt30">
+							<p>.  创建用户caocao成功，初始化的密码邮件发送至caocao@qq.com邮箱</p>
+						</div>-->
+					</form>
+					
+	            </div>
+	            <!-- <div class="successInfo container">保存成功！</div>-->
+	            <div class="row endRows">
+	           	    <div class="col-lg-offset-5 col-lg-7">
+	           	    	<button type="button" class="btn closeUser" data-toggle="modal" data-target="#myFourModal">删除用户</button>
+	           	    </div>
+	            </div>
+				
+	        </div>
+	        <!--删除用户信息模态框-->
+	        <div class="modal fade" id="myFourModal" tabindex="-1" role="dialog">
+			    <div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header myModal-header">
+							<h4 class="modal-title" id="myModalLabel">删除用户</h4>
+						</div>
+						<div class="modal-body myModal-body">
+							<span id="bodyTitle" style="font-size: 18px;color:#6B7884;">删除用户后，该账户将无法在登录，也无法恢复。</span>
+							<!--<ul class="clearfix">
+		                        <li>
+		                            <input type="checkbox" value="" name="" class="i-checks" />
+		                            <span class="m-l-xs">王小明</span>
+		                        </li>
+		                        <li>
+		                            <input type="checkbox" value="" name="" class="i-checks" checked/>
+		                            <span class="m-l-xs">李白</span>
+		                        </li>
+		                        <li>
+		                            <input type="checkbox" value="" name="" class="i-checks" />
+		                            <span class="m-l-xs">周瑜</span>
+		                        </li>
+		                        <li>
+		                            <input type="checkbox" value="" name="" class="i-checks" />
+		                            <span class="m-l-xs">大乔</span>
+		                        </li>
+		                        <li>
+		                            <input type="checkbox" value="" name="" class="i-checks"/>
+		                            <span class="m-l-xs">白起</span>
+		                        </li>
+		                        <li>
+		                            <input type="checkbox" value="" name="" class="i-checks" />
+		                            <span class="m-l-xs">司马懿</span>
+		                        </li>
+		                    </ul>-->
+						</div>
+						<div class="modal-footer myModal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+							<button type="button" class="btn btn-primary okBtn">确定</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="../../js/jquery.min.js"></script>
+	    <script src="../../js/bootstrap.min.js"></script>
+	    <script src="../../dist/hAdmin/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+	    <script src="../../js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+	    <script src="../../js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+	    <!--<script src="../../jsCustom/user_management.js"></script>-->
+	    <script>
+	    	$(function(){
+	    		var inputValue = localStorage.getItem("#inputUser");
+	    		var inputUserValue = localStorage.getItem("#inputUserName");
+	    		var inputEmailValue = localStorage.getItem("#inputEmail");
+	    		var inputSelectsValue = localStorage.getItem("#selects option:selected");
+	    		console.log('获取到的inputValue值是：',inputValue)
+	    		$("#inputUser").val(inputValue);
+	    		$("#inputUserName").val(inputUserValue);
+	    		$("#inputEmail").val(inputEmailValue);
+	    		$("#selects").val(inputSelectsValue);
+	    		$('.okBtn').click(function(){
+	    			$.ajax({
+						type:"get",
+						url:"../../mockJson/deleteUser.json",//这里路径是参考主页面相对于json文件路径
+						async:true,
+						success:function(d){
+							console.log('获取的数据应该是：',d.code);
+							if(d.code == 0){
+								d.data = {}
+							};
+							location.href='user_delete_success.html' + '?inputUser=' + $("#inputUser").val() ;
+							localStorage.setItem("#inputUser",userValue);
+						},
+						error:function(err){
+							console.log(err);
+						}
+					});
+//	    			location.href="user_delete_success.html"
+	    		})
+	    	})
+	    </script>
+	</body>
+</html>
+

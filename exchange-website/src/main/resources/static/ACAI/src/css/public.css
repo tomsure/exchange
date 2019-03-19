@@ -1,0 +1,102 @@
+
+.leftMenuBox,.rightContentBox{
+	float: left;
+}
+.contentBox{
+	
+	overflow: hidden;
+	height: 100%;
+	
+}
+@media only screen and (min-width: 1920px) {
+	html{
+		font-size: 100px;
+	}
+}
+@media only screen and (min-width: 1366px) {
+	html{
+		font-size:71.145833333333333333333333333333px ;
+	}
+}
+
+table{
+	border: 1px solid #d8dfe5;
+}
+.leftMenuBox{
+	width: 15.625%;
+	text-align: center;
+}
+.rightContentBox{
+	width:84.375%;
+	background-color: #eeeff3;
+	padding: 0 0.3rem;
+	height: 100%;
+}
+
+div.th-inner{
+	text-align: center;
+	
+	;
+}
+.table thead tr th{
+	border: 0;
+	padding: 0;
+	padding: 0.16rem 0;
+	background-color: #f6fafd;
+}
+
+.table tbody tr:hover{
+	background-color: #f6fafd;
+}
+
+.table tr{
+	height: 0.7rem;
+}
+.table th, .table td {
+text-align: center;
+vertical-align: middle!important;
+}
+.menu p{
+	padding:0.17rem 0 ;
+}
+
+.meunSelect{
+	cursor: pointer;
+}
+.meunSelectText{
+	background-color:#f3f4f6;
+	border-left:0.05rem solid #4990e2 ;
+}
+.myTableContent{
+	padding: 0.45rem 0;
+	
+}
+.removeBtn{
+	color: #BE0017!important;
+	border-color: #BE0017!important;
+}
+.tabBox,.contentTop{
+	width: 100%;
+	
+	padding-top: 0.5rem;
+	
+	
+}
+.tabBox{
+	background-color: white;
+	padding: 0 0.3rem;
+}
+.operationBtn{
+	cursor: pointer;
+	border: 0;
+	background-color: white;
+	border: 1px solid #4990e2;
+	color: #4990e2;
+	padding: 0.05rem 0.12rem;
+	margin: 0.08rem;
+	border-radius: 2px;
+}
+ .layerCommon{
+ 	padding: 15px;
+ 	text-align: center;
+ }

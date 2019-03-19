@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>用户管理</title>
+		<!-- Bootstrap -->
+        <link rel="stylesheet" href="../../css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="../../css/plugins/bootstrap-table/bootstrap-table.min.css" />
+		<link rel="stylesheet" type="text/css" href="../../dist/icomoon/style.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/animate.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/common.backup.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	</head>
+	<body>
+		<div class="container">
+			<!--头部
+			<div class="head">
+				<span>用户管理</span>
+			</div>
+			内容区域
+			<div class="content clearfix">
+				<div class="createUser fr">
+					<i class="glyphicon glyphicon-plus-sign"></i>
+					<button type="button" class="btn">创建用户</button>
+				</div>
+				<table style="border:0;" class="table" id="createUserTable" border="" cellspacing="" cellpadding="">
+
+				</table>
+			</div>-->
+			<!-- Panel Other -->
+			
+	        <div class="ibox float-e-margins">
+	            <div class="ibox-title">
+	            	<h5 style="font-size: 22px;color:#49586c;margin-top: -5px;">用户管理</h5>
+	            </div>
+	            <div class="ibox-content">
+	            	<div class="row row-lg">
+	            		<div class="col-sm-12">
+			                <div class="createUser fr">
+								<i class="glyphicon glyphicon-plus-sign"></i>
+								<button type="button" class="btn">创建用户</button>
+							</div>
+						</div>
+	            	</div>
+	                <div class="row row-lg">
+	                    <!--分页插件-->
+	                    <div class="col-sm-12">
+	                        <!-- Example Pagination -->
+	                        <div class="example-wrap">
+	                            <div class="example">
+	                                <table id="createUserTable" >
+	                                </table>
+	                            </div>
+	                        </div>
+	                        <!-- End Example Pagination -->
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+		</div>
+		<script src="../../js/jquery.min.js"></script>
+	    <script src="../../js/bootstrap.min.js"></script>
+	    <script src="../../dist/hAdmin/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+	    <script src="../../js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+	    <script src="../../js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+	    <script src="../../jsCustom/user_management.js"></script>
+	    <script>
+	    	$(function(){
+	    		$('.createUser').click('clickOn',function(){
+	    			location.href='./create_user.html';
+	    			
+	    		})
+	    	})
+	    </script>
+	</body>
+</html>

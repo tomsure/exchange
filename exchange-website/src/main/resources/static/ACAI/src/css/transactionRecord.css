@@ -1,0 +1,10 @@
+.transactionModal{
+	overflow: hidden;
+}
+.transactionModalLeftBox{
+	float: left;
+	width: 40%;
+}
+.transactionModalRightBox{
+	
+}

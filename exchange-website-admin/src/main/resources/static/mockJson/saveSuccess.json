@@ -1,0 +1,15 @@
+[
+	{"order":"1","verifier":"王小明，徐磊，张山，小乔","throughRule":"至少n人同意"},
+	{"order":"2","verifier":"王小明，徐磊，张山","throughRule":"至少n人同意"},
+	{"order":"3","verifier":"王小明，徐磊","throughRule":"至少n人同意"},
+	{"order":"4","verifier":"","throughRule":"至少n人同意"},
+	{"order":"5","verifier":"","throughRule":"至少n人同意"},
+	{"order":"6","verifier":"","throughRule":"至少n人同意"},
+	{"order":"7","verifier":"","throughRule":"至少n人同意"},
+	{"order":"8","verifier":"","throughRule":"至少n人同意"},
+	{"order":"9","verifier":"","throughRule":"至少n人同意"},
+	{"order":"10","verifier":"","throughRule":"至少n人同意"},
+	{"order":"11","verifier":"","throughRule":"至少n人同意"},
+	{"order":"12","verifier":"","throughRule":"至少n人同意"}
+
+]	

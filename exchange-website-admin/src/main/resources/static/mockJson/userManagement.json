@@ -1,0 +1,20 @@
+{
+    "data": [{
+        "id": "1",
+        "loginName": "admin",
+        "userName": "超级管理员",
+        "userCode": "emp001",
+        "status": 0,
+        "type": 1,
+        "email": "13331@qq.com",
+        "phone": "13800000000",
+        "tel": "0755-2532518",
+        "birthday": "1997-02-21",
+        "description": "小明",
+        "roleList": [{"id": "123","name": "小红","code": "role001"}]
+    }],
+    "message": "成功",
+    "code": 0
+}
+
+

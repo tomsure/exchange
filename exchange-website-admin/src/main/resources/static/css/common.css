@@ -1,0 +1,236 @@
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+figure,
+footer,
+header,
+menu,
+nav,
+section,
+time,
+mark,
+audio,
+video,
+details,
+summary {
+	margin: 0;
+	padding: 0;
+}
+html,
+body {
+	background-color: #fff;
+	width: 100%;
+	max-width:1920px;
+	margin: 0 auto;
+}
+a{
+	text-decoration: none;
+}
+.fl{
+	float: left;
+}
+.fr{
+	float:right;
+}
+.mt20{
+	margin-top: 20px;
+}
+.mt30{
+	margin-top: 30px;
+}
+.mt60{
+	margin-top: 60px;
+}
+
+/*清除浮动*/
+.clearfix{
+	width:0;
+	height: 0;
+	content:"";
+	display:block;
+	clear:both;
+}
+/*用户管理页面样式开始*/
+.container{
+	margin: 0 auto;
+	width:1470px;
+}
+.ibox{
+	width:1470px;
+}
+.createUser{
+	margin: 30px 30px 32px 0px;
+	width:128px;
+	height: 40px;
+	position: relative;
+	cursor: pointer;
+}
+.createUser i{
+	position:absolute;
+	top:13px;
+	right:94px;
+	color:#fff;
+}
+.createUser button{
+	background: #2D7DFA;
+    border-radius: 5px;
+    outline: none;
+    height: 40px;
+    width:128px;
+    font-size: 16px;
+    text-indent: 25px;
+}
+.bootstrap-table .table thead>tr>th{
+	text-align: center;
+	background: #f7fafc;
+}
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+	text-align: center;
+}
+/*创建用户样式*/
+.container h5{
+	font-size: 22px;
+	color:#49586C;
+}
+.container .content form{
+	width:800px;
+	margin: 0 auto;
+}
+.container .content{
+	margin: 0 auto;
+}
+form input{
+	width:500px;
+	height: 40px;
+	border-radius:6px;
+	border: 1px solid #D8E0E5;
+	text-indent: 20px;
+}
+.container .content form button{
+	width:120px;
+	height: 40px;
+	
+}
+.container .content form .firstBtn{
+	background: #eee;
+	margin-right: 50px;
+}
+.container .content form .secondBtn{
+	background: #2D7DFA;
+}
+.container .content form .smallGroup label{
+	font-size: 18px;
+	color: #49586C;
+}
+.container .content form .input-group{
+	position:relative;
+}
+.container .content form .input-group-btn{
+	position:absolute;
+	top:19px;
+	right:27px;
+}
+/*创建用户成功样式*/
+/*.container .content form .createUsers{
+	width:580px;
+}*/
+.container .content form .createUsers p{
+	font-size: 18px;
+    color: #2D7DFA;
+    margin: 30px 0px 0px 34px;
+}
+.container .content .successInfo{
+	width:1428px;
+	height: 60px;
+	background: #F5FCFE;
+	border: 1px solid #C3DCE2;
+	border-radius: 5px;
+	font-size: 20px;
+    color: #467E9B;
+    font-family: PingFangSC-Medium;
+    line-height: 60px;
+    text-align: center;
+    margin-left: 20px;
+}
+.container .ibox .closeBtn{
+	background: #EEEEEE;
+    border-radius: 6px;
+    font-size: 16px;
+	color: #49586C;
+	outline: none;
+	width:148px;
+	height: 40px;
+	margin: 30px 0px 80px 600px;
+}
+/*审核流程-流程配置页面样式*/
+.container .ibox-content .searchInput{
+	color:#2D7DFA;
+	position: relative;
+}
+.container .ibox-content .searchInput input{
+	border: 1px solid #2D7DFA;
+    border-radius: 5px;
+    height: 40px;
+    margin: 30px 15px 0px 0px;
+    text-indent: 46px;
+    opacity: 0.48;
+	font-family: PingFangSC-Regular;
+	font-size: 18px;
+}
+.container .ibox-content .searchInput i{
+	font-size: 18px;
+	position: absolute;
+	top:42px;
+	right:181px;
+}

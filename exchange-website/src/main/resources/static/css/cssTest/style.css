@@ -1,0 +1,896 @@
+.banner {
+	background-color: #2e2e2e;
+	height: 5.6rem;
+	float: left;
+	width: 100%;
+}
+
+.banner img {
+	height: 100%;
+}
+
+.basicQuotationsBox {
+	background-color: #fafbff;
+	height: 1.5rem;
+
+	clear: left;
+	display: table;
+	margin: 0 auto;
+}
+
+.basicQuotationsBox ul li {
+	width: 3.75rem;
+	height: 1.5rem;
+	list-style: none;
+	float: left;
+	background-color: #fafbff;
+	text-align: center;
+}
+
+.basicQuotationsBox ul li span {
+	font-size: 0.3rem;
+	color: #2E2E2E;
+	display: inline-block;
+	margin-top: 0.35rem;
+}
+
+.basicQuotationsBox ul li p {
+	margin-top: 0.1rem;
+	font-size: 0.2rem;
+	color: #8191a0;
+}
+
+.AdvertisementBox1 {
+	width: 15.5045rem;
+	height: 1.5rem;
+	margin: 0.5rem auto;
+	/*margin: 0 auto;*/
+}
+
+.AdvertisementBox1 img {
+	height: 100%;
+	width: 100%;
+}
+
+.newsBox {
+	height: 9.56rem;
+}
+
+.infoImg {
+	width: 2.8rem;
+	height: 4rem;
+	float: left;
+}
+
+.infoImg img {
+	height: 100%;
+	width: 100%;
+}
+
+.marketInfo {
+	float: left;
+}
+
+.informationList {
+	float: left;
+}
+
+.companyNews {
+	width: 15.5045rem;
+	height: 6.6rem;
+	background-color: #fafbff;
+	/*padding: 0 10.41666666666667%;*/
+	display: table;
+	margin: 0 auto;
+	padding-top: 0.5rem!important;
+}
+
+.companyLeft {
+	width: 35.041666666666666666666666666667%;
+	float: left;
+	margin-right: 6.25%;
+}
+
+.noticeList li {
+	font-size: 0.2rem;
+	padding: 0.15rem;
+}
+.noticeList li a{
+	color: #8191a0!important;
+}
+
+.companyRight {
+	width: 57.83333%;
+	float: left;
+}
+
+.iconTip {
+	display: inline-block;
+	background-color: #2fb2ff;
+	width: 0.05rem;
+	height: 0.25rem;
+	float: left;
+	margin-right: 0.15rem;
+	/*margin-top: 0.97rem;*/
+}
+
+.newsBox {
+	/*padding: 0 2rem;*/
+	display: table;
+	margin: 0 auto;
+	padding-top: 0.56rem;
+}
+
+.imgRoom {
+	width: 2.8rem;
+	height: 4rem;
+	float: left;
+	margin-right: 0.3rem;
+	margin-bottom: 0.3rem;
+	background-image: url(../img/companyInfo/2.png);
+	position: relative;
+}
+
+.imgRoom .newsSummary {
+	font-size: 0.2rem;
+	color: white;
+	/*text-indent: 0.5rem;*/
+	line-height: 0.3rem;
+	letter-spacing: 0.02rem;
+	max-height: 2.5rem;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 5;
+	overflow: hidden;
+	margin-top: 0.3rem;
+}
+
+.imgContent1 {}
+
+.companyRight ul li {
+	margin-bottom: 0.4rem;
+}
+
+.newsImage {
+	width: 2.3rem;
+	height: 1.3rem;
+	float: left;
+	background-color: darksalmon;
+	margin-right: 0.4rem;
+	margin-bottom: 0.4rem;
+	border-radius: 0.05rem;
+}
+
+.newsImage img {
+	border-radius: 0.05rem;
+	width: 100%;
+	height: 100%;
+}
+
+.newsTitle {
+	float: left;
+	height: 1.3rem;
+	position: relative;
+}
+
+.newsContainer {
+	clear: left;
+	margin-bottom: 0.4rem;
+}
+
+.nTitle {
+	font-size: 0.24rem;
+	color: #2e2e2e;
+}
+
+.nContent {
+	position: absolute;
+	bottom: 0;
+	top: 0.5rem;
+	width: 4.7rem;
+	font-size: 0.18rem;
+	color: #8191a0;
+	letter-spacing: 0.02rem;
+	line-height: 1.5;
+}
+.nContent a{
+	color: #8191A0;
+}
+.titleText {
+	font-size: 0.3rem;
+	color: #2e2e2e;
+}
+
+.notice {
+	font-size: 0.3rem;
+	/*overflow-y:scroll ;*/
+	height: 5rem;
+}
+
+.notice li {
+	padding: 0.15rem 0.1rem;
+	font-size: 0.2rem;
+	letter-spacing: 0.01rem;
+}
+
+.marketInfoList li {
+	padding: 0.1rem 0;
+	border-bottom: 0.02rem solid #f0f0f0;
+}
+
+.marketInfoList li span {
+	font-size: 0.2rem;
+}
+
+.logoImg {
+	border-bottom: 0.02rem solid #363636;
+}
+
+.infoText {
+	color: #b8b8b8;
+	font-size: 0.18rem;
+	margin: 0.18rem 0;
+}
+
+.infoText span {
+	margin-left: 0.7rem;
+}
+
+.aboutText {
+	background-color: #3d3d3d;
+	color: #9b9b9b;
+	font-size: 0.16rem;
+	margin-top: 0.3rem;
+	padding: 0.1rem 0;
+}
+
+.searchBox {
+	text-align: center;
+}
+
+.searchParent {
+	border: 0.01rem solid #b8b8b8;
+	width: 3.9rem;
+	height: 0.5rem;
+	margin: 0 auto;
+	margin-top: 0.35rem;
+	margin-bottom: 0.4rem;
+	border-radius: 5px;
+}
+
+.searchBox input {
+	border: 0;
+	background-color: #2e2e2e;
+	padding-left: 0.1rem;
+	width: 88%;
+	height: 0.4rem;
+	font-size: 0.2rem;
+	color: #B8b8b8;
+	border-radius: 0.05rem;
+	vertical-align: middle;
+	margin-top: 0.05rem;
+}
+
+.icon-Oval {
+	position: relative;
+	top: 0.03rem;
+	right: 0.03rem;
+}
+
+.shareIcon {
+	margin: 0.3rem 0;
+	height: 0.5rem;
+}
+
+.icon-twitter,
+.icon-WeChat,
+.icon-linked-in,
+.icon-Facebook {
+	font-size: 0.5rem;
+}
+
+.searchParent .icon-Oval {
+	color: #b8b8b8;
+	font-size: 0.24rem;
+	position: relative;
+	top: 0.1rem;
+	margin-left: 0.05rem;
+}
+
+.icon-gupiao {
+	font-size: 0.3rem;
+	margin-right: 0.25rem;
+}
+
+.header-search.icon-Oval {
+	font-size: 0.3rem;
+	position: relative;
+	/*left: 0.5rem;*/
+	color: white;
+}
+
+.home-news.icon-news {
+	font-size: 0.3rem;
+	margin-right: 0.25rem;
+}
+
+.icon-gonggao {
+	font-size: 0.3rem;
+	margin-right: 0.25rem;
+}
+
+.icon-jiantouxaingxia {
+	/*position: relative;*/
+	top: 0.02rem;
+	left: 0.1rem;
+	font-size: 0.1rem;
+	margin-top: 6px;
+}
+
+.selectContent {
+	width: 100%;
+	float: left;
+	background-color: #333;
+	text-align: center;
+	display: none;
+	
+}
+
+.selectContent .sidebar-collapse {
+	position: relative;
+	width: 15.4845rem;
+	margin: 0 auto;
+	background: #333;
+}
+
+.selectContent .sidebar-collapse .nav {
+	/*position: absolute;*/
+	/*display: inline-block;*/
+	/*display: table;
+    margin: 0 auto;*/
+	/*border: 1px solid red;*/
+}
+
+.selectContent span {
+	display: inline-block;
+	/*width: 20%;*/
+	/*width: 17%;*/
+	text-align: center;
+}
+
+.selectContent span a {
+	color: #9b9b9b;
+	font-size: 0.2rem;
+}
+
+.selectChild .icon-jiantouxaingxia {
+	color: #9b9b9b;
+}
+
+.lookMore {
+	float: right;
+}
+
+.timeTips {
+	font-size: 0.2rem;
+	color: #aeaeae;
+}
+
+.lookMore a {
+	color: #323232;
+	font-size: 0.2rem
+}
+
+.searchText {
+	width: 5.4rem;
+	height: 0.65rem;
+	border: 1px solid lightgrey;
+	margin-top: 0.5rem;
+	margin-bottom: 0.23rem;
+	border-radius: 0.05rem;
+	text-align: center;
+	padding: 0;
+}
+
+.searchMiddle {
+	margin: 0 auto;
+	width: 4.68rem;
+	height: 0.55rem;
+	border: 0;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	bottom: 0.04rem;
+}
+
+.newsRightList {
+	overflow-y: scroll;
+	height: 5rem;
+	margin-top: 0.4rem;
+}
+
+.item.active {
+	position: relative;
+	left: 1rem;
+	margin-left: 1rem;
+}
+
+.carousel-inner.item {
+	width: 800px;
+}
+
+.item img {
+	/*width: 400px;*/
+}
+
+.bannerImg {
+	float: left;
+	height: 4.9rem;
+}
+
+.bannerText {
+	display: inline-block;
+	float: left;
+	color: #2fb2ff;
+	width: 5.4rem;
+	float: right;
+	margin-top: 0.78rem;
+	margin-right: 2.08rem;
+}
+
+.bannerNewsTitle {
+	font-size: 0.36rem;
+	color: white;
+}
+.bannerNewsTitle a{
+	color: white;
+}
+
+.iconBanner {
+	display: inline-block;
+	height: 0.1rem;
+	width: 0.5rem;
+	background-color: #2fb2ff;
+	border-radius: 100px;
+	margin-top: 0.28rem;
+}
+
+.baanerTtxtContent {
+	color: white;
+	font-size: 0.24rem;
+	margin-top: 0.4rem;
+	/*text-indent: 0.5rem;*/
+	line-height: 0.5rem;
+	letter-spacing: 0.02rem;
+	max-height: 2.5rem;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 5;
+	overflow: hidden;
+	font-weight: 300;
+}
+.baanerTtxtContent a{
+	color: white;
+}
+.readMoreBtn {
+	display: inline-block;
+	width: 1.6rem;
+	height: 0.5rem;
+	border-radius: 100px;
+	text-align: center;
+	line-height: 0.5rem;
+	font-size: 0.2rem;
+	float: right;
+	margin-top: 0.5rem;
+	position: relative;
+	bottom: 0;
+
+}
+
+.readMoreBtn:hover {
+	cursor: pointer;
+}
+
+.carousel.slide {
+	width: 100%;
+	float: left;
+	position: relative;
+}
+
+.carousel-control {
+	padding-top: 12%;
+}
+
+.icon-Arrow-left1:before,
+.icon-Arrow-right:before {
+	color: white;
+	font-size: 0.3rem;
+	opacity: 0.5;
+}
+
+.bule_public {
+	color: #2fb2f;
+	border: 0.01rem solid #2fb2ff;
+}
+
+.readMorePosition {
+	color: white;
+	border: 1px solid white;
+	display: block;
+	margin: 0 auto;
+	margin-top: 0.3rem;
+	margin-right: 13%;
+}
+.readMorePosition a{
+	color: white;
+}
+
+.hoverText {
+	height: 100%;
+	padding: 0.2rem 0.3rem;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.hoverTextTitle {
+	font-size: 0.24rem;
+	color: white;
+}
+
+.title-wide {
+	width: 100%;
+	height: 1rem;
+	padding: 0.22rem;
+	position: absolute;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: white;
+	border-bottom-right-radius: 0.05rem;
+	border-bottom-left-radius: 0.1rem;
+	overflow: hidden;
+}
+
+.upColor {
+	color: red;
+}
+
+.downColor {
+	color: #0DA73F;
+}
+
+.price {
+	margin: 0 0.7rem;
+}
+
+.riseAndFall {
+	float: right;
+}
+
+.percentage {}
+
+.searchContent {
+	width: 90%;
+	height: 0.5rem;
+	border: 0;
+	border-bottom: 1px solid #9B9B9B;
+	background-color: #3D3D3D;
+	color: white;
+	margin-top: 0.4rem;
+}
+
+.icon-close:before {
+	color: #9B9B9B;
+	position: relative;
+	right: 0.2rem;
+}
+
+.icon-close:hover {
+	cursor: pointer;
+}
+
+.headerSearchBox {
+	margin-left: 3.25rem;
+}
+
+.carousel-indicators {
+	margin-left: -8.85rem;
+}
+
+.carousel-control.right {
+	right: 7.7rem;
+}
+
+.carousel-control.right .icon-Arrow-right {
+	position: relative;
+	left: 1rem;
+}
+
+.newsTitleText {
+	font-size: 0.24rem;
+	color: #2e2e2e;
+	position: relative;
+	bottom: 0.06rem;
+}
+.newsTitleText a{
+	color: #2e2e2e;
+}
+.carousel-indicators li {
+	margin: 0 0.2rem;
+	border: 0;
+	background-color: rgba(255, 255, 255, 0.5)
+}
+
+.carousel-indicators li.active {
+	background-color: white;
+	width: 10px;
+	height: 10px;
+	margin: 0 0.2rem;
+}
+
+@media screen and (min-width: 768px) {
+	.carousel-indicators {
+		bottom: 40px;
+	}
+}
+
+.icon-gonggao:before {
+	position: relative;
+	top: 0.03rem;
+}
+
+.icon-news:before {
+	position: relative;
+	top: 0.02rem;
+}
+
+.bannerBtnColor {
+	color: #9B9B9B;
+	border: 0.01rem solid #9B9B9B;
+}
+.bannerBtnColor a{
+	color: #9B9B9B;
+}
+
+.title-wide p {
+	font-size: 0.2rem;
+}
+
+.marketTitle {
+	border-bottom: 0.1rem solid #2D7DFA;
+	padding-bottom: 0.15rem;
+}
+
+.notice li {
+	float: left;
+	width: 2rem;
+}
+
+.notice li a {
+	color: #9b9b9b;
+}
+
+.dropdown-menu {
+	background: #3d3d3d;
+}
+
+.nav .open>a,
+.nav .open>a:focus,
+.nav .open>a:hover {
+	background: #3d3d3d;
+}
+
+.listTile {
+	display: inline-block;
+	width: 2rem;
+	padding: 0.15rem 0.1rem;
+	font-size: 0.2rem;
+	letter-spacing: 0.01rem;
+}
+
+.infoTitle {
+	position: absolute;
+}
+
+.info {
+	display: none;
+}
+
+.infoList {
+	float: left;
+	background-color: #333;
+	/*width: 1.66rem;*/
+	width: 1.96rem;
+	margin-right: 0.65rem
+	
+	
+}
+
+.infoList a {
+	background-color: #333;
+	color: #9b9b9b;
+	/*padding: 0!important;*/
+}
+
+.infoList a:hover,
+.infoList a:focus {
+	background: #333!important;
+}
+
+.infoList:hover {
+	background-color: #333;
+	-webkit-tap-highlight-color: #333
+}
+
+.nav-second-level li a {
+	width: 100%;
+}
+
+.nav-second-level li a span[class^="icon-"] {
+	float: right;
+	font-size: 0.1rem;
+	margin-top: 6px;
+}
+
+.nav-second-level li a,
+.nav-second-level li a .nav-label {
+	text-align: left;
+}
+
+.infoListBox .nav li {
+	padding-left: 6px;
+	margin-right: 11px;
+}
+
+.titleText {
+	color: red;
+	font-weight: 600;
+}
+
+.listTitle span {
+	font-size: 17px!important;
+}
+.marketTable, .fixed-table-container{
+    border: 0!important;
+    border-image: 0;
+}
+.marketTable.table>thead>tr>th{
+	border: 0;
+}
+.marketTable.table tbody tr{
+border-bottom: 1px solid lightgrey;
+}
+.marketTable.table .fixed-table-container thead th{
+	border:0;
+
+}
+
+.rightText p{
+	float: right;
+	clear: both;
+}
+.ulStyle li{
+	list-style-type:disc!important;
+
+}
+.rowContent ul li,.rowContent ol li{
+	margin-left:0.5rem;
+}
+.ulTitle{
+	font-size: 0.24rem;
+	margin: 0.1rem 0;
+}
+.rowContent ol li{
+	list-style-type: decimal!important;
+}
+.joinBtnBox{
+	margin-top: 0.5rem;
+}
+.joinBtnBox button ,.submitBox button{
+	border: 0;
+	background:dodgerblue;
+	color: white;
+	padding:5px 10px ;
+	width: 100px;
+	border-radius: 5px;
+}
+.joinBtnBox button a{
+	color: white;
+}
+.joinBtnBox button:first-child{
+	margin-right: 0.5rem;
+}
+.submitBox{
+
+}
+.aplicationPageBox .rowBox{
+	width: 60%;
+	margin: 0 auto;
+}
+.inputWidth{
+	width: 100%;
+
+}
+.inputWidth input{
+	width: 100%;
+	height: 35px;
+}
+
+
+.inputHalfWidth input,.inputHalfWidth select{
+	width:49%;
+	padding: 0;
+	margin: 0;
+	height: 35px;
+	color: gray;
+}
+.bottomTextBox{
+	width: 100%;
+
+}
+.bottomTextBox div{
+
+	width: 49%;
+}
+.bottomTextBox div input{
+	height: 35px;
+}
+.bottomTextBox div input,.bottomTextBox div textarea{
+	width: 100%;
+
+}
+.rowContent{
+	width: 100%;
+}
+.textAreaBox textarea{
+	height: 106px;
+}
+.submitBox {
+	margin-top: 0.5rem;
+}
+.inputBox input,.inputBox select{
+	margin-bottom: 0.2rem;
+}
+.uploadBox{
+	width: 450px;
+	height:250px ;
+	background-color: lightgray;
+	border-radius: 5px;
+	text-align: center;
+	padding-top: 125px;
+}
+.marketTable thead tr th  .th-inner{
+	border: 0;
+}
+.searchStyle{
+	float: right;
+	margin: 0.2rem 0;
+}
+.searchStyle button{
+	border: 0;
+	background-color: dodgerblue;
+	color: white;
+	margin-left: 10px;
+}
+.contactusBox{
+	border: 0!important;
+	padding: 0;
+}
+
+	.inputBox{
+		width: 100%;
+	}
+.submitBox button a{
+	color: white;
+}
+
+.headerContent img{
+	cursor: pointer;
+}
+.mapBox{
+	padding: 0;
+}
+.table.table-hover{
+	border: 0;
+}
+.locationLinkBox{
+	margin-top: 0.2rem;
+}

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>用户管理-创建用户</title>
+		<!-- Bootstrap -->
+        <link rel="stylesheet" href="../../css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="../../css/plugins/bootstrap-table/bootstrap-table.min.css" />
+		<!--<link rel="stylesheet" type="text/css" href="../../css/font-awesome.css" />-->
+		<link rel="stylesheet" type="text/css" href="../../dist/icomoon/style.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/animate.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/common.backup.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	</head>
+	<body>
+		<div class="container">
+			
+	        <div class="ibox float-e-margins">
+	            <div class="ibox-title">
+	            	<h5 style="font-size: 22px;color:#49586c;margin-top: -5px;">创建用户</h5>
+	            </div>
+	            <div class="content">
+	            	<form class="form-horizontal mt60" method="post" action="#">
+	            		
+	            		<div class="form-group">
+							<label for="inputUser" class="col-lg-2 control-label" style="font-size: 24px;color: #49586C;">账户信息</label>
+						</div>
+	            		<div class="form-group smallGroup">
+							<label for="inputUser" class="col-lg-2 control-label">用户名*：</label>
+							<div class="col-lg-10">
+								<input type="text" id="inputUser" placeholder="请输入用户名" class="required">
+							</div>
+						</div>
+						<div class="form-group smallGroup">
+							<label for="inputUserName" class="col-lg-2 control-label">姓名*：</label>
+							<div class="col-lg-10">
+								<input type="text" id="inputUserName" placeholder="请输入姓名" class="required">
+							</div>
+						</div>
+					    <div class="form-group smallGroup">
+							<label for="inputEmail" class="col-lg-2 control-label">邮箱*：</label>
+							<div class="col-lg-10">
+								<input type="email" id="inputEmail" placeholder="请输入邮箱" class="required">
+							</div>
+						</div>
+						<div class="form-group smallGroup">
+							<label for="inputPassword3" class="col-lg-2 control-label">业务角色*:</label>
+							<div class="col-lg-10">
+								<div class="input-group">
+							        <!--<input type="text" placeholder="请选择角色">
+							        <div class="input-group-btn">
+								        <span style="height:40px;" class=" dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></span>
+								        <ul class="dropdown-menu dropdown-menu-right">
+								            <li><a href="#">监管审核-1</a></li>
+									        <li><a href="#">监管审核-2</a></li>
+									        <li><a href="#">资讯管理</a></li>
+									        <li><a href="#">保荐机构管理</a></li>
+									        <li><a href="#">公告运营</a></li>
+								        </ul>
+								    </div>-->
+								    <select id="selects" style="width:500px;height: 40px;border-radius:6px;">
+										<option value="0">123</option>
+										<option value="1">小红</option>
+										<option value="2">role001</option>
+									</select>
+							    </div>
+							</div>
+						</div>
+						
+						<div class="form-group lastGroup">
+							<div class="col-lg-offset-5 col-lg-7 lastItem">
+								<button type="button" class="btn firstBtn" id="cancelBtn">取消</button>
+								<button type="submit" class="btn btn-primary secondBtn" id="saveBtn" data-toggle="modal" data-target="#myModal5">保存</button>
+							</div>
+						</div>
+					</form>
+	            </div>
+	        </div>
+		</div>
+		<!--用户管理-创建成功模态框-->
+        <!--<div class="modal fade" id="myModal5" tabindex="-1" role="dialog">
+		    <div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header myModal-header">
+						<h4 class="modal-title" id="myModalLabel">用户管理-创建用户</h4>
+					</div>
+					<div class="modal-body myModal-body">
+						<form class="form-horizontal mt20 modalForm">
+		            		<div class="form-group">
+								<label for="inputUser" class="col-lg-3 control-label" style="font-size: 20px;color: #49586C;">账户信息</label>
+							</div>
+		            		<div class="form-group smallGroup">
+								<label for="inputUsers" class="col-lg-3 control-label">用户名*：</label>
+								<div class="col-lg-9">
+									<input type="text" id="inputUsers" value="" style="width:300px;" disabled>
+								</div>
+							</div>
+							<div class="form-group smallGroup">
+								<label for="inputUserNames" class="col-lg-3 control-label">姓名*：</label>
+								<div class="col-lg-9">
+									<input type="text" id="inputUserNames" value="曹操" style="width:300px;" disabled>
+								</div>
+							</div>
+						    <div class="form-group smallGroup">
+								<label for="inputEmails" class="col-lg-3 control-label">邮箱*：</label>
+								<div class="col-lg-9">
+									<input type="email" id="inputEmails" style="width:300px;" disabled>
+								</div>
+							</div>
+							<div class="form-group smallGroup">
+								<label for="selectss" class="col-lg-3 control-label">业务角色*:</label>
+								<div class="col-lg-9">
+									<input type="email" id="selectss" style="width:300px;" disabled>
+								</div>
+							</div>
+							<div class="form-group createUsers mt30">
+								<p>.  创建用户caocao成功，初始化的密码邮件发送至caocao@qq.com邮箱</p>
+							</div>
+							<div class="form-group smallGroup">
+				            	<div class="col-lg-offset-5 col-lg-7">
+				            		<button type="button" class="btn closesBtn">关闭</button>
+				            	</div>
+				            	
+				            </div>
+					    </form>
+					</div>
+				</div>
+			</div>
+		</div>-->
+		<script src="../../js/jquery.min.js"></script>
+	    <script src="../../js/bootstrap.min.js"></script>
+	    <script src="../../dist/hAdmin/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+	    <script src="../../js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+	    <script src="../../js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+	    <script src="../../jsCustom/user_management.js"></script>
+	    <script>
+	    	$(function(){
+	    		$('.firstBtn').click(function(){
+	    			location.href="user_management.html"
+	    		}),
+	    		
+	    		$('.secondBtn').click(function(){
+	    			userValue = $("#inputUser").val(),
+	    		    userNameValue = $("#inputUserName").val(),
+	    		    emailValue = $("#inputEmail").val(),
+	    		    selectsValue = $("#selects option:selected").text(),
+	    			console.log('获取selectsValue的值是：',selectsValue),
+	    			$.ajax({
+						type:"get",
+						url:"../../mockJson/createUser.json",//这里路径是参考主页面相对于json文件路径
+						async:true,
+						success:function(data){
+							console.log('获取的数据应该是：',data.message);
+							location.href='create_success.html' + '?inputUser=' + $("#inputUser").val() + '&inputUserName=' + $("#inputUserName").val() + '&inputEmail=' + $("#inputEmail").val() + '&(#selects option:selected)=' + $("#selects option:selected").val();
+							localStorage.setItem("#inputUser",userValue);
+							localStorage.setItem("#inputUserName",userNameValue);
+							localStorage.setItem("#inputEmail",emailValue);
+							localStorage.setItem("#selects option:selected",selectsValue);
+						},
+						error:function(err){
+							console.log(err);
+						}
+					});
+                    
+	    		}),
+	    		$('.closesBtn').click(function(){
+	    			location.href="user_management.html";
+//	    			var data = {userName: '$("#inputUserNames").val()', userCode: 'userCode',loginName:'$("#inputUsers").val()', roleList: 'roleList',throughRule:'',handle:'handle'}; 
+//		    		$('#createUserTable').bootstrapTable('append',data); 
+	    		})
+	    		
+	    	})
+	    </script>
+	</body>
+</html>
+

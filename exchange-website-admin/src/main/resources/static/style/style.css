@@ -1,0 +1,380 @@
+/*磁贴*/
+html{
+	width: 100%;
+}
+
+body{
+	background-color: #edeef0;
+	width: 100%;
+	height: 100%;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+.imgContent{
+	/*border: 1px solid red;*/
+	text-align: center;
+	padding: 0!important;
+	margin-bottom: 60px;
+}
+.imgBox{
+	width: 280px;
+	height: 400px;
+
+	margin: 0 auto;
+	position: relative;
+
+}
+.imgBox1{
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+
+
+
+}
+.imgBox1 img{
+	width: 100%;
+	height: 100%;
+}
+.imgNewsStatus{
+	width: 280px;
+	margin: 0 auto;
+	height: 60px;
+	background-color: white;
+	line-height: 3;
+	font-size: 20px;
+}
+.imgNewsTitle{
+	z-index: 1111;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	padding: 10px;
+	height: 80px;
+	font-size: 20px;
+	background-color: rgba(0,0,0,0.4);
+	color: white;
+
+}
+
+.editBar{
+	position: absolute;
+	margin-top: 50%;
+  
+    width: 160px;
+    margin-left: 21%;
+    z-index: 200;
+}
+.circle{
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	border-radius: 100px;
+	background-color:rgba(255,255,255,0.2);
+	cursor: pointer;
+	
+    
+		   margin-left: 20px;
+		    text-align: center;
+		   
+		    z-index: 100;
+}
+.editBar span{
+	display: inline-block;
+	margin-right: 8%;
+	color: white;
+	margin-top: 28%;
+
+}
+
+.styleColor{
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.5);
+	position: absolute;
+	top: 0;
+	z-index: 100;
+}
+
+.icon-look2:before{
+	color: white;
+	font-size: 20px;
+}
+.icon-edit{
+	font-size: 20px;
+}
+.imgNewsStatus .icon{
+	margin-right: 10px;
+	font-size: 20px;
+	font-weight: 600;
+	position: relative;
+    top: 2px;
+}
+
+.createContent{
+	position: relative;
+}
+
+.positionBox{
+	width: 280px;
+	height: 460px;
+	background: white;
+	
+	box-shadow:  0px 1px 15px 3px lightgray;
+	margin: 0 auto;
+    
+}
+
+.createBox .icon{
+	font-size: 50px;
+}
+.createBox p{
+	margin-top: 10px;
+	font-size: 24px;
+	color: #2b7dfb;
+}
+
+/*轮播*/
+
+.imgParentBox{
+	text-align: center;
+	background-color: #edeef0;
+	margin-bottom: 40px;
+	
+}
+.imgChildBox{
+	display: inline-block;
+	position: relative;
+}
+.newsTitle{
+	
+	max-height: 140px;
+	background-color: white;
+	
+}
+.newsTitle p{
+padding: 10px;
+font-size: 18px;
+margin: 0;
+height: 80px;
+}
+
+
+.publicStatus{
+	padding: 10px;
+	
+}
+.publicStatus span{
+	font-size: 20px;
+}
+.publicStatus .icon{
+	font-size: 20px;
+	font-weight: 700;
+	margin-right: 10px;
+}
+
+.mask{
+	
+}
+.icon-look2{
+	font-size: 20px;
+}
+
+.hideBox{
+	visibility: hidden;
+	
+}
+.createBox{
+	
+   padding-top:150px;
+
+	position: absolute;
+   
+    width: 85%;
+    height: 100%;
+    margin: 0 auto;
+    margin-left: 15px;
+    background-color: white;
+    
+}
+.createMark{
+	position: relative;
+	bottom: 80px;
+	cursor: pointer;
+}
+ 
+.icon.icon-create:before{
+	font-size: 70px;
+	color: #d4e1ea;
+}
+.createMark p{
+	margin-top: 15px;
+	font-size: 18px;
+	color: #d4e1ea;
+}
+/*
+ add_carousel
+ * */
+.add_carouselImg img{
+	width: 100%;
+}
+
+.resume,.editAuthor{
+font-size:1rem ;
+}
+
+.editTitle input{
+	font-size: 1.4rem;
+	line-height: 42px;
+	color:#c2c9d1;
+	width: 93%;
+	border: 0;
+}
+.resume{
+	border-bottom: 1px solid lightgray;
+	padding-bottom: 10px;
+}
+.resume input{
+	width: 80%;
+	border: 0;
+	
+}
+.editAuthor input{
+	width: 35%;
+	border: 0;
+}
+.resume,.editAuthor,.editTitle{
+	/*margin-bottom: 10px;*/
+	color: black;
+	padding-left: 10px;
+	padding: 10px;
+}
+.editOperation{
+	float: right;
+	position: relative;
+	bottom: 6.5px;
+}
+.editOperation button{
+	border: 0;
+	padding: 5px 15px;
+	min-width: 100px;
+	/*color: white;*/
+	border-radius:5px ;
+}
+.save,.withdraw{
+	background-color: #withdraw;
+	color: #4d5c71;
+}
+.publish{
+	background: #2d7dfa;
+	color: white;
+}
+
+.addImgBox{
+	text-align: center;
+	cursor: pointer;
+}
+.addImgBox img{
+	width: 30%;
+	height: 30%;
+}
+.createText{
+	font-size: 1.3rem;
+	margin-top: 20px;
+	color: lightgray;
+}
+ .note-editable,.ibox-content#eg{
+	min-height: 250px;
+}
+
+.textCount,.textCount span{
+	font-size: 20px;
+	color: lightgray;
+}
+.red:before{
+	color: red;
+}
+.btn-edit{
+	background:#5a4daa!important;
+	color:white;
+}
+.applicationTitle{
+	text-align: center;
+}
+.submitBox{
+	text-align: center;
+	padding: 20px 0;
+}
+
+
+.downLoadBox{
+ text-align: right;	
+}
+
+.applicationDocuments{
+  margin: 10px 0;	
+}
+.layerAuditOk{
+	padding: 15px;
+	width: 100%;
+	height: 250px;
+	
+	position:relative;
+}
+.operationBox{
+	position: absolute;
+    bottom: 15px;
+    text-align: center;
+    width: 95%;
+}
+.layerText{
+	font-size: 20px;
+	text-align: left;
+}
+.layerAuditReject{
+	
+	padding: 25px;
+	
+}
+.layerAuditReject textarea,.layerAuditReject input{
+	width: 100%;
+	margin:20px 0;
+}
+.layerAuditReject textarea{
+	height: 200px;
+}
+.layui-layer-wrap{
+	padding: 15px;
+}
+.ibox-content.no-padding .note-editor .btn-group button{
+	width:auto!important;
+}
+.tableSearchBox{
+	display: inline-block;
+}
+.tableSearchBox input{
+	border: 0;
+	height:  30px!important;
+	border: 1px solid deepskyblue;
+	border-radius: 5px;
+	width: 400px;
+	color: deepskyblue;
+	padding-left: 30px;
+	margin-right: 15px;
+	z-index: 99;
+	
+}
+.tableSearchBox .icon-search{
+	position: relative;
+	left: 26px;
+	z-index: 100;
+	cursor: pointer;
+}
+.tableSearchBox input::-webkit-input-placeholder { color:deepskyblue; }
+.tableSearchBox input::-moz-placeholder{
+	color: deepskyblue;
+}
+.centerBtnBox{
+	text-align: center;
+}

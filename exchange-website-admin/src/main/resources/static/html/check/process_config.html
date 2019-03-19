@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>审核流程-流程编辑</title>
+		<!-- Bootstrap -->
+        <link rel="stylesheet" href="../../css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="../../css/plugins/bootstrap-table/bootstrap-table.min.css" />
+		<!--<link rel="stylesheet" type="text/css" href="../../css/font-awesome.css" />-->
+		<link rel="stylesheet" type="text/css" href="../../dist/icomoon/style.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/animate.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/common.backup.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+	</head>
+	<body>
+		<div class="container">
+	        <div class="ibox float-e-margins">
+	            <div class="ibox-title">
+	            	<h5 style="font-size: 22px;color:#49586c;margin-top: -5px;">入会审核流程配置</h5>
+	            </div>
+	            <div class="ibox-content">
+	            	<div class="row row-lg">
+	            		<div class="col-sm-12">
+	            			<div class="createUser fr">
+								<i class="glyphicon glyphicon-plus-sign"></i>
+								<button type="button" class="btn" style="width:157px">添加审核环节</button>
+							</div>
+							<!--<div class="searchInput fr">
+								<i class="glyphicon glyphicon-search"></i>
+								<input type="text" placeholder="搜索"/>
+							</div>
+	            			-->
+						</div>
+	            	</div>
+	                <div class="row row-lg">
+	                    <!--分页插件-->
+	                    <div class="col-sm-12">
+	                        <!-- Example Pagination -->
+	                        <div class="example-wrap">
+	                            <div class="example">
+	                                <table id="processConfigTable">
+	                                </table>
+	                            </div>
+	                        </div>
+	                        <!-- End Example Pagination -->
+	                    </div>
+	                </div>
+	                <div class="row endRow">
+	                	<div class="form-group">
+							<div class="col-lg-offset-5 col-lg-7" style="margin-top: 0px;">
+								<button type="button" class="btn secondBtn fr">确定</button>
+								<button type="button" class="btn firstBtn fr">取消</button>
+							</div>
+						</div>
+	                </div>
+	            </div>
+	        </div>
+	        <!--审核人操作模态框-->
+<<<<<<< HEAD
+	        <!--<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+=======
+	        <!--<div class="modal fade" id="myModal1" tabindex="-1" role="dialog">
+>>>>>>> branch 'Dev' of http://192.168.1.137:8888/root/ACAE.git
+			    <div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header myModal-header">
+							<h4 class="modal-title" id="myModalLabel">选择审核员/环节1</h4>
+						</div>
+						<div class="modal-body myModal-body">
+							<span id="bodyTitle" style="font-size: 18px;color:#6B7884;">有操作权限的审核员：</span>
+							<ul class="clearfix firstModalCont">
+		                        <li>
+		                            <input type="checkbox" value="" name="" class="i-checks" />
+		                            <span class="m-l-xs">王小明</span>
+		                        </li>
+		                        <li>
+		                            <input type="checkbox" value="" name="" class="i-checks" checked/>
+		                            <span class="m-l-xs">李白</span>
+		                        </li>
+		                        <li>
+		                            <input type="checkbox" value="" name="" class="i-checks" />
+		                            <span class="m-l-xs">周瑜</span>
+		                        </li>
+		                        <li>
+		                            <input type="checkbox" value="" name="" class="i-checks" />
+		                            <span class="m-l-xs">大乔</span>
+		                        </li>
+		                        <li>
+		                            <input type="checkbox" value="" name="" class="i-checks"/>
+		                            <span class="m-l-xs">白起</span>
+		                        </li>
+		                        <li>
+		                            <input type="checkbox" value="" name="" class="i-checks" />
+		                            <span class="m-l-xs">司马懿</span>
+		                        </li>
+		                    </ul>
+						</div>
+						<div class="modal-footer myModal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+							<button type="button" class="btn btn-primary modalOneBtn">确定</button>
+						</div>
+					</div>
+				</div>
+			</div>-->
+			<!--审核规则模态框-->
+			<div class="modal fade" id="myModal2" tabindex="-1" role="dialog">
+			    <div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header myModal-header">
+							<h4 class="modal-title" id="myModalLabel">审核通过规则/环节2</h4>
+						</div>
+						<div class="modal-body myModal-body secondModalCont">
+							<span id="bodyTitle" style="font-size: 18px;color:#6B7884;">至少通过的人数：</span>
+							<div class="iconCont">
+								<i class="glyphicon glyphicon-minus-sign"></i>
+								<span class="iconValue">1</span>
+								<i class="glyphicon glyphicon-plus-sign"></i>
+							</div>
+						</div>
+						<div class="modal-footer myModal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+							<button type="button" class="btn btn-primary modalTwoBtn">确定</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="../../js/jquery.min.js"></script>
+	    <script src="../../js/bootstrap.min.js"></script>
+	    <script src="../../dist/hAdmin/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+	    <script src="../../js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+	    <script src="../../js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+	    <!-- layer javascript -->
+        <script src="../../js/plugins/layer/layer.min.js"></script>
+	    <script src="../../jsCustom/process_config.js"></script>
+	    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+	    <script>
+	    	$(function(){
+	    		$('.firstBtn').on('click',function(){
+	    			location.href="./check_config.html"
+<<<<<<< HEAD
+	    		}),
+	    		//审核人员加减数量
+                $('.glyphicon-plus-sign').click(function(){
+                	var n1=$(this).prev().text();
+                	var num1=parseInt(n1)+1;
+                	if(num1 > 5){
+                		return;
+                	}
+                	$(this).prev().html((num1));
+                }),
+                $('.glyphicon-minus-sign').click(function(){
+                	var n2=$(this).next().html();
+                	var num2=parseInt(n2)-1;
+                	if(num2 < 1){
+                		return;
+                	}
+                	$(this).next().html((num2));
+                }),
+                $('.secondBtn').click(function(){
+                	location.href="./save_success.html"
+                })
+               
+               
+=======
+	    		})
+	    		
+>>>>>>> branch 'Dev' of http://192.168.1.137:8888/root/ACAE.git
+            })   
+	    </script>
+	</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>审核流程-空审核流程</title>
+		<!-- Bootstrap -->
+        <link rel="stylesheet" href="../../css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="../../css/plugins/bootstrap-table/bootstrap-table.min.css" />
+		<!--<link rel="stylesheet" type="text/css" href="../../css/font-awesome.css" />-->
+		<link rel="stylesheet" type="text/css" href="../../dist/icomoon/style.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/animate.css" />
+		<link rel="stylesheet" type="text/css" href="../../style/common.backup.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	</head>
+	<body>
+		<div class="container">
+			
+	        <div class="ibox float-e-margins">
+	            <div class="ibox-title">
+	            	<h5 style="font-size: 22px;color:#49586c;margin-top: -5px;">入会审核流程配置</h5>
+	            </div>
+	            <div class="content">
+	            	<form class="form-horizontal mt60">
+	            		
+	            		<div class="checkCont">
+							<label for="inputUser" class="col-lg-12 control-label" style="font-size: 24px;color: #49586C;">入会审核业务没有配置任何审核环节，目前该业务无需走审核流程。</label>
+						</div>
+						<div class="col-lg-offset-6">
+							<button class="btn addBtn">添加审核环节</button>
+						</div>
+						<div class="form-group endRows">
+							<div class="col-lg-offset-5 col-lg-7">
+								<button type="button" class="btn firstBtn">取消</button>
+								<button type="button" class="btn btn-primary secondBtn">保存</button>
+							</div>
+						</div>
+					</form>
+	            </div>
+	        </div>
+		</div>
+		<script src="../../js/jquery.min.js"></script>
+	    <script src="../../js/bootstrap.min.js"></script>
+	    <script src="../../dist/hAdmin/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+	    <script src="../../js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+	    <script src="../../js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+	    <script>
+	    	$(function(){
+	    		$(".addBtn").click(function(){
+	    			location.href="./process_config.html";
+	    			return false;
+	    		}),
+	    		$(".firstBtn").click(function(){
+	    			location.href="./process_config.html"
+	    		}),
+	    		$(".secondBtn").click(function(){
+	    			location.href="./no_check.html"
+	    		})
+	    	})
+	    </script>
+	</body>
+</html>
+

@@ -1,0 +1,109 @@
+{
+    "data": {
+        "moduleClassification": [
+            {
+                "typeId": "1",
+                "typeName": "监管审核"
+            },
+            {
+                "typeId": "2",
+                "typeName": "会员管理"
+            },
+            {
+                "typeId": "3",
+                "typeName": "保荐机构管理"
+            }
+        ],
+        "moduleAll": [
+            {
+                "moduleId": "1",
+                "moduleName": "股票发行",
+                "moduleCode": "J-1000",
+                "typeId": "1",
+                "typeName": null,
+                "createTime": null,
+                "state": "1"
+            },
+            {
+                "moduleId": "2",
+                "moduleName": "债券发行",
+                "moduleCode": "J-1001",
+                "typeId": "1",
+                "typeName": null,
+                "createTime": null,
+                "state": "1"
+            },
+            {
+                "moduleId": "3",
+                "moduleName": "停牌审核",
+                "moduleCode": "J-1002",
+                "typeId": "1",
+                "typeName": null,
+                "createTime": null,
+                "state": "0"
+            },
+            {
+                "moduleId": "4",
+                "moduleName": "复牌审核",
+                "moduleCode": "J-1003",
+                "typeId": "1",
+                "typeName": null,
+                "createTime": null,
+                "state": "0"
+            },
+            {
+                "moduleId": "5",
+                "moduleName": "会员信息变更",
+                "moduleCode": "1004",
+                "typeId": "2",
+                "typeName": null,
+                "createTime": null,
+                "state": "0"
+            },
+            {
+                "moduleId": "6",
+                "moduleName": "会员申请",
+                "moduleCode": "1005",
+                "typeId": "2",
+                "typeName": null,
+                "createTime": null,
+                "state": "0"
+            },
+            {
+                "moduleId": "7",
+                "moduleName": "警告处罚",
+                "moduleCode": "1006",
+                "typeId": "2",
+                "typeName": null,
+                "createTime": null,
+                "state": "0"
+            },
+            {
+                "moduleId": "8",
+                "moduleName": "机构管理",
+                "moduleCode": "1007",
+                "typeId": "3",
+                "typeName": null,
+                "createTime": null,
+                "state": "0"
+            },
+            {
+                "moduleId": "9",
+                "moduleName": "合作申请",
+                "moduleCode": "1008",
+                "typeId": "3",
+                "typeName": null,
+                "createTime": null,
+                "state": "0"
+            }
+
+
+            
+        
+        ],
+        "moduleLink": null,
+        "jurisdictionUser": null
+    },
+    "message": "查询成功",
+    "code": 0
+}

@@ -1,0 +1,52 @@
+id: 21
+
+server:
+    port: 9998
+
+spring:
+    rabbitmq:
+        listener:
+            simple:
+                acknowledge-mode: none
+
+redis:
+    database: 1
+    host: 169.254.90.90
+    port: 6379
+    password: qweasdzxc
+    pool:
+      maxIdle: 20
+      minIdle: 2
+                
+mq:
+    host: 169.254.90.90
+    port: 5672
+    username: mquser
+    password: qweasdzxc
+    vhost: /ExchangeVH_v2
+    exchange: t_node_grp
+    market:
+      MARKET.ANS: marketServ
+    queue: 
+        C2C.ANS: key.c2c.res
+        MANAGE.ANS: WebSrv
+        ORDER.ANS: wsid
+        WebReportQueue: ReportSrv2Web
+        ORDERBOOK: orderbook
+        MQKEYC2CREQ: key.c2c.req
+    routingKey:
+        manageServ: manger_bkey
+        orderServ: order
+        reportServ: Web2ReportSrv
+        c2cServ: key.c2c.req
+        securityServ: key.security.email.req
+        
+default:
+    c2cBaseCoin: BTC
+    baseCoin: BTC
+    token: RKT/BTC
+    count: 50
+    timeframe: M1
+
+candle:
+  timeframes: M1,M5,M15,M30,H1,H4,H12,D1,W1,MN

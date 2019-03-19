@@ -1,0 +1,108 @@
+<!-- <?xml version="1.0" encoding="UTF-8" ?> -->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.broctagon.exchangeadmin.dao.C2cTradeDao">
+
+	<select id="findAll" resultType="C2cTradeModel">
+	select * from t_c2c_trade;
+	</select>
+
+	<select id="findById" parameterType="Integer" resultType="C2cTradeModel">
+	select * from t_c2c_trade where id=#{id}
+	</select>
+
+	<select id="findLastPrice" parameterType="String" resultType="Double">
+	SELECT price FROM t_c2c_trade LEFT JOIN t_c2c_entrust ON t_c2c_trade.`entrustId` = t_c2c_entrust.`id` WHERE tradeStatus=3 AND coinName=#{coinName} ORDER BY updatetime DESC LIMIT 1;
+	</select>
+
+ 	<insert id="save" parameterType="C2cTradeModel" keyProperty="id" useGeneratedKeys="true">
+	insert into t_c2c_trade(entrustId,tradeUserId,amount,tradeStatus) values(#{entrustId},#{tradeUserId},#{amount},#{tradeStatus});
+	</insert>
+	
+	<update id="updateTradeStatus" parameterType="C2cTradeModel">
+	update t_c2c_trade set tradeStatus=#{tradeStatus} where id=#{id};
+	</update>
+	
+	<update id="cancelTrade" parameterType="C2cTradeModel">
+	UPDATE t_c2c_trade t LEFT JOIN t_c2c_entrust e ON e.id=t.`entrustId` SET e.`amount`=e.`amount`+t.`amount`, t.`tradeStatus`=#{tradeStatus} WHERE t.`id`=#{id};
+	</update>
+	
+	<select id="findHistoryMarket" parameterType="String" resultType="C2cMarketModel">	
+	SELECT e.price, e.amount, e.coinName, e.id FROM t_c2c_trade t LEFT JOIN t_c2c_entrust e ON t.`entrustId` = e.`id` WHERE coinName=#{coinName} AND tradeStatus=3 ORDER BY updatetime DESC LIMIT 30;
+	</select>
+	
+	<select id="findUserHistoryTrade" parameterType="C2cEntrustModel" resultType="C2cMarketModel">
+	SELECT (entrustType-1)*(entrustType-1) AS entrustType, price, t.`amount`, t.tradeStatus, e.id, e.coinName,t.amount * price as total FROM t_c2c_trade t LEFT JOIN t_c2c_entrust e ON t.`entrustId`=e.`id` 
+	WHERE coinName=#{coinName} AND tradeUserId=#{userId} AND t.`tradeStatus` in (1,3) ;
+	</select>
+	
+	<select id="findCurrentTrade" parameterType="C2cEntrustModel" resultType="C2cTradeDetailModel">
+	SELECT e.id as entrustId, e.coinName, username AS oppositUserName, bankname, bankaccount, price, t.amount, price*t.amount AS Total,(entrustType-1)*(entrustType-1) AS entrustType, creattime 
+	FROM t_c2c_trade t LEFT JOIN t_c2c_entrust e ON t.`entrustId`=e.`id` LEFT JOIN `user` u ON u.id=e.userId LEFT JOIN user_banklist b ON b.`UserID`=u.id LEFT JOIN bank_list l ON l.`ID`=b.`BankID` 
+	WHERE coinName=#{coinName} AND t.`tradeUserId`=#{userId} AND t.`tradeStatus` in (0,2);
+	</select>
+	
+	<select id="findCurrentMerchantTrade" parameterType="C2cEntrustModel" resultType="C2cTradeDetailModel">
+	SELECT username AS oppositUserName, bankname, bankaccount, price, t.amount, price*t.amount AS total, entrustType, creattime 
+	FROM t_c2c_trade t LEFT JOIN t_c2c_entrust e ON t.`entrustId`=e.`id` LEFT JOIN `user` u ON u.id=e.`userId` LEFT JOIN user_banklist b ON b.`UserID`=u.id LEFT JOIN bank_list l ON l.`ID`=b.`BankID` 
+	WHERE coinName=#{coinName} AND  e.`userId`=#{userId} AND t.`tradeStatus` in (0,2)  AND t.`tradeUserId`!=e.userId;
+	</select> 
+		
+	<select id="findMerchantHistoryTrade" parameterType="C2cEntrustModel" resultType="C2cMarketModel">
+	SELECT entrustType, price, t.`amount`, t.tradeStatus FROM t_c2c_trade t LEFT JOIN t_c2c_entrust e ON t.`entrustId`=e.`id` 
+	WHERE coinName=#{coinName} AND e.userId=#{userId} AND t.`tradeStatus` in (1,3) AND t.`tradeUserId`!=e.`userId`;
+	</select>
+	
+	<select id="findTradeVolume" parameterType="String" resultType="C2cTradeVolumeModel">
+	SELECT "yesterday" AS TIME, SUM(t.amount) AS volume, MAX(price) AS top, MIN(price) AS bottom FROM t_c2c_trade t LEFT JOIN t_c2c_entrust e ON t.entrustId=e.id 
+	WHERE coinName=#{coinName} AND tradeStatus=3 AND t.updatetime BETWEEN ADDDATE(CURRENT_DATE(),-1) AND CURRENT_DATE()
+	UNION 
+	SELECT "today" AS TIME, SUM(t.`amount`) AS volume, MAX(price) AS top, MIN(price) AS bottom FROM t_c2c_trade t LEFT JOIN t_c2c_entrust e ON t.`entrustId`=e.`id` 
+	WHERE coinName=#{coinName} AND tradeStatus=3 AND t.updatetime>=CURRENT_DATE();
+	</select>
+	
+	<select id="findLastTrade" parameterType="String" resultType="Double">
+	SELECT price, MAX(updatetime) AS lastTradeTime FROM t_c2c_trade t LEFT JOIN t_c2c_entrust e ON t.`entrustId`=e.`id` WHERE coinName=#{coinName};
+	</select>
+			
+	<select id="findTradeDetailById" parameterType="Integer" resultType="C2cTradeAccountModel">
+	SELECT t.id AS tradeId, tradeUserId AS traderId, userId AS entrusterId, coinName, entrustType, t.amount, price, t.updatetime  FROM t_c2c_trade t LEFT JOIN t_c2c_entrust e ON t.`entrustId`=e.`id` WHERE t.id=#{id};
+	</select>	
+	
+	
+	
+	<select id="selectBanklist" parameterType="Integer" resultType="java.util.Map">
+	SELECT
+		b.bankaccount,
+		l.BankName AS bankName,
+		u.MobilePhoneNum as mobilePhoneNum,
+	  u.UserName
+	FROM
+		user_banklist b
+	LEFT JOIN bank_list l ON l.ID = b.BankID
+	LEFT JOIN user u ON u.ID = b.UserID
+		WHERE
+		UserID = #{userId}
+	</select>
+	
+	
+	
+	<select id="selectUserId" parameterType="Integer" resultType="java.util.Map">
+	SELECT
+		e.id AS orderId,
+		e.userId,
+		t.id AS tradeId,
+		e.price,
+		e.amount,
+		e.price * e.amount AS total,
+		u.UserName,
+		t.updatetime
+	FROM
+	t_c2c_trade t
+	LEFT JOIN t_c2c_entrust e ON t.entrustId = e.id
+	LEFT JOIN user u ON u.ID = t.tradeUserId
+	WHERE
+		t.id = #{id}
+	</select>
+	
+</mapper> 

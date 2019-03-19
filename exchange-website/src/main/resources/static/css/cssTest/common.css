@@ -1,0 +1,441 @@
+/*base style*/
+
+html,
+body {
+	background-color: #fff;
+	width: 100%;
+	height: 100%;
+	overflow-x: scroll;
+	font-size: 100px;
+}
+
+@media only screen and (max-width: 1920px) {
+	html {
+		font-size: 100px!important;
+	}
+	body {
+		max-width: 19.20rem;
+		min-width: 1920px;
+		overflow: scroll;
+	}
+}
+
+@media only screen and (max-width: 1366px) {
+	html {
+		font-size: 71.14583333333333px!important;
+	}
+	body {
+		max-width: 1366px;
+		min-width: 1366px;
+		overflow: scroll;
+	}
+	.infoListBox .nav li{
+		width: 1.96rem;
+	}
+}
+
+html,
+body {
+	background-color: #fff;
+	width: 100%;
+	max-width:1920px;
+	margin: 0 auto;
+}
+
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+figure,
+footer,
+header,
+menu,
+nav,
+section,
+time,
+mark,
+audio,
+video,
+details,
+summary {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: "\5FAE\8F6F\96C5\9ED1", "Microsoft Yahei", "Arial";
+	color: #333;
+	background-color: #fff;
+	font-size: 15px;
+	background-image: url(about:blank);
+	background-attachment: fixed;
+	overflow-x: hidden;
+}
+
+a {
+	color: #06f;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #f60;
+	text-decoration: none;
+}
+
+img {
+	border: none;
+	vertical-align: middle;
+	max-width: 100%;
+}
+
+i,
+em {
+	font-style: normal;
+}
+
+li {
+	list-style-type: none;
+}
+
+textarea {
+	resize: vertical;
+}
+
+input,
+select,
+textarea {
+	font-family: "\5FAE\8F6F\96C5\9ED1", "Microsoft Yahei", "Arial";
+	background-color: #fff;
+	margin: 0;
+	padding: 0;
+	outline: none;
+}
+
+.header,
+.selectContent,
+.content,
+.footer {}
+
+.content {
+	position: relative;
+	float: left;
+	/*border: 1px solid red;*/
+	width: 100%;
+	padding-bottom: 1rem;
+}
+
+.footer {
+	position:relative;
+
+	float: left;
+	width: 100%;
+}
+
+.webMarkList {
+	margin-top: 0.35rem;
+	float: left;
+	position: relative;
+	margin-left: 0.65rem;
+	cursor: pointer;
+}
+
+.webMarkList li {
+	list-style: none;
+	float: left;
+	color: #9b9b9b;
+	font-size: 0.24rem;
+	width: 1.96rem;
+	margin-right: 0.65rem;
+	
+}
+
+.webMarkList li .icon-jiantouxaingxia {
+	float: right;
+	font-size: 0.2rem;
+	margin-left: 0.2rem;
+}
+
+.header {
+	background-color: #3d3d3d;
+	width: 100%;
+	/*padding: 0 2rem;*/
+	/*border: 1px solid red;*/
+	/*height: 1.1rem;*/
+	float: left;
+	position: relative;
+}
+
+.headerContent {
+	/*border: 1px solid blue;*/
+	float: left;
+	position: relative;
+	height: 1.1rem;
+	left: 50%;
+	-webkit-transform: translate(-50%, 0);
+	transform: translate(-50%, 0);
+	-ms-transform: translate(-50%, 0);
+}
+
+.logo {
+	width: 1.44rem;
+	height: 0.4rem;
+	margin-top: 0.35rem;
+}
+
+.logo img {
+	width: 100%;
+	height: 100%;
+}
+
+.customViw {}
+
+.loginSearch {
+	margin-top: 0.3rem;
+}
+
+.loginButton {
+	background-color: #000000;
+	display: inline-block;
+	border: 0;
+	/*opacity: 0;*/
+	border: 1px solid white;
+	color: white;
+	border-radius: 100px;
+	width: 1rem;
+	height: 0.5rem;
+	margin-right: .5rem;
+	font-size: 0.24rem;
+	text-align: center;
+	line-height: 0.45rem;
+	background-color: #3d3d3d;
+}
+
+.loginButton:hover {
+	cursor: pointer;
+}
+
+.logo,
+.customViw,
+.loginSearch {
+	float: left;
+	/*position: absolute;
+  top: 50%;
+   -webkit-transform: translate(0,-50%);
+   transform: translate(0 -50%);*/
+}
+
+
+/*footer*/
+
+.footer {
+	background-color: #2e2e2e;
+	text-align: center;
+}
+
+.infoText {
+	text-align: center;
+}
+.infoText span a{
+	color: #9b9b9b;
+}
+
+.markStyle {
+	margin: 0 0.3rem;
+}
+
+.markStyle .path2:before,
+.markStyle .path3:before {
+	color: #C3DBFF;
+}
+
+.markStyle .path1:before {
+	color: #2D7DFA;
+}
+.titleBox{
+	border-bottom: 1px solid lightgray;
+	padding:10px 0;
+	width: 78.125%;
+	margin: 0 auto;
+	color: lightgrey;
+}
+.contentBox{
+	border: 1px solid lightgray;
+	margin-bottom: 0.5rem;
+	/*margin-left: 1rem;*/
+	padding: 15px;
+	width: 45.83333333333333%;
+	min-height:150px;
+}
+.containerBox{
+	padding: 0.4rem 0;
+	margin-bottom: 2rem;
+	/*width: 85%;*/
+	width: 78.125%;
+	margin: 0 auto ;
+
+
+}
+.leftBox{
+
+	float:left;
+	margin-right: 7.66666666666667%;
+}
+.rightBox{
+
+	float: left;
+}
+.containerTitle{
+	/*padding-left: 1.7rem;*/
+	padding-left: 20%;
+}
+.titleMark{
+	display: inline-block;
+	margin-top: 0.15rem;
+	margin-bottom: 0.15rem;
+	background-color: #2d7dfa;
+	border-radius:5px;
+	width: 0.5rem;
+	height: 0.05rem;
+}
+.contentBox h5{
+	font-size: 0.24rem;
+	/*height: 0.33rem;*/
+	/*line-height: 0.33rem;*/
+	color: #333;
+	font-weight: 600;
+	margin-bottom:10px;
+
+}
+.contentBox p{
+	font-size: 0.2rem;
+	/*height: 0.28rem;*/
+	/*height: 0.28rem;*/
+
+}
+.pageTitle{
+	text-align: center;
+	font-size: 24px;
+	font-weight: 600;
+   margin-bottom: 1.5rem;
+}
+.rowContent{
+
+	float: right;
+	width: 100%;
+}
+.formLeft{
+ float: left;
+width: 30%;
+}
+.formLeft div input{
+	width: 60%;
+	margin: 5px 0;
+	height: 30px;
+}
+.sex{
+width: 100px;
+height: 30px;
+}
+.formRight{
+	/*float: right;*/
+	/*width: 65%;*/
+}
+.formRight textarea{
+	width: 100%;
+	height: 110px;
+}
+.submitBox{
+ clear: left;
+ float: right;
+}
+.styleCenter{
+	text-align: center;
+}
+.rowContent p{
+	font-size: 0.2rem;
+	/*text-indent: 0.4rem;*/
+	text-align: left;
+	margin-bottom:0.2rem ;
+	margin-top: 0.1rem;
+}
+.newsImg{
+  margin: 0.5rem 0;
+}
+.informationBox{
+	width: 80%;
+	margin: 0 auto;
+}
+.newsInfoTitle{
+	font-size: 0.3rem;
+	margin-bottom: 0.2rem;
+
+
+}
+.newsInfoTitle{
+	font-size: 0.24rem;
+}
+.bootstrap-table .table{
+	/*border: 0!important;*/
+	/*border: 1 solid lightgray;*/
+
+}
+.fixed-table-container tbody td .th-inner, .fixed-table-container thead th .th-inner{
+	text-align: center;
+	border: 1px solid #DDDDDD;
+}
+.bootstrap-table .table tbody tr td,.bootstrap-table .table thead tr th{
+	border: 1px solid #DDDDDD;
+}
+.infoList .nav.nav-second-level li a{
+	padding: 10px 5px;
+}  
