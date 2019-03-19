@@ -6,9 +6,6 @@ server:
 
 spring:
 
-
-
-
     mail:
         host: smtp.163.com
         username: 13249928868@163.com
@@ -41,7 +38,7 @@ spring:
 
     datasource:
         driver-class-name: com.mysql.jdbc.Driver
-        url: jdbc:mysql://172.31.99.147:3306/exchange?useUnicode=true&characterEncoding=utf-8&autoReconnect=true
+        url: jdbc:mysql://127.0.0.1:3306/exchange?useUnicode=true&characterEncoding=utf8&useSSL=false
         username: root
         password: Aa123456*&^
         
@@ -50,17 +47,16 @@ spring:
 
 redis:
     database: 1
-    host: 172.31.99.147
+    host: 127.0.0.1
     port: 6379
     password: qweasdzxc
     pool:
       maxIdle: 20
       minIdle: 2
 
-
                 
 mq:
-    host: 172.31.99.147
+    host: 127.0.0.1
     port: 5672
     username: mquser
     password: qweasdzxc
