@@ -1,4 +1,4 @@
-﻿Company
+﻿
 <!DOCTYPE html>
 <html>
 
@@ -15,8 +15,8 @@
 	<script src="../dist/plugs/Echarts/dist/echarts.js"></script>
 	<script src="../dist/libs/layui-v2.2.5/layui.js"></script>
 </head>
-  <style>
-  .titleRow  {
+<style>
+	.titleRow  {
      margin-bottom:6px;
      
   }
@@ -31,11 +31,12 @@
   
   
   </style>
+
 <body>
 	<header class="header">
 
 		<div class="topBox">
-			<span>Welcome to Company Exchange website!</span>
+			<span>Welcome to ContractBase Exchange !</span>
 			<ul class="ulList">
 				<li>
 					<div class="dropdown">
@@ -94,11 +95,12 @@
 
 					</ul>
 					<div class="c2cPriceBox">
-						<div class="boxHeader">
-							<span class="lead">New Price</span>
-
-							<span class="priceRise" id="newPrice"></span>
-						</div>
+							<div class="boxHeader">
+								<span class="lead">Total</span>
+                                <span class="" id="">111</span>
+						    	<span class="lead">Available</span>
+                                <span class="" id="">111</span>
+						   </div>
 						<div class="tab-content" id="coinMarketTab">
 							<div class="tab-pane in active" id="ethCurrency">
 								<table class="table">
@@ -287,24 +289,26 @@
 		<div class="contentBottom setMargin">
 
 			<ul id="myTab" class="nav nav-tabs">
+				
 				<li class="active">
-					<a href="#userOpenOrder" data-toggle="tab">Open Order</a>
-				</li>
-				<li>
 					<a href="#userPendingOrder" data-toggle="tab">Pending Order</a>
 				</li>
+				<li >
+						<a href="#userOpenOrder" data-toggle="tab">Tradeing Order</a>
+					</li>
 				<li>
 					<a href="#userHistoryOrder" data-toggle="tab">History Order</a>
 				</li>
 				<span class="pull-right allOrders"><a href="open_order.html">All Orders</a></span>
 			</ul>
 			<div id="myTabContent" class="tab-content">
-				<div class="tab-pane fade in active" id="userOpenOrder">
+					<div class="tab-pane fade in active"  id="userPendingOrder">
+							<table id="c2cUserPendingOrderTable" class="buyDataTable table"></table>
+						</div>
+				<div class="tab-pane fade " id="userOpenOrder">
 					<table id="c2cUserOpenOrderTable" class="buyDataTable table"></table>
 				</div>
-				<div class="tab-pane fade" id="userPendingOrder">
-					<table id="c2cUserPendingOrderTable" class="buyDataTable table"></table>
-				</div>
+				
 				<div class="tab-pane fade" id="userHistoryOrder">
 					<table id="c2cUserHistoryOrderTable" class="buyDataTable table">
 
@@ -507,13 +511,13 @@
 					<!--///-->
 
 					<ul id="myTab" class="nav nav-tabs">
-						<li class="active whiteColor">
+						<!-- <li class="active whiteColor">
 							<a href="#buyTbc" class="buyColor" data-toggle="tab">
 								Buy <span id='selfBuyTabText'>BTC</span>
 							</a>
 
 
-						</li>
+						</li> -->
 						<li class="whiteColor">
 							<a href="#sellTbc" class="sellColor" data-toggle="tab">Sell <span id="selfSellTabText">BTC</span></a>
 
@@ -522,7 +526,7 @@
 					</ul>
 					<div id="myTabContent" class="tab-content">
 
-						<div class="tab-pane dealPane fade  in active" id="buyTbc">
+						<!-- <div class="tab-pane dealPane fade  in active" id="buyTbc">
 							<form id="buyForm" method="post" class="dealForm form-horizontal" action="" novalidate="novalidate">
 
 								<div class="form-group">
@@ -548,13 +552,13 @@
 								</div>
 
 								<div class="textBox">
-									<button type="submit" form="buyForm" class="buyColor">Buy <span id="selfBuyBtn">BTC</span></button>
+									<button type="submit" form="buyForm" class="buyColor">Buy BTC<span id="selfBuyBtn">BTC</span></button>
 								</div>
 
 
 							</form>
-						</div>
-						<div class="tab-pane dealPane fade" id="sellTbc">
+						</div> -->
+						<div class="tab-pane dealPane fade in active" id="sellTbc">
 
 
 
@@ -683,27 +687,27 @@
 						Confirm
 					</h4>
 				</div>
-				<div class="modal-body" style="border:1px solid lightgray;margin:10px;border-radius:5px;min-height:200px;" >
-				    <div class="titleRow">
-                        <span class="title_text">NankNumber:</span><span id="modalBankNumber"></span>
-					</div>
-                    <div class="titleRow">
-                        <span class="title_text" style="">BankName:</span><span id="modalBankName"></span>
-					</div>
-					 <div class="titleRow">
-                        <span class="title_text" style="">User Name:</span><span id="modalUserName"></span>
+				<div class="modal-body" style="border:1px solid lightgray;margin:10px;border-radius:5px;min-height:200px;">
+					<div class="titleRow">
+						<span class="title_text">NankNumber:</span><span id="modalBankNumber"></span>
 					</div>
 					<div class="titleRow">
-                       <span class="title_text" class="titleText">TradeId:</span><span id="modalTradeId"></span>
+						<span class="title_text" style="">BankName:</span><span id="modalBankName"></span>
 					</div>
-					 <div class="titleRow">
-                        <span class="title_text" style="">TelPhone:</span><span id="modalTelPhone"></span>
+					<div class="titleRow">
+						<span class="title_text" style="">User Name:</span><span id="modalUserName"></span>
+					</div>
+					<div class="titleRow">
+						<span class="title_text" class="titleText">TradeId:</span><span id="modalTradeId"></span>
+					</div>
+					<div class="titleRow">
+						<span class="title_text" style="">TelPhone:</span><span id="modalTelPhone"></span>
 					</div>
 					<div style="margin-left:50px;margin-top:30px;">倒计时<span id="timeData"></span>s</div>
-					
+
 				</div>
 				<div class="modal-footer">
-					
+
 					<button type="button" class="btn btn-default" id="confirmBtn">
 						Confirm
 					</button>
@@ -759,7 +763,7 @@
 			</div>
 		</div>
 	</div>
-    <!-- // -->
+	<!-- // -->
 	<div class="modal fade" id="sellStatusModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -768,24 +772,28 @@
 					<h4 class="modal-title" id="" style="text-align: center;">Tips</h4>
 
 				</div>
-				<div class="modal-body">
-                       
-
-					   买家已买入！
-					    <span>订单ID</span>
-						<span>价格</span>
-						<span>数量</span>
-						<span>总额</span>
-
-					   
-
-				</div>
+				
+				<div class="modal-body" style="border:1px solid lightgray;margin:10px;border-radius:5px;min-height:200px;" >
+				    <div class="titleRow">
+                        <span class="title_text">OrderId:</span><span id="orderIdInfo"></span>
+					</div>
+                    <div class="titleRow">
+                        <span class="title_text" style="">Price:</span><span id="priceInfo"></span>
+					</div>
+					 <div class="titleRow">
+                        <span class="title_text" style="">Amount:</span><span id="amountInfo"></span>
+					</div>
+					<div class="titleRow">
+                       <span class="title_text" class="titleText">Total:</span><span id="totalInfo"></span>
+					</div>
+					<div style="margin-left:50px;margin-top:30px;">倒计时<span id="timeData1"></span>s</div>
+					</div>
 				<div class="modal-footer center-block">
-						<button type="button" class="btn  btn-warning" data-dismiss="modal">已收到
-							</button>
-					<button type="button" class="btn  btn-warning" data-dismiss="modal">未收到
+					<button type="button" class="btn  btn-warning" data-dismiss="modal" id="receivedBtn">已收到
 					</button>
-					<button type="button" class="btn btn-default">
+					<button type="button" class="btn  btn-warning" data-dismiss="modal" id="unreceviedBtn">未收到
+					</button>
+					<button type="button" class="btn btn-default" id="appealBtn">
 						我要申诉
 					</button>
 				</div>
@@ -794,8 +802,8 @@
 	</div>
 	<!-- // -->
 </body>
-<script src="/webjars/sockjs-client/sockjs.min.js"></script>
-<script src="/webjars/stomp-websocket/stomp.min.js"></script>
+<script src="webjars/sockjs-client/sockjs.min.js"></script>
+<script src="webjars/stomp-websocket/stomp.min.js"></script>
 <script src="../dist/libs/jquery-2.1.4/jquery.min.js"></script>
 <script src="../dist/libs/layui-v2.2.5/layui.js"></script>
 <script src="../dist/plugs/jquery.validate.min.js"></script>
@@ -804,11 +812,8 @@
 <script src="../dist/plugs/Echarts/dist/echarts.js"></script>
 <script src="../dist/plugs/jquery.cookie.js"></script>
 <script type="text/javascript" src="../js/script.js"></script>
-
-
 <script src="../js/validate_custom.js"></script>
 <script src="../js/public.js"></script>
 <script src="../js/c2c_Transaction.js"></script>
-
 
 </html>

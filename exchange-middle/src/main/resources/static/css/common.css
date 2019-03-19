@@ -211,7 +211,8 @@ html{
  	margin: 0 auto;
  }
  .releaseBox ul li{
- 	width: 50%;
+	 width: 50%;
+	 margin-left: 25%;
  }
 
  .dealPane{

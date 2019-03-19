@@ -89,14 +89,12 @@ function connect() {
 			$.removeCookie('email', {
 				path: '/'
 			})
-
 			$('#loginLi').html('<a id="loginBtn" data-toggle="modal" data-target="#myModal"> Login </a>')
 			$('.ulList li:last').html('<a href="Register.html">  Register  </a>')
 			$('#userItem').addClass('hide')
 			$('#c2cUserOpenOrderTable').find('tbody').html('')
 			$('#c2cUserPendingOrderTable').find('tbody').html('')
 			$('#c2cUserHistoryOrderTable').find('tbody').html('')
-
 			$('#userItem').removeClass('hide')
 			console.log($.cookie('UserId'))
 		})
@@ -186,11 +184,19 @@ function connect() {
 						title: 'Total',
 
 					},
+					// {
+					// 	field: '',
+					// 	title: 'Status',
+
+					// },
 					{
 						field: '',
-						title: 'Handel',
+						title: 'Handle',
 						formatter: function (val, row, index) {
+							
 							return '<button   class="deleteBtn" >Cancel</button>'
+						
+
 						},
 						events: {
 							'click .deleteBtn': function (ev, value, row, index) {
@@ -209,16 +215,11 @@ function connect() {
 							}
 						}
 					}
-
-
 				],
 				data: openOrderData,
-
 			});
-
 		});
-		stompClient.subscribe('/gateway/c2cGetUserOpenOrder-' + sessionId, function (data) {
-
+		stompClient.subscribe('/gateway/c2cGetUserOpenOrder-' + sessionId, function (data) { //改为tradingOrder
 			var response = jQuery.parseJSON(data.body);
 			var c2cUserOpenOrderTable = document.getElementById("c2cUserOpenOrderTable")
 			$('#c2cUserOpenOrderTable').bootstrapTable('destroy')
@@ -266,6 +267,19 @@ function connect() {
 						title: 'Total',
 
 					},
+					
+					{
+						field: '',
+						title: 'Handel',
+						formatter: function (val, row, index) {
+							return "<button class='confirmTableBtn'>Confirm</button>"
+						},
+						events: {
+							'click .confirmTableBtn': function (ev, value, row, index) {
+								alert(123)
+						                                                            	}
+						        }
+					}
 
 
 				],
@@ -414,38 +428,31 @@ function connect() {
 				$('#modalTelPhone').text(res.Banklist.MobilePhoneNum)
 				var data1 = 10
 				var id = setInterval(frame, 1000);
+
 				function frame() {
-					
-					clearInterval(id);
-					$('#timeData').text(data1)
-					if (data1 > 0){
+					if (data1 == 0) {
+						clearInterval(id);
+					} else {
+						data1--
 						$('#confirmBtn').click(function () {
 							confirm()
+							clearInterval(id);
 						})
-					}else {
-						data1--
-						// $('#timeData').text(data1)
+						$('#timeData').text(data1)
 						if ($('#timeData').text() == 0) {
 							TimeoutOutCancel()
 						}
 					}
 				}
-				// function frame() {
-				// 	if (data1 == 0) {
-				// 		clearInterval(id);
-				// 	}else {
-				// 		data1--
-				// 		$('#timeData').text(data1)
-				// 		if ($('#timeData').text() == 0) {
-				// 			TimeoutOutCancel()
-				// 		}
-				// 	}
-				// }
 
 
 			} else {
 				alert('失败')
 			}
+
+		});
+		stompClient.subscribe('/gateway/c2cEntrust-' + sessionId, function (data) { //订阅超时自动取消
+			var response = jQuery.parseJSON(data.body);
 
 		});
 		stompClient.subscribe('/gateway/c2cCancelTrade-' + sessionId, function (data) { //订阅超时自动取消
@@ -455,7 +462,8 @@ function connect() {
 		});
 		stompClient.subscribe('/gateway/c2cPay-' + sessionId, function (data) { //订阅确认
 			var response = jQuery.parseJSON(data.body);
-			 console.log("已确认")
+			console.log("已确认")
+			$('#confirmModal').modal('hide')
 		});
 		stompClient.subscribe('/gateway/c2cPayConfirm-' + sessionId, function (data) {
 			var response = jQuery.parseJSON(data.body);
@@ -467,13 +475,53 @@ function connect() {
 		stompClient.subscribe('/gateway/c2cOpenOrder-' + sessionId, function (data) {
 			var response = jQuery.parseJSON(data.body);
 		});
-		stompClient.subscribe('/gateway/confirmationPrompt-' + sessionId, function (data) {
-
+		stompClient.subscribe('/gateway/confirmationPrompt-' + sessionId, function (data) { //卖家收到卖家买入信息
+			var response = jQuery.parseJSON(data.body);
+			$('#orderIdInfo').text(response.Banklist.OrderId)
+			$('#priceInfo').text(response.Banklist.Price)
+			$('#amountInfo').text(response.Banklist.Amount)
+			$('#totalInfo').text(response.Banklist.Total)
 			$('#sellStatusModal').modal('show')
+			//
+			var data1 = 10
+			var id = setInterval(frame, 1000);
+
+			function frame() {
+				if (data1 == 0) {
+					clearInterval(id);
+				} else {
+					data1--
+					$('#receivedBtn').click(function () { //卖家确认已收到
+						stompClient.send("/ws/c2c/trade", {}, JSON.stringify({
+							'Tag': 21001,
+							'requestID': '123456789',
+							'userID': $.cookie('UserId'),
+							'entrustId': $("#otcBuyEntrustId").val(),
+						}));
+						clearInterval(id);
+					})
+					$('#appealBtn').click(function () {  //我要申诉（卖家）
+						// stompClient.send("/ws/c2c/trade", {}, JSON.stringify({ //接口待定义
+						// 	  'Tag':21001 ,
+						// 	 'entrustId': $("#otcBuyEntrustId").val(),
+						// }));
+						clearInterval(id);
+                         alert('已申诉')
+						$('#sellStatusModal').modal('hide')
+					  })
+					$('#timeData1').text(data1)
+					if ($('#timeData1').text() == 0) {
+						sellerTimeOut()
+					}
+				}
+			}
+			//
 
 		})
 	});
 }
+
+
 
 function init() {
 	stompClient.send("/ws/c2c/home", {}, JSON.stringify({
@@ -497,11 +545,9 @@ function trade(type) {
 		'userID': $.cookie('UserId'),
 		'amount': amount
 	}));
-
 }
 
 function cancelPendingOrder() { //用户取消
-
 	stompClient.send("/ws/c2c/cancelPendingOrder", {}, JSON.stringify({
 		'Tag': 20739,
 		'RequestID': 'testtesttest',
@@ -517,6 +563,16 @@ function TimeoutOutCancel() {
 		'UserID': $.cookie('UserId'),
 		'tradeId': $("#otcBuyEntrustId").val(),
 	}));
+}
+
+function sellerTimeOut() {
+	stompClient.send("/ws/c2c/trade", {}, JSON.stringify({ //接口待定义
+		'Tag': 21001,
+		'requestID': '123456789',
+		'userID': $.cookie('UserId'),
+		'entrustId': $("#otcBuyEntrustId").val(),
+	}));
+	alert("卖家超时，已自动确认！")
 }
 
 function entrust(type) {
@@ -562,16 +618,15 @@ function sendLogoutData() {
 	}));
 }
 
-
-
 function confirm() {
 	stompClient.send("/ws/c2c/entrust", {}, JSON.stringify({ //确认
 		"Tag": 20489,
 		'UserID': $.cookie('UserId'),
-		// 'tradeId': $("#otcBuyEntrustId").val(),
-		tradeId:$('#modalTradeId').text()
+
+		tradeId: $('#modalTradeId').text()
 
 	}));
+	$('#confirmModal').modal('hide')
 }
 
 function tradePadelogout() {
@@ -601,7 +656,7 @@ function tradePadelogout() {
 // }
 
 function sell() {
-	s
+
 	alert("sell");
 }
 
