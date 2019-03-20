@@ -270,15 +270,17 @@ public class C2cTradeServiceImpl implements C2cTradeService{
 
 	@Override
 	public BaseMsg selUserAsset(String req) {
-		
-		Map<String,Object> map = JSON.parseObject(req);
-		Integer userId =  (Integer) map.get("UserID");
-		String coinName = (String) map.get("CoinName");
-		System.err.println("userId = " + userId+" coinName = "+coinName);
-		Map<String,Object> userAssetData = c2cTradeDao.selectUserAssets(userId,coinName);
-		
 		c2cObject c2cO = new c2cObject();
-		c2cO.setResData(userAssetData);
+		Map<String,Object> map = JSON.parseObject(req);
+		if(map.get("UserID") != null && map.get("CoinName") != null) {
+			Integer userId =  Integer.valueOf(map.get("UserID").toString());
+			String coinName = map.get("CoinName").toString();
+			System.err.println("userId = " + userId+" coinName = "+coinName);
+			Map<String,Object> userAssetData = c2cTradeDao.selectUserAssets(userId,coinName);
+			
+			
+			c2cO.setResData(userAssetData);
+		}
 		
 		return c2cO;
 	}
