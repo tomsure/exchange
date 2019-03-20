@@ -536,7 +536,7 @@ function connect() {
 			$('#totalInfo').text(response.Banklist.Total)
 			$('#sellStatusModal').modal('show')
 			//
-			var data1 = 60
+			var data1 = 180
 			var id = setInterval(frame, 1000);
 
 			function frame() {
