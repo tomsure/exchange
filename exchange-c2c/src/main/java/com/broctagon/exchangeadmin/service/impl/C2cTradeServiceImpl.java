@@ -274,7 +274,7 @@ public class C2cTradeServiceImpl implements C2cTradeService{
 		Map<String,Object> map = JSON.parseObject(req);
 		if(map.get("UserID") != null && map.get("coinName") != null) {
 			Integer userId =  Integer.valueOf(map.get("UserID").toString());
-			String coinName = map.get("CoinName").toString();
+			String coinName = map.get("coinName").toString();
 			System.err.println("userId = " + userId+" coinName = "+coinName);
 			Map<String,Object> userAssetData = c2cTradeDao.selectUserAssets(userId,coinName);
 			
