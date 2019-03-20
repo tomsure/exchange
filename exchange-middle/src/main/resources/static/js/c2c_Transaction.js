@@ -636,7 +636,7 @@ function entrust(type) {
 		'price': price,
 		'entrustType': type,
 		'amount': amount,
-		'coinName': $('#selfBuyTabText').text()
+		'coinName': $('#selfSellTabText').text()
 	}));
 }
 
