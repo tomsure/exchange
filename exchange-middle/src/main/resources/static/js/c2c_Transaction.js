@@ -148,19 +148,19 @@ function connect() {
 					};
 					return style;
 				},
-
 				striped: true,
 				pagination: 'true',
 				pageSize: 6,
-				columns: [{
+				columns: [
+					{
 						field: 'Id',
 						title: 'OrderId'
 					},
 					{
 						field: 'CoinName',
 						title: 'CoinName',
-
-					}, {
+					}, 
+					{
 						field: 'EntrustType',
 						title: 'TradeType',
 						formatter: function (val, row, index) {
@@ -233,7 +233,7 @@ function connect() {
 				pagination: 'true',
 				pageSize: 6,
 				columns: [{
-						field: 'EntrustId',
+						field: 'TradeId',
 						title: 'TrideId'
 					},
 					{
@@ -257,7 +257,7 @@ function connect() {
 
 					},
 					{
-						field: '',
+						field: 'Total',
 						title: 'Total',
 
 					},
@@ -272,11 +272,11 @@ function connect() {
 						events: {
 							'click .confirmBtn1': function (ev, value, row, index) {
 							  $('#confirmModal').modal('show')
-						$('#modalBankNumber').text('2212111122111322')
-						$('#modalBankName').text('ACCIP')
-						$('#modalUserName').text('anyu')
-						$('#modalTradeId').text('123')
-						$('#modalTelPhone').text('1133')
+						$('#modalBankNumber').text(row.Bankaccount)
+						$('#modalBankName').text(row.Bankname)
+						$('#modalUserName').text(row.OppositUserName)
+						$('#modalTradeId').text(row.TradeId)
+						$('#modalTelPhone').text(11111)
 						var data1 = 10
 						var id = setInterval(frame, 1000);
 						function frame() {
@@ -399,12 +399,19 @@ function connect() {
 			$('#ydVol').html(response.Yesterday.Volume);
 			$('#tdVol').html(response.Today.Volume);
 		});
+
+		stompClient.subscribe('/gateway/c2cUserAssetsQes-' + sessionId, function (data) { //监听资产
+			var response = jQuery.parseJSON(data.body);
+      
+		})
 		stompClient.subscribe('/gateway/c2cCoinHistoricalMarket-' + sessionId, function (data) {
 			var response = jQuery.parseJSON(data.body);
 			var coinMarketTab = document.getElementById("coinMarketTab")
 
 		});
+    
 
+		 
 		otcBuyform(function () {
 			trade(0)
 			$('#buyModal').modal('hide')
@@ -549,6 +556,11 @@ function init() {
 		'RequestID': 'testtesttest',
 		'UserID': $.cookie('UserId'),
 		'Token': null,
+	}));
+	stompClient.send("/ws/c2c/userAssets", {}, JSON.stringify({
+		'RequestID': 'testtesttest',
+		'UserID': $.cookie('UserId'),
+		'Tag': 20987,
 	}));
 }
 
