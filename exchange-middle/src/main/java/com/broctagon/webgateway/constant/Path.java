@@ -105,6 +105,8 @@ public class Path {
 	
 	public static final String C2C_COIN_HISTORICAL_MARKET = "/c2cCoinHistoricalMarket-";
 	
+	public static final String C2C_USER_ASSETS_RES = "/c2cUserAssetsQes-";
+	
 	public static final String CONFIRMATION_PROMPT = "/confirmationPrompt-";
 	
 	//邮箱验证码响应路径

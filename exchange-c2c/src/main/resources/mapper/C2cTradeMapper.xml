@@ -105,4 +105,11 @@
 		t.id = #{id}
 	</select>
 	
+	
+	
+	
+	<select id="selectUserAssets" parameterType="java.util.Map" resultType="java.util.Map">
+	select a.* from user_assets a left join coin c on c.ID = a.CoinID where a.UserID = #{userID} and c.CoinName = #{coinName}
+	</select>
+	
 </mapper> 

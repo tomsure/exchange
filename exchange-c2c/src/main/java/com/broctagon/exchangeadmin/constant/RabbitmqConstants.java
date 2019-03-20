@@ -38,6 +38,8 @@ public class RabbitmqConstants {
 	public final static int TAG_TRADE_HISTORYMARKET_REQ = 0x5123;
 	public final static int TAG_TRADE_HISTORYMARKET_RES = TAG_TRADE_HISTORYMARKET_REQ + 1;
 	
+	public final static int USER_ASSETS_REQ = 20987;
+	
 	public final static int TAG_COIN_LIST_REQ = 0x5011;
 	public final static int TAG_COIN_LIST_RES = TAG_COIN_LIST_REQ + 1;
 	

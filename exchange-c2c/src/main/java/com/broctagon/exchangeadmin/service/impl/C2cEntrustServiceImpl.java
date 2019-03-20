@@ -91,6 +91,8 @@ public class C2cEntrustServiceImpl implements C2cEntrustService{
 					double count = c2cEntrustModel.getAmount();
 					String coinName = c2cEntrustModel.getCoinName();
 					c2cEntrustDao.updateAssets1(userId,count,coinName);
+					
+					messageDispatcher.userAssets(req);
 				}
 			}
 			
@@ -131,6 +133,8 @@ public class C2cEntrustServiceImpl implements C2cEntrustService{
 				double count = c2cEntrustModel.getAmount();
 				String coinName = c2cEntrustModel.getCoinName();
 				c2cEntrustDao.updateAssets(userId,count,coinName);
+				
+				messageDispatcher.userAssets(req);
 				
 			}
 			

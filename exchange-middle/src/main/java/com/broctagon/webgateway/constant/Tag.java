@@ -202,6 +202,8 @@ public class Tag {
 	
 	public static final int C2C_COIN_HISTORICAL_MARKET_RESPONSE = 20772;
 	
+	public static final int C2C_USER_ASSETS_RES = 20988;
+	
 	
 	// security server
 	//发送邮箱验证码求情
