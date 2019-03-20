@@ -37,4 +37,5 @@ public interface C2cEntrustDao {
 	
 	public int updateAmount(C2cEntrustModel c2cEntrustModel);
 	
+	
 }
