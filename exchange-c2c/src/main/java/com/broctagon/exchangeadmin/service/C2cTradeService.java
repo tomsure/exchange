@@ -21,4 +21,6 @@ public interface C2cTradeService {
 	public BaseMsg findUserHistoryTrade(String req);
 	public BaseMsg findTradeMarket(String req);
 	
+	public BaseMsg selUserAsset(String req);
+	
 }

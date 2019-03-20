@@ -66,4 +66,10 @@ public class C2cController {
 	public void cancel(String message, @Header("simpSessionId") String sessionId) {
 		c2cServService.sendMessageToC2cServ(messageUtil.addTitleToMsg(message, sessionId));
 	}
+	
+	
+	@MessageMapping("/c2c/userAssets")
+	public void useruserAssets(String message, @Header("simpSessionId") String sessionId) {
+		c2cServService.sendMessageToC2cServ(messageUtil.addTitleToMsg(message, sessionId));
+	}
 }

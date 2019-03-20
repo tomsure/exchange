@@ -75,6 +75,9 @@ public class C2CServListener {
 			case Tag.C2C_COIN_HISTORICAL_MARKET_RESPONSE:
 				messageSender.convertAndSend(Path.PREFIX + Path.C2C_COIN_HISTORICAL_MARKET + sessionId, message);
 				break;
+			case Tag.C2C_USER_ASSETS_RES:
+				messageSender.convertAndSend(Path.PREFIX + Path.C2C_USER_ASSETS_RES + sessionId, message);
+				break;
 			default:
 				break;
 		}

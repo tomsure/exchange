@@ -88,6 +88,9 @@ public class MessageDispatcher {
 			case RabbitmqConstants.TAG_COIN_LIST_REQ://货币种类
 				baseMsgRes = c2cCoinService.findC2cCoinList();
 				break;
+			case RabbitmqConstants.USER_ASSETS_REQ://用户资产
+				baseMsgRes = c2cTradeService.selUserAsset(req);
+				break;
 				
 			default: 
 				baseMsgRes = unkownTag(baseMsgReq);
@@ -112,6 +115,27 @@ public class MessageDispatcher {
 		c2cResultRes.setResult(false);
 		c2cResultRes.setReason("Unknown Tag: " + baseMsgReq.getTag());
 		return c2cResultRes;
+	}
+	
+	
+	public void userAssets(String req){
+		logger.info("主动推送用户资产信息");
+		BaseMsg baseMsgReq = JSON.parseObject(req, BaseMsg.class);
+		BaseMsg baseMsgRes = null;
+		
+		baseMsgRes = c2cTradeService.selUserAsset(req);
+		
+		baseMsgRes.setRequestID(baseMsgReq.getRequestID());
+		baseMsgRes.setSessionID(baseMsgReq.getSessionID());
+		baseMsgRes.setWSID(baseMsgReq.getWSID());
+		baseMsgRes.setTag(20988);
+		String res = JSON.toJSONString(baseMsgRes, new PascalNameFilter());
+		MessageProperties properties = new MessageProperties();
+		properties.setDeliveryMode(MessageDeliveryMode.NON_PERSISTENT);
+		Message resMessage = new Message(res.getBytes(), properties);
+		rabbitTemplate.send(RabbitmqConstants.MQ_KEY_C2C_RES + baseMsgReq.getWSID(), resMessage);
+		
+		logger.info("userAssets response content:" + res);
 	}
 	
 	public void sendToManager(String req){

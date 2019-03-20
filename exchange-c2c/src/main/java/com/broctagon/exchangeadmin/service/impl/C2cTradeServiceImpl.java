@@ -25,6 +25,7 @@ import com.broctagon.exchangeadmin.message.C2cTradeMarketRes;
 import com.broctagon.exchangeadmin.message.C2cTradeReq;
 import com.broctagon.exchangeadmin.message.C2cUpdateTradeReq;
 import com.broctagon.exchangeadmin.message.ManagerTradeReq;
+import com.broctagon.exchangeadmin.message.c2cObject;
 import com.broctagon.exchangeadmin.model.C2cEntrustModel;
 import com.broctagon.exchangeadmin.model.C2cMarketModel;
 import com.broctagon.exchangeadmin.model.C2cTradeAccountModel;
@@ -51,6 +52,9 @@ public class C2cTradeServiceImpl implements C2cTradeService{
 	
 	@Autowired
 	private C2cTradeDao c2cTradeDao;
+	
+	@Autowired
+	private C2cTradeService c2cTradeService;
 	
 	@Autowired
 	private MessageDispatcher messageDispatcher;
@@ -262,6 +266,21 @@ public class C2cTradeServiceImpl implements C2cTradeService{
 		}
 				
 		return c2cTradeMarketRes;
+	}
+
+	@Override
+	public BaseMsg selUserAsset(String req) {
+		
+		Map<String,Object> map = JSON.parseObject(req);
+		Integer userId =  (Integer) map.get("UserID");
+		String coinName = (String) map.get("CoinName");
+		System.err.println("userId = " + userId+" coinName = "+coinName);
+		Map<String,Object> userAssetData = c2cTradeDao.selectUserAssets(userId,coinName);
+		
+		c2cObject c2cO = new c2cObject();
+		c2cO.setResData(userAssetData);
+		
+		return c2cO;
 	}
 	
 }
