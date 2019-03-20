@@ -2,6 +2,7 @@
 package com.broctagon.exchangeadmin.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -20,7 +21,7 @@ public interface C2cEntrustDao {
 	public List<C2cEntrustModel> findAll();
 	public C2cEntrustModel findById(int id);
 	public Integer findLastId();
-	public List<C2cEntrustModel> findByCoinAndUserId(C2cEntrustModel c2cEntrustModel);
+	public List<Map<String,Object>> findByCoinAndUserId(C2cEntrustModel c2cEntrustModel);
 	public List<C2cEntrustModel> findSellByCoin(String coin);
 	public List<C2cEntrustModel> findBuyByCoin(String coin);
 	public int save(C2cEntrustModel c2cEntrustModel);

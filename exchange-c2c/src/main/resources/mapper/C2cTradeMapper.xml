@@ -27,29 +27,29 @@
 	UPDATE t_c2c_trade t LEFT JOIN t_c2c_entrust e ON e.id=t.`entrustId` SET e.`amount`=e.`amount`+t.`amount`, t.`tradeStatus`=#{tradeStatus} WHERE t.`id`=#{id};
 	</update>
 	
-	<select id="findHistoryMarket" parameterType="String" resultType="C2cMarketModel">	
+	<select id="findHistoryMarket" parameterType="String" resultType="java.util.Map">	
 	SELECT e.price, e.amount, e.coinName, e.id FROM t_c2c_trade t LEFT JOIN t_c2c_entrust e ON t.`entrustId` = e.`id` WHERE coinName=#{coinName} AND tradeStatus=3 ORDER BY updatetime DESC LIMIT 30;
 	</select>
 	
-	<select id="findUserHistoryTrade" parameterType="C2cEntrustModel" resultType="C2cMarketModel">
-	SELECT (entrustType-1)*(entrustType-1) AS entrustType, price, t.`amount`, t.tradeStatus, e.id, e.coinName,t.amount * price as total FROM t_c2c_trade t LEFT JOIN t_c2c_entrust e ON t.`entrustId`=e.`id` 
+	<select id="findUserHistoryTrade" parameterType="C2cEntrustModel" resultType="java.util.Map">
+	SELECT (entrustType-1)*(entrustType-1) AS entrustType, price, t.`amount`, t.tradeStatus, e.id as entrustId,t.id as tradeId, e.coinName,t.amount * price as total FROM t_c2c_trade t LEFT JOIN t_c2c_entrust e ON t.`entrustId`=e.`id` 
 	WHERE coinName=#{coinName} AND tradeUserId=#{userId} AND t.`tradeStatus` in (1,3) ;
 	</select>
 	
-	<select id="findCurrentTrade" parameterType="C2cEntrustModel" resultType="C2cTradeDetailModel">
-	SELECT e.id as entrustId, e.coinName, username AS oppositUserName, bankname, bankaccount, price, t.amount, price*t.amount AS Total,(entrustType-1)*(entrustType-1) AS entrustType, creattime 
+	<select id="findCurrentTrade" parameterType="C2cEntrustModel" resultType="java.util.Map">
+	SELECT t.id AS tradeId,e.id as entrustId, e.coinName, username AS oppositUserName, bankname, bankaccount, price, t.amount, price*t.amount AS Total,(entrustType-1)*(entrustType-1) AS entrustType,t.tradeStatus, creattime 
 	FROM t_c2c_trade t LEFT JOIN t_c2c_entrust e ON t.`entrustId`=e.`id` LEFT JOIN `user` u ON u.id=e.userId LEFT JOIN user_banklist b ON b.`UserID`=u.id LEFT JOIN bank_list l ON l.`ID`=b.`BankID` 
 	WHERE coinName=#{coinName} AND t.`tradeUserId`=#{userId} AND t.`tradeStatus` in (0,2);
 	</select>
 	
-	<select id="findCurrentMerchantTrade" parameterType="C2cEntrustModel" resultType="C2cTradeDetailModel">
-	SELECT username AS oppositUserName, bankname, bankaccount, price, t.amount, price*t.amount AS total, entrustType, creattime 
+	<select id="findCurrentMerchantTrade" parameterType="C2cEntrustModel" resultType="java.util.Map">
+	SELECT t.id AS tradeId,e.id as entrustId, e.coinName,username AS oppositUserName, bankname, bankaccount, price, t.amount, price*t.amount AS total, entrustType,t.tradeStatus, creattime 
 	FROM t_c2c_trade t LEFT JOIN t_c2c_entrust e ON t.`entrustId`=e.`id` LEFT JOIN `user` u ON u.id=e.`userId` LEFT JOIN user_banklist b ON b.`UserID`=u.id LEFT JOIN bank_list l ON l.`ID`=b.`BankID` 
 	WHERE coinName=#{coinName} AND  e.`userId`=#{userId} AND t.`tradeStatus` in (0,2)  AND t.`tradeUserId`!=e.userId;
 	</select> 
 		
-	<select id="findMerchantHistoryTrade" parameterType="C2cEntrustModel" resultType="C2cMarketModel">
-	SELECT entrustType, price, t.`amount`, t.tradeStatus FROM t_c2c_trade t LEFT JOIN t_c2c_entrust e ON t.`entrustId`=e.`id` 
+	<select id="findMerchantHistoryTrade" parameterType="C2cEntrustModel" resultType="java.util.Map">
+	SELECT entrustType, price, t.`amount`, t.tradeStatus, e.id as entrustId,t.id as tradeId, e.coinName,t.amount * price as total FROM t_c2c_trade t LEFT JOIN t_c2c_entrust e ON t.`entrustId`=e.`id` 
 	WHERE coinName=#{coinName} AND e.userId=#{userId} AND t.`tradeStatus` in (1,3) AND t.`tradeUserId`!=e.`userId`;
 	</select>
 	

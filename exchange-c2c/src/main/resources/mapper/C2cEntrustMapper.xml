@@ -15,7 +15,7 @@
 	select * from t_c2c_entrust where id=#{id};
 	</select>
 	
-	<select id="findByCoinAndUserId" parameterType="C2cEntrustModel" resultType="C2cEntrustModel">
+	<select id="findByCoinAndUserId" parameterType="C2cEntrustModel" resultType="java.util.Map">
 	select * from t_c2c_entrust where coinName=#{coinName} and userId=#{userId} and status=0 and amount>0;
 	</select>
 	

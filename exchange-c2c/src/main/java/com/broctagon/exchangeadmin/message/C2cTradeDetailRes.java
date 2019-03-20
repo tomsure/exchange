@@ -2,6 +2,7 @@
 package com.broctagon.exchangeadmin.message;
 
 import java.util.List;
+import java.util.Map;
 
 import com.broctagon.exchangeadmin.model.C2cTradeDetailModel;
 
@@ -13,13 +14,13 @@ import com.broctagon.exchangeadmin.model.C2cTradeDetailModel;
 
 public class C2cTradeDetailRes extends BaseMsg{
 
-	private List<C2cTradeDetailModel> orderList;
+	private List<Map<String,Object>> orderList;
 
-	public List<C2cTradeDetailModel> getOrderList() {
+	public List<Map<String,Object>> getOrderList() {
 		return orderList;
 	}
 
-	public void setOrderList(List<C2cTradeDetailModel> orderList) {
+	public void setOrderList(List<Map<String,Object>> orderList) {
 		this.orderList = orderList;
 	}
 

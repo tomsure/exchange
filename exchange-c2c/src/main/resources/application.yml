@@ -6,16 +6,14 @@ server:
 
 spring:
 
-
     rabbitmq:
         listener:
             simple:
                 acknowledge-mode: none
-    
 
     datasource:
         driver-class-name: com.mysql.jdbc.Driver
-        url: jdbc:mysql://172.31.99.147:3306/exchange?useUnicode=true&characterEncoding=utf-8&autoReconnect=true
+        url: jdbc:mysql://172.31.99.147:3306/exchange?useUnicode=true&characterEncoding=utf8&useSSL=false
         username: root
         password: Aa123456*&^
         

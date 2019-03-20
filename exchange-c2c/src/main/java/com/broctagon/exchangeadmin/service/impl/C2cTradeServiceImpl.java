@@ -186,13 +186,12 @@ public class C2cTradeServiceImpl implements C2cTradeService{
 		C2cEntrustModel c2cEnturstModel = new C2cEntrustModel();
 		c2cEnturstModel.setUserId(c2cFindReq.getUserId());
 		c2cEnturstModel.setCoinName(c2cFindReq.getCoinName());
-		List<C2cTradeDetailModel> c2cTradeDetailModels = c2cTradeDao.findCurrentTrade(c2cEnturstModel);//用户挂单未成交记录
-		List<C2cTradeDetailModel> c2cMerchantTradeDetailModels = c2cTradeDao.findCurrentMerchantTrade(c2cEnturstModel);
-		
+		List<Map<String,Object>> c2cTradeDetailModels = c2cTradeDao.findCurrentTrade(c2cEnturstModel);//
+		List<Map<String,Object>> c2cMerchantTradeDetailModels = c2cTradeDao.findCurrentMerchantTrade(c2cEnturstModel);
 		System.out.println("JSON.toJSONString(c2cTradeDetailModels):" + JSON.toJSONString(c2cTradeDetailModels));
 		System.out.println("JSON.toJSONString(c2cMerchantTradeDetailModels):" + JSON.toJSONString(c2cMerchantTradeDetailModels));
 		
-		List<C2cTradeDetailModel> tradeCombine = new ArrayList<C2cTradeDetailModel>();
+		List<Map<String,Object>> tradeCombine = new ArrayList<Map<String,Object>>();
 		if(c2cTradeDetailModels!=null && !c2cTradeDetailModels.isEmpty()){
 			tradeCombine.addAll(c2cTradeDetailModels);
 		}
@@ -210,7 +209,7 @@ public class C2cTradeServiceImpl implements C2cTradeService{
 		C2cFindReq c2cFindReq = JSON.parseObject(req, C2cFindReq.class);
 		
 		String coin = c2cFindReq.getCoinName();
-		List<C2cMarketModel> historyMarket = c2cTradeDao.findHistoryMarket(coin);
+		List<Map<String,Object>> historyMarket = c2cTradeDao.findHistoryMarket(coin);
 		C2cHistoryMarketRes c2cHistoryMarketRes = new C2cHistoryMarketRes();
 		c2cHistoryMarketRes.setHistoryMarket(historyMarket);
 		
@@ -223,13 +222,13 @@ public class C2cTradeServiceImpl implements C2cTradeService{
 		C2cEntrustModel c2cEnturstModel = new C2cEntrustModel();
 		c2cEnturstModel.setCoinName(c2cFindReq.getCoinName());
 		c2cEnturstModel.setUserId(c2cFindReq.getUserId());
-		List<C2cMarketModel> historyMarket = c2cTradeDao.findUserHistoryTrade(c2cEnturstModel);	
-		List<C2cMarketModel> merchantHistoryMarket = c2cTradeDao.findMerchantHistoryTrade(c2cEnturstModel);	
+		List<Map<String,Object>> historyMarket = c2cTradeDao.findUserHistoryTrade(c2cEnturstModel);	
+		List<Map<String,Object>> merchantHistoryMarket = c2cTradeDao.findMerchantHistoryTrade(c2cEnturstModel);	
 		
 		System.out.println("historyMarket:" + JSON.toJSONString(historyMarket));
 		System.out.println("merchantHistoryMarket:" + JSON.toJSONString(merchantHistoryMarket));
 		
-		List<C2cMarketModel> historyMarketCombine = new ArrayList<C2cMarketModel>();
+		List<Map<String,Object>> historyMarketCombine = new ArrayList<Map<String,Object>>();
 		if(historyMarket!=null&&!historyMarket.isEmpty()){
 			historyMarketCombine.addAll(historyMarket);
 		}
