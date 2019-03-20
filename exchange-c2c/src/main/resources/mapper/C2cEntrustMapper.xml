@@ -74,5 +74,28 @@
 	</update>
 	
 	
+	<update id="userAssetsAdd"  parameterType="java.util.Map">
+	UPDATE user_assets
+	SET Total = Total + #{count},
+	Available = Available + #{count},
+	WHERE
+		UserID = #{userId}
+	and CoinID = (
+		SELECT ID from coin where CoinName = #{coinName}
+	)
+	</update>
+	
+	<update id="userAssetsRem"  parameterType="java.util.Map">
+	UPDATE user_assets
+	SET Total = Frozen - #{count},
+	Total = Total - #{count}
+	WHERE
+		UserID = #{userId}
+	and CoinID = (
+		SELECT ID from coin where CoinName = #{coinName}
+	)
+	</update>
+	
+	
 		
 </mapper> 

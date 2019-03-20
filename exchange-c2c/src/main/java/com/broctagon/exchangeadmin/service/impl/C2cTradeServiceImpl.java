@@ -158,11 +158,11 @@ public class C2cTradeServiceImpl implements C2cTradeService{
 			C2cTradeAccountModel c2cTradeAccountModel = c2cTradeDao.findTradeDetailById(tradeId);				
 			logger.info("JSON.toJSONString(c2cTradeAccountModel):" + JSON.toJSONString(c2cTradeAccountModel));
 			if(c2cTradeAccountModel.getEntrustType() == 1) {
-				c2cEntrustDao.updateAssets(c2cTradeAccountModel.getTraderId(),c2cTradeAccountModel.getAmount(),c2cTradeAccountModel.getCoinName());
-				c2cEntrustDao.updateAssets1(c2cTradeAccountModel.getEntrusterId(),c2cTradeAccountModel.getAmount(),c2cTradeAccountModel.getCoinName());
+				c2cEntrustDao.userAssetsAdd(c2cTradeAccountModel.getTraderId(),c2cTradeAccountModel.getAmount(),c2cTradeAccountModel.getCoinName());
+				c2cEntrustDao.userAssetsRem(c2cTradeAccountModel.getEntrusterId(),c2cTradeAccountModel.getAmount(),c2cTradeAccountModel.getCoinName());
 			}else if(c2cTradeAccountModel.getEntrustType() == 0) {
-				c2cEntrustDao.updateAssets(c2cTradeAccountModel.getEntrusterId(),c2cTradeAccountModel.getAmount(),c2cTradeAccountModel.getCoinName());
-				c2cEntrustDao.updateAssets1(c2cTradeAccountModel.getTraderId(),c2cTradeAccountModel.getAmount(),c2cTradeAccountModel.getCoinName());
+				c2cEntrustDao.userAssetsAdd(c2cTradeAccountModel.getEntrusterId(),c2cTradeAccountModel.getAmount(),c2cTradeAccountModel.getCoinName());
+				c2cEntrustDao.userAssetsRem(c2cTradeAccountModel.getTraderId(),c2cTradeAccountModel.getAmount(),c2cTradeAccountModel.getCoinName());
 			}
 //			
 //			ManagerTradeReq managerTradeReq = new ManagerTradeReq();

@@ -35,7 +35,15 @@ public interface C2cEntrustDao {
 	
 	public int updateAssets1(@Param(value = "userId")int userId,@Param(value = "count")double count,@Param(value = "coinName")String coinName);
 	
+	
+	
 	public int updateAmount(C2cEntrustModel c2cEntrustModel);
+	
+	
+public int userAssetsAdd(@Param(value = "userId")int userId,@Param(value = "count")double count,@Param(value = "coinName")String coinName);
+	
+	
+	public int userAssetsRem(@Param(value = "userId")int userId,@Param(value = "count")double count,@Param(value = "coinName")String coinName);
 	
 	
 }
