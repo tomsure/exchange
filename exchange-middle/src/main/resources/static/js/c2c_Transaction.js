@@ -1,5 +1,4 @@
 var stompClient = null;
-
 var sessionId;
 
 function connect() {
@@ -7,104 +6,102 @@ function connect() {
 	stompClient = Stomp.over(socket);
 	stompClient.connect({}, function (frame) {
 		console.log('Connected: ' + frame);
-
 		sessionId = socket._transport.url.split("/")[5];
-
+	
 		stompClient.subscribe('/gateway/kick', function (data) {
 			var newData = jQuery.parseJSON(data.body); // 解析数据
 			//			alert("你好，我是一个警告框！"+newData);
-			console.log(newData.kickSessionId)
-			console.log($.cookie('sessionId'))
 			if (newData.kickSessionId == $.cookie('sessionId')) {
 				alert('其他地方已登录！')
 				tradePadelogout()
 			}
-			console.log("newData: " + newData)
-		})
-
-
-
-		//               如果有userid
-		if ($.cookie('UserId')) {
-			$('#loginLi').html('<span>' + $.cookie('email') + '</span>')
-			$('#liLast').html('<span id="logout">Logout</span>')
-			$('#userItem').removeClass('hide')
-		}
-		//
-		//如果没有userID
-		customValidate($('#lgPassWordForm'), {
-			"lgEmail": {
-				required: true,
-				email: true
-			},
-			"lgPassword": {
-				required: true
+			})
+			              // 如果有userid
+			if ($.cookie('UserId')) {
+				$('#loginLi').html('<span>' + $.cookie('email') + '</span>')
+				$('#liLast').html('<span id="logout">Logout</span>')
+				$('#userItem').removeClass('hide')
 			}
-		}, {}, function () {
-			//
-			stompClient.subscribe('/gateway/login-' + sessionId, function (data) {
-
-				var kickSessionId = jQuery.parseJSON(data.body).kickSessionId
-				console.log("11:" + kickSessionId)
-				if (kickSessionId != '' && kickSessionId != undefined && kickSessionId != null) {
-					stompClient.send("/ws/user/kick", {}, JSON.stringify({
-
-						"UserID": parseInt($.cookie('UserId')),
-						"kickSessionId": kickSessionId
-					}))
+		//如果没有userID
+			customValidate($('#lgPassWordForm'), {
+				"lgEmail": {
+					required: true,
+					email: true
+				},
+				"lgPassword": {
+					required: true
 				}
+			}, {}, function () {
+				//
+				var unLoginsubscribe=stompClient.subscribe('/gateway/login-' + sessionId, function (data) {
+					var kickSessionId = jQuery.parseJSON(data.body).kickSessionId
+					console.log("11:" + kickSessionId)
+					if (kickSessionId != '' && kickSessionId != undefined && kickSessionId != null) {
+						stompClient.send("/ws/user/kick", {}, JSON.stringify({
 
-				// TODO store userId
-				$.cookie('email', $('#lgEmail').val(), {
-					path: '/'
+							"UserID": parseInt($.cookie('UserId')),
+							"kickSessionId": kickSessionId
+						}))
+					}
+					// TODO store userId
+					$.cookie('email', $('#lgEmail').val(), {
+						path: '/'
+					})
+					$.cookie('sessionId', sessionId, {
+						path: '/'
+					})
+					$.cookie('UserId', jQuery.parseJSON(data.body).UserID, {
+						path: '/'
+					})
+					var status = jQuery.parseJSON(data.body).Status
+					if (status == 0) {
+						$('#myModal').modal('hide')
+						$('#loginLi').html('<span>' + $.cookie('email') + '</span>')
+						$('#liLast').html('<span id="logout">Logout</span>')
+						resetStyle()
+						$('#userItem').removeClass('hide')
+					} else if (status == -1) {
+						alert('Login Error!')
+					}
+					unLoginsubscribe.unsubscribe()
 				})
-				$.cookie('sessionId', sessionId, {
-					path: '/'
-				})
-				$.cookie('UserId', jQuery.parseJSON(data.body).UserID, {
-					path: '/'
-				})
-				var status = jQuery.parseJSON(data.body).Status
-				if (status == 0) {
-					$('#myModal').modal('hide')
-					$('#loginLi').html('<span>' + $.cookie('email') + '</span>')
-					$('#liLast').html('<span id="logout">Logout</span>')
+		//
+		sendLoginData() //login	
+		// alert(123)
+	
 
-					resetStyle()
-					$('#userItem').removeClass('hide')
-				} else if (status == -1) {
-					alert('Login Error!')
-				}
+	})
+	$('#liLast').click(function () { //logout
 
-			})
-			//
-			sendLoginData() //login	
+		sendLogoutData() //send logout Data
+		$.removeCookie('UserId', {
+			path: '/'
 		})
-		$('#liLast').click(function () { //logout
-
-			sendLogoutData() //send logout Data
-			$.removeCookie('UserId', {
-				path: '/'
-			})
-			$.removeCookie('email', {
-				path: '/'
-			})
-			$('#loginLi').html('<a id="loginBtn" data-toggle="modal" data-target="#myModal"> Login </a>')
-			$('.ulList li:last').html('<a href="Register.html">  Register  </a>')
-			$('#userItem').addClass('hide')
-			$('#c2cUserOpenOrderTable').find('tbody').html('')
-			$('#c2cUserPendingOrderTable').find('tbody').html('')
-			$('#c2cUserHistoryOrderTable').find('tbody').html('')
-			$('#userItem').removeClass('hide')
-			console.log($.cookie('UserId'))
+		$.removeCookie('email', {
+			path: '/'
 		})
+		$('#loginLi').html('<a id="loginBtn" data-toggle="modal" data-target="#myModal"> Login </a>')
+		$('.ulList li:last').html('<a href="Register.html">  Register  </a>')
+		$('#userItem').addClass('hide')
+		$('#c2cUserOpenOrderTable').find('tbody').html('')
+		$('#c2cUserPendingOrderTable').find('tbody').html('')
+		$('#c2cUserHistoryOrderTable').find('tbody').html('')
+		$('#userItem').removeClass('hide')
+		console.log($.cookie('UserId'))
+	})
+	//
+	
+	//
+	// //
+	
 
 		//
-
-		init();
+		
 		stompClient.subscribe('/gateway/kick' + sessionId, function (data) {
 			alert('被提出')
 		})
+
+	  init();
 		stompClient.subscribe('/gateway/c2cGetOpenOrders-' + sessionId, function (data) {
 			var response = jQuery.parseJSON(data.body);
 			$('#buyBox').find('tbody').html('')
@@ -151,19 +148,19 @@ function connect() {
 					};
 					return style;
 				},
-
 				striped: true,
 				pagination: 'true',
 				pageSize: 6,
-				columns: [{
+				columns: [
+					{
 						field: 'Id',
 						title: 'OrderId'
 					},
 					{
 						field: 'CoinName',
 						title: 'CoinName',
-
-					}, {
+					}, 
+					{
 						field: 'EntrustType',
 						title: 'TradeType',
 						formatter: function (val, row, index) {
@@ -190,31 +187,28 @@ function connect() {
 
 					// },
 					{
-						field: '',
-						title: 'Handle',
-						formatter: function (val, row, index) {
-							
-							return '<button   class="deleteBtn" >Cancel</button>'
-						
+							field: 'Action',
+							title: 'Action',
+							formatter: function (val, row, index) {
+								return '<button   class="deleteBtn" >Cancel</button>'
+							},
+							events: {
+								'click .deleteBtn': function (ev, value, row, index) {
+									$('#cancelModal').modal('show')
 
-						},
-						events: {
-							'click .deleteBtn': function (ev, value, row, index) {
-								$('#cancelModal').modal('show')
+									$('#cancelBtn').click(function () {
+										$('#cancelModal').modal('hide')
 
-								$('#cancelBtn').click(function () {
-									$('#cancelModal').modal('hide')
-
-									stompClient.send("/ws/c2c/entrust", {}, JSON.stringify({ //用户取消订单
-										'Tag': 20739,
-										'RequestID': 'testtesttest',
-										'UserID': $.cookie('UserId'),
-										'id': row.Id,
-									}));
-								})
+										stompClient.send("/ws/token/cancelPendingOrder", {}, JSON.stringify({
+											"Tag": 16385,
+											"UserID": parseInt($.cookie('UserId')),
+											"OrderID": row.OrderID,
+											"RequestID": RequestId
+										}))
+									})
+								}
 							}
 						}
-					}
 				],
 				data: openOrderData,
 			});
@@ -239,8 +233,8 @@ function connect() {
 				pagination: 'true',
 				pageSize: 6,
 				columns: [{
-						field: 'EntrustId',
-						title: 'OrderId'
+						field: 'TradeId',
+						title: 'TrideId'
 					},
 					{
 						field: 'CoinName',
@@ -263,22 +257,45 @@ function connect() {
 
 					},
 					{
-						field: '',
+						field: 'Total',
 						title: 'Total',
 
 					},
+
 					
 					{
-						field: '',
-						title: 'Handel',
+						field: 'Action',
+						title: 'Action',
 						formatter: function (val, row, index) {
-							return "<button class='confirmTableBtn'>Confirm</button>"
+							return '<button   class="confirmBtn1" >Confirm</button>'
 						},
 						events: {
-							'click .confirmTableBtn': function (ev, value, row, index) {
-								alert(123)
-						                                                            	}
-						        }
+							'click .confirmBtn1': function (ev, value, row, index) {
+							  $('#confirmModal').modal('show')
+						$('#modalBankNumber').text(row.Bankaccount)
+						$('#modalBankName').text(row.Bankname)
+						$('#modalUserName').text(row.OppositUserName)
+						$('#modalTradeId').text(row.TradeId)
+						$('#modalTelPhone').text(11111)
+						var data1 = 10
+						var id = setInterval(frame, 1000);
+						function frame() {
+							if (data1 == 0) {
+								clearInterval(id);
+							} else {
+								data1--
+								$('#confirmBtn').click(function () {
+									confirm()
+									clearInterval(id);
+								})
+								$('#timeData').text(data1)
+								if ($('#timeData').text() == 0) {
+									TimeoutOutCancel()
+								}
+							}
+						}
+							}
+						}
 					}
 
 
@@ -382,12 +399,19 @@ function connect() {
 			$('#ydVol').html(response.Yesterday.Volume);
 			$('#tdVol').html(response.Today.Volume);
 		});
+
+		stompClient.subscribe('/gateway/c2cUserAssetsQes-' + sessionId, function (data) { //监听资产
+			var response = jQuery.parseJSON(data.body);
+      
+		})
 		stompClient.subscribe('/gateway/c2cCoinHistoricalMarket-' + sessionId, function (data) {
 			var response = jQuery.parseJSON(data.body);
 			var coinMarketTab = document.getElementById("coinMarketTab")
 
 		});
+    
 
+		 
 		otcBuyform(function () {
 			trade(0)
 			$('#buyModal').modal('hide')
@@ -420,30 +444,29 @@ function connect() {
 			var res = jQuery.parseJSON(data.body);
 			if (res.Result == true) {
 				//   alert('成功')
-				$('#confirmModal').modal('show')
-				$('#modalBankNumber').text(res.Banklist.Bankaccount)
-				$('#modalBankName').text(res.Banklist.BankName)
-				$('#modalUserName').text(res.Banklist.UserName)
-				$('#modalTradeId').text(res.Banklist.TradeId)
-				$('#modalTelPhone').text(res.Banklist.MobilePhoneNum)
-				var data1 = 10
-				var id = setInterval(frame, 1000);
-
-				function frame() {
-					if (data1 == 0) {
-						clearInterval(id);
-					} else {
-						data1--
-						$('#confirmBtn').click(function () {
-							confirm()
-							clearInterval(id);
-						})
-						$('#timeData').text(data1)
-						if ($('#timeData').text() == 0) {
-							TimeoutOutCancel()
+						$('#confirmModal').modal('show')
+						$('#modalBankNumber').text(res.Banklist.Bankaccount)
+						$('#modalBankName').text(res.Banklist.BankName)
+						$('#modalUserName').text(res.Banklist.UserName)
+						$('#modalTradeId').text(res.Banklist.TradeId)
+						$('#modalTelPhone').text(res.Banklist.MobilePhoneNum)
+						var data1 = 10
+						var id = setInterval(frame, 1000);
+						function frame() {
+							if (data1 == 0) {
+								clearInterval(id);
+							} else {
+								data1--
+								$('#confirmBtn').click(function () {
+									confirm()
+									clearInterval(id);
+								})
+								$('#timeData').text(data1)
+								if ($('#timeData').text() == 0) {
+									TimeoutOutCancel()
+								}
+							}
 						}
-					}
-				}
 
 
 			} else {
@@ -457,7 +480,10 @@ function connect() {
 		});
 		stompClient.subscribe('/gateway/c2cCancelTrade-' + sessionId, function (data) { //订阅超时自动取消
 			var response = jQuery.parseJSON(data.body);
-			alert(' timeout cancel')
+			$('#timeOutCancelModal').modal('show')
+			setTimeout(function(){
+				$('#timeOutCancelModal').modal('hide')
+			},1000)
 			$('#cancelModal').modal('hide')
 			$('#confirmModal').modal('hide')
 		});
@@ -492,7 +518,7 @@ function connect() {
 					clearInterval(id);
 				} else {
 					data1--
-					$('#receivedBtn').click(function () { //卖家确认已收到
+					$('#receivedBtn').one("click", function () { //卖家确认已收到
 						stompClient.send("/ws/c2c/trade", {}, JSON.stringify({
 							'Tag': 21001,
 							'requestID': '123456789',
@@ -501,15 +527,15 @@ function connect() {
 						}));
 						clearInterval(id);
 					})
-					$('#appealBtn').click(function () {  //我要申诉（卖家）
+					$('#appealBtn').click(function () { //我要申诉（卖家）
 						// stompClient.send("/ws/c2c/trade", {}, JSON.stringify({ //接口待定义
 						// 	  'Tag':21001 ,
 						// 	 'entrustId': $("#otcBuyEntrustId").val(),
 						// }));
 						clearInterval(id);
-                         alert('已申诉')
+						alert('已申诉')
 						$('#sellStatusModal').modal('hide')
-					  })
+					})
 					$('#timeData1').text(data1)
 					if ($('#timeData1').text() == 0) {
 						sellerTimeOut()
@@ -521,6 +547,7 @@ function connect() {
 		})
 	});
 }
+	connect();
 
 
 
@@ -529,6 +556,11 @@ function init() {
 		'RequestID': 'testtesttest',
 		'UserID': $.cookie('UserId'),
 		'Token': null,
+	}));
+	stompClient.send("/ws/c2c/userAssets", {}, JSON.stringify({
+		'RequestID': 'testtesttest',
+		'UserID': $.cookie('UserId'),
+		'Tag': 20987,
 	}));
 }
 
@@ -573,7 +605,12 @@ function sellerTimeOut() {
 		'userID': $.cookie('UserId'),
 		'entrustId': $("#otcBuyEntrustId").val(),
 	}));
-	alert("卖家超时，已自动确认！")
+	 $('#sellerTimeOutModal').modal('show')
+	 setTimeout(function(){
+		$("#sellerTimeOutModal").modal("hide")
+		$('#sellStatusModal').modal('hide')
+},1200);
+
 }
 
 function entrust(type) {
@@ -656,12 +693,14 @@ function tradePadelogout() {
 // 	alert("buy");
 // }
 
+
+
 function sell() {
 
 	alert("sell");
 }
 
-$(function () {
-	connect();
+// $(function () {
+	// connect();
 
-});
+// });

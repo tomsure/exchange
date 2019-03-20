@@ -1419,7 +1419,15 @@ footer {
 }
 
 .priceRise {
+	
 	color: #599f7a;
+    font-size: 20px;
+   
+    display: inline-block;
+  
+    height: 30px;
+    position: relative;
+    bottom: 7px;
 }
 
 .priceDepreciate {
