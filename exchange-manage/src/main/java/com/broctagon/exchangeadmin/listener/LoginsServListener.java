@@ -9,7 +9,9 @@ import org.springframework.stereotype.Controller;
 
 import com.broctagon.exchangeadmin.constant.Constant;
 import com.broctagon.exchangeadmin.constant.Tag;
+import com.broctagon.exchangeadmin.dao.UserAssetsSystem;
 import com.broctagon.exchangeadmin.model.User;
+import com.broctagon.exchangeadmin.model.UserAssets;
 import com.broctagon.exchangeadmin.model.UserOperation.RegisterService;
 import com.broctagon.exchangeadmin.service.EmailService;
 import com.broctagon.exchangeadmin.service.UserSystemService;
@@ -28,6 +30,9 @@ public class LoginsServListener {
 	
 	@Autowired
 	private UserloginService userloginService;
+	
+	@Autowired
+	private UserAssetsSystem userAssetsSystem;
 
 	@Autowired
 	private RedisUtil redisutil;
@@ -90,6 +95,14 @@ public class LoginsServListener {
 					User adduser = userSystemService.Useradd(addEmail, addPassword);
 					if(adduser != null) {
 						int adduserId = adduser.getID();
+						UserAssets userAssets = new UserAssets();
+						userAssets.setUserID(adduserId);
+						userAssets.setCoinID(222);
+						userAssetsSystem.save(userAssets);
+						userAssets.setCoinID(223);
+						userAssetsSystem.save(userAssets);
+						userAssets.setCoinID(224);
+						userAssetsSystem.save(userAssets);
 						userloginService.RegisterSer(sessionId, adduserId);
 					}
 					break;

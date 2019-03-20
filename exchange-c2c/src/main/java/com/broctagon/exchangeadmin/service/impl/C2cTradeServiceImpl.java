@@ -27,9 +27,7 @@ import com.broctagon.exchangeadmin.message.C2cUpdateTradeReq;
 import com.broctagon.exchangeadmin.message.ManagerTradeReq;
 import com.broctagon.exchangeadmin.message.c2cObject;
 import com.broctagon.exchangeadmin.model.C2cEntrustModel;
-import com.broctagon.exchangeadmin.model.C2cMarketModel;
 import com.broctagon.exchangeadmin.model.C2cTradeAccountModel;
-import com.broctagon.exchangeadmin.model.C2cTradeDetailModel;
 import com.broctagon.exchangeadmin.model.C2cTradeModel;
 import com.broctagon.exchangeadmin.model.C2cTradeVolumeModel;
 import com.broctagon.exchangeadmin.service.C2cTradeService;
@@ -280,6 +278,27 @@ public class C2cTradeServiceImpl implements C2cTradeService{
 			
 			
 			c2cO.setResData(userAssetData);
+		}
+		
+		return c2cO;
+	}
+	
+	@Override
+	public BaseMsg getUserAsset(String req, Integer toUserId) {
+		c2cObject c2cO = new c2cObject();
+		Map<String,Object> map = JSON.parseObject(req);
+		if(map.get("UserID") != null && map.get("coinName") != null) {
+			Integer userID =  Integer.valueOf(map.get("UserID").toString());
+			String coinName = map.get("coinName").toString();
+			if(toUserId != null) {
+				userID = toUserId;
+			}
+			System.err.println("userID = " + userID+" coinName = "+coinName);
+			Map<String,Object> userAssetData = c2cTradeDao.selectUserAssets(userID, coinName);
+			c2cO.setResData(userAssetData);
+			if(toUserId != null) {
+				c2cO.setUserId(toUserId);
+			}
 		}
 		
 		return c2cO;
