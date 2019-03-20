@@ -35,7 +35,7 @@ function connect() {
 				//
 				var unLoginsubscribe=stompClient.subscribe('/gateway/login-' + sessionId, function (data) {
 					var kickSessionId = jQuery.parseJSON(data.body).kickSessionId
-					console.log("11:" + kickSessionId)
+					
 					if (kickSessionId != '' && kickSessionId != undefined && kickSessionId != null) {
 						stompClient.send("/ws/user/kick", {}, JSON.stringify({
 
@@ -59,6 +59,7 @@ function connect() {
 						$('#loginLi').html('<span>' + $.cookie('email') + '</span>')
 						$('#liLast').html('<span id="logout">Logout</span>')
 						resetStyle()
+						getAssets()
 						$('#userItem').removeClass('hide')
 					} else if (status == -1) {
 						alert('Login Error!')
@@ -549,7 +550,14 @@ function connect() {
 }
 	connect();
 
-
+function getAssets(){
+	stompClient.send("/ws/c2c/userAssets", {}, JSON.stringify({
+		'RequestID': 'testtesttest111',
+		'UserID': $.cookie('UserId'),
+		 "CoinName":'BTC',
+		'Tag': 20987,
+	}));
+}
 
 function init() {
 	stompClient.send("/ws/c2c/home", {}, JSON.stringify({
@@ -557,12 +565,7 @@ function init() {
 		'UserID': $.cookie('UserId'),
 		'Token': null,
 	}));
-	stompClient.send("/ws/c2c/userAssets", {}, JSON.stringify({
-		'RequestID': 'testtesttest111',
-		'UserID': $.cookie('UserId'),
-		 "CoinName":'BTC',
-		'Tag': 20987,
-	}));
+	
 }
 
 function trade(type) {
