@@ -554,7 +554,7 @@ function getAssets(){
 	stompClient.send("/ws/c2c/userAssets", {}, JSON.stringify({
 		'RequestID': 'testtesttest111',
 		'UserID': $.cookie('UserId'),
-		 "CoinName":'BTC',
+		 "coinName":'BTC',
 		'Tag': 20987,
 	}));
 }
