@@ -99,6 +99,11 @@
                                 <span class="" id="">111</span>
 						    	<span class="lead">Available</span>
                                 <span class="" id="">111</span>
+							 </div>
+							 <div class="boxHeader">
+								<span class="lead" >New Price</span>
+								
+								<span class="priceRise" id="newPrice"></span>
 						   </div>
 						<div class="tab-content" id="coinMarketTab">
 							<div class="tab-pane in active" id="ethCurrency">
@@ -292,9 +297,9 @@
 				<li class="active">
 					<a href="#userPendingOrder" data-toggle="tab">Pending Order</a>
 				</li>
-				<!-- <li >
+				<li >
 						<a href="#userOpenOrder" data-toggle="tab">Trading Order</a>
-					</li> -->
+					</li>
 				<li>
 					<a href="#userHistoryOrder" data-toggle="tab">History Order</a>
 				</li>
@@ -304,9 +309,9 @@
 					<div class="tab-pane fade in active"  id="userPendingOrder">
 							<table id="c2cUserPendingOrderTable" class="buyDataTable table"></table>
 						</div>
-				<!-- <div class="tab-pane fade " id="userOpenOrder">
+				<div class="tab-pane fade " id="userOpenOrder">
 					<table id="c2cUserOpenOrderTable" class="buyDataTable table"></table>
-				</div> -->
+				</div>
 				
 				<div class="tab-pane fade" id="userHistoryOrder">
 					<table id="c2cUserHistoryOrderTable" class="buyDataTable table">
@@ -688,7 +693,7 @@
 				</div>
 				<div class="modal-body" style="border:1px solid lightgray;margin:10px;border-radius:5px;min-height:200px;">
 					<div class="titleRow">
-						<span class="title_text">NankNumber:</span><span id="modalBankNumber"></span>
+						<span class="title_text">BankNumber:</span><span id="modalBankNumber"></span>
 					</div>
 					<div class="titleRow">
 						<span class="title_text" style="">BankName:</span><span id="modalBankName"></span>
@@ -795,6 +800,38 @@
 					<button type="button" class="btn btn-default" id="appealBtn">
 						我要申诉
 					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- // -->
+	<div class="modal fade" id="timeOutCancelModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="" style="text-align: center;">Tips</h4>
+
+				</div>
+				
+				<div class="modal-body" style="border:1px solid lightgray;margin:10px;border-radius:5px;min-height:200px;" >
+				      timeoutout Cancel
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- // -->
+	<div class="modal fade" id="sellerTimeOutModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="" style="text-align: center;">Tips</h4>
+
+				</div>
+				
+				<div class="modal-body" style="border:1px solid lightgray;margin:10px;border-radius:5px;min-height:200px;" >
+				      卖家超时，已自动确认
 				</div>
 			</div>
 		</div>

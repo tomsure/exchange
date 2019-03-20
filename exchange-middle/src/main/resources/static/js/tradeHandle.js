@@ -3,40 +3,6 @@ function resetStyle() {
 	$('span.glyphicon-ok').remove()
 }
 
-//    function layerMsg(content){
-//		    	 layui.use('layer',function(){
-//		    	   	
-//		    	   	var layer=layui.layer
-//		    	   	   layer.config({
-//		    	   	   	  skin:''
-//		    	   	   })
-//		    	   	   layer.msg(content,{
-//		    	   	   	 time:1000,
-//		    	   	   	 offset:['15%']
-//		    	   	   },function(){
-//		    	   	   	 
-//		    	   	   })
-//		    	   	   
-//		    	   })
-//		    	    
-//		    }
-
-//    function layer(type,content,yesFn){
-//
-//       var layer = layui.layer;
-//       layer.config({
-//          skin: 'layer_public-class'
-//            })
-//       layer.open({
-//       content:content,
-//       yes:yesFn,
-//      btn:['OK'],
-//      title:'Reminder'
-//
-//});    
-//   
-//     }
-
 //默认货币对
 var myChart = echarts.init(document.getElementById("chartMain"));
 var myChartContainer;
@@ -44,16 +10,73 @@ var buyPendingBox = document.getElementById("buyPendingBox")
 var sellPendingBox = document.getElementById("sellPendingBox")
 var stompClient = null;
 var userId = null;
-
 function connect() {
 	//	   console.log($.cookie('UserId'))
 	var socket = new SockJS('/websocket');
 	stompClient = Stomp.over(socket);
-	stompClient.connect({}, function (frame) {
+	stompClient.connect({}, function(frame) {
 
 		var sessionId = socket._transport.url.split("/")[5];
+		
+		stompClient.subscribe('/gateway/kick', function(data) {
+			var newData = jQuery.parseJSON(data.body); // 解析数据
+//			alert("你好，我是一个警告框！"+newData);
+                        if(newData.kickSessionId==$.cookie('sessionId')){
+                        	alert('其他地方已登录！')
+                        	tradePadelogout()
+                        }
+               console.log("newData: " + newData)
+		})
+		//
+		stompClient.subscribe('/gateway/login-' + sessionId, function(data) {
+				
+				// TODO store	
+                var kickSessionId=jQuery.parseJSON(data.body).kickSessionId
+                  console.log("11:"+ kickSessionId)
+                    if(kickSessionId!=''&&kickSessionId!=undefined&&kickSessionId!=null){
+                    	stompClient.send("/ws/user/kick", {}, JSON.stringify({
+								
+								"UserID": parseInt($.cookie('UserId')),
+								"kickSessionId":kickSessionId
+							}))
+                    }
+
+				$.cookie('email', $('#lgEmail').val(), {
+					expires: 7,
+					path: '/'
+				})
+                $.cookie('sessionId',sessionId,{path:'/'})
+				$.cookie('UserId', jQuery.parseJSON(data.body).UserID, {
+					path: '/'
+				})
+				var status = jQuery.parseJSON(data.body).Status
+				if(status == 0) {
+					$('#myModal').modal('hide')
+					$('#loginLi').html('<span>' + $.cookie('email') + '</span>')
+					$('#liLast').html('<span id="logout">Logout</span>')
+
+					resetStyle()
+					$('#userItem').removeClass('hide')
+				} else if(status == -1) {
+
+					alert('Login Error!')
+					
+				}
+				//挂单
+				pendingOrders()
+				//监听删除订单
+				//                     monitorDelOrder()
+				//历史订单
+				historyOrders()
+				//币币可用余额
+				userAsserts()
+			})
+		
+		
+		//
+		
 		//               如果有userid 
-		if ($.cookie('UserId')) {
+		if($.cookie('UserId')) {
 
 			$('#loginLi').html('<span>' + $.cookie('email') + '</span>')
 			$('#liLast').html('<span id="logout">Logout</span>')
@@ -70,7 +93,6 @@ function connect() {
 		}
 
 		//如果没有userID
-
 		customValidate($('#lgPassWordForm'), {
 			"lgEmail": {
 				required: true,
@@ -79,73 +101,24 @@ function connect() {
 			"lgPassword": {
 				required: true
 			}
-		}, {}, function () {
+		}, {}, function() {
 
-			stompClient.subscribe('/gateway/login-' + sessionId, function (data) {
-				// TODO store userId
-
-				$.cookie('email', $('#lgEmail').val(), {
-					expires: 7,
-					path: '/'
-				})
-
-				$.cookie('UserId', jQuery.parseJSON(data.body).UserID, {
-					path: '/'
-				})
-				console.log($.cookie('UserId'))
-				var status = jQuery.parseJSON(data.body).Status
-
-				if (status == 0) {
-					$('#myModal').modal('hide')
-					$('#loginLi').html('<span>' + $.cookie('email') + '</span>')
-					$('#liLast').html('<span id="logout">Logout</span>')
-
-					resetStyle()
-					$('#userItem').removeClass('hide')
-				} else if (status == -1) {
-
-					alert('Login Error!')
-
-				}
-				//挂单
-				pendingOrders()
-				//监听删除订单
-				//                     monitorDelOrder()
-				//历史订单
-				historyOrders()
-				//币币可用余额
-				userAsserts()
-			})
+			
 			sendLoginData() //login	
 		})
-		$('#liLast').click(function () { //logout
+		$('#liLast').click(function() { //logout
 
 			sendLogoutData() //send logout Data
-
-			$('#availableBalance_buy').text('')
-			$('#availableBalance_sell').text('')
-			$('#TradeCoinAvailable').text('')
-			$('#BaseCoinAvailable').text('')
-
-			$('#loginLi').html('<a id="loginBtn" data-toggle="modal" data-target="#myModal"> Login </a>')
-			$('.ulList li:last').html('<a href="Register.html">  Register  </a>')
-			$('#userItem').addClass('hide')
-			$('#openOrderTable').bootstrapTable('removeAll')
-			$('#historyOrderTable').bootstrapTable('removeAll')
-			$.removeCookie('UserId', {
-				path: '/'
-			})
-			$.removeCookie('email', {
-				path: '/'
-			})
+             tradePadelogout()
+			
 
 			console.log($.cookie('UserId'))
 		})
 		//货比对昨天今天以及最值
-		stompClient.subscribe('/gateway/coinMarketSummary-' + sessionId, function (data) {
+		stompClient.subscribe('/gateway/coinMarketSummary-' + sessionId, function(data) {
 			var newData = jQuery.parseJSON(data.body)
 			$('#currencyTextContent').text(newData.Symbol)
-			if (newData.Yesterday.high != undefined || newData.Yesterday.low != undefined || newData.Yesterday.open != undefined || newData.Yesterday.volume != undefined) {
+			if(newData.Yesterday.high != undefined || newData.Yesterday.low != undefined || newData.Yesterday.open != undefined || newData.Yesterday.volume != undefined) {
 				$('#yesterdayTopData').text(Number(newData.Yesterday.high).toFixed(8)) //最值
 				$('#yesterdayBottomData').text(Number(newData.Yesterday.low).toFixed(8))
 				$('#yesterdayOpenData').text(Number(newData.Yesterday.open).toFixed(8))
@@ -156,7 +129,7 @@ function connect() {
 				$('#yesterdayOpenData').text(0)
 				$('#yesterdayVolumeData').text(0)
 			}
-			if (newData.Today.high != undefined || newData.Today.low != undefined || newData.Today.open != undefined || newData.Today.volume != undefined) {
+			if(newData.Today.high != undefined || newData.Today.low != undefined || newData.Today.open != undefined || newData.Today.volume != undefined) {
 				$('#todayTopData').text(Number(newData.Today.high).toFixed(8))
 				$('#todayBottomData').text(Number(newData.Today.low).toFixed(8))
 				$('#todayOpenData').text(Number(newData.Today.open).toFixed(8))
@@ -168,7 +141,7 @@ function connect() {
 				$('#todayVolumeData').text(0)
 			}
 
-			if (newData.Today.current != undefined) {
+			if(newData.Today.current != undefined) {
 				$('#newPrice').text(newData.Today.current.toFixed(8))
 			} else {
 				$('#newPrice').text(0)
@@ -176,22 +149,22 @@ function connect() {
 		});
 
 		//涨跌幅
-		stompClient.subscribe('/gateway/coinMarket-' + sessionId, function (data) {
+		stompClient.subscribe('/gateway/coinMarket-' + sessionId, function(data) {
 			var d = jQuery.parseJSON(data.body)
 			$('#upDownList').html('')
 			var upDownList = document.getElementById("upDownList")
 			var currencyList = d.SymbolList
 			var curArr = []
-			$.each(currencyList, function (i, el) {
+			$.each(currencyList, function(i, el) {
 				curArr.push(el.BaseCoin)
 			})
 
-			$.each(currencyList, function (i, el) {
+			$.each(currencyList, function(i, el) {
 				upDownList.innerHTML += '<li><span class="CurrencyCalculate">' + currencyList[i].Symbol + '</span><span  class="icon icon-Down-Round" data-UPDown=' + currencyList[i].UPDown + '></span></li>' //加载涨跌幅列表
 			})
-			$('#upDownList li ').each(function (i, el) { //遍历点击涨跌幅列表数据变化
+			$('#upDownList li ').each(function(i, el) { //遍历点击涨跌幅列表数据变化
 
-				$(el).children('span:nth-child(1)').click(function (e) {
+				$(el).children('span:nth-child(1)').click(function(e) {
 
 					var target = e.target || window.event.srcElement
 
@@ -222,7 +195,7 @@ function connect() {
 					}));
 				})
 
-				if ($(el).children('span:nth-child(1)').text() == ($('#tradeText').text() + '/' + $('#baseText').text())) {
+				if($(el).children('span:nth-child(1)').text() == ($('#tradeText').text() + '/' + $('#baseText').text())) {
 
 					$(el).css('background-color', '#85181e').css('color', 'white')
 					$(el).find('.icon-Up-Round:before').css('color', 'white!important')
@@ -231,31 +204,31 @@ function connect() {
 
 			})
 			//            //涨跌标识符
-			$.each($('.CurrencyCalculate'), function (i, el) {
+			$.each($('.CurrencyCalculate'), function(i, el) {
 
-				if ($(el).next().attr('data-UPDown') > 0) {
+				if($(el).next().attr('data-UPDown') > 0) {
 					$(el).next().addClass('icon-Up-Round').removeClass('icon-Down-Round')
-				} else if ($(el).next().attr('data-UPDown') < 0) {
+				} else if($(el).next().attr('data-UPDown') < 0) {
 
 					$(el).next().addClass('icon-Down-Round')
-				} else if ($(el).next().attr('data-UPDown') == 0) {
+				} else if($(el).next().attr('data-UPDown') == 0) {
 
 					$(el).next().text('==').removeClass('icon icon-Down-Round').css('margin-right', '5px')
 				}
 			});
 			//     表单买卖
 			//     buy
-			validateTokenTrade($('#trade_buyForm'), function () {
+			validateTokenTrade($('#trade_buyForm'), function() {
 				sendBuyData()
-				stompClient.subscribe('/gateway/order-' + sessionId, function (data) {
+				stompClient.subscribe('/gateway/order-' + sessionId, function(data) {
 
 					var status = jQuery.parseJSON(data.body).Status
 
-					if (status == 0) {
+					if(status == 0) {
 						alert('Success')
 						pendingOrders()
 						historyOrders()
-
+						
 						window.location.reload()
 					}
 
@@ -266,11 +239,11 @@ function connect() {
 				resetStyle()
 			})
 			//sell
-			validateTokenTrade($('#trade_sellForm'), function () {
+			validateTokenTrade($('#trade_sellForm'), function() {
 				sendSellData()
-				stompClient.subscribe('/gateway/order-' + sessionId, function (data) {
+				stompClient.subscribe('/gateway/order-' + sessionId, function(data) {
 					var status = jQuery.parseJSON(data.body).Status
-					if (status == 0) {
+					if(status == 0) {
 						alert('Success')
 						pendingOrders()
 						historyOrders()
@@ -285,18 +258,18 @@ function connect() {
 
 		});
 		// 订单簿
-		stompClient.subscribe('/gateway/pendingOrders-' + sessionId, function (data) {
+		stompClient.subscribe('/gateway/pendingOrders-' + sessionId, function(data) {
 			var orderBook = jQuery.parseJSON(data.body).List
 			//orderBook  buy
-			if (orderBook.Buy != undefined) {
+			if(orderBook.Buy != undefined) {
 				$(buyPendingBox).html('')
-				for (var i = 0; i < orderBook.Buy.length; i++) {
-					if (orderBook.Buy[i].Price == 0 || orderBook.Buy[i].Amount == 0) {
+				for(var i = 0; i < orderBook.Buy.length; i++) {
+					if(orderBook.Buy[i].Price == 0 || orderBook.Buy[i].Amount == 0) {
 						orderBook.Buy.splice(i, 1)
 					}
 				}
 
-				$.each(orderBook.Buy, function (i, d) {
+				$.each(orderBook.Buy, function(i, d) {
 					var buyOrderList = "<p><span class='buyPriceRow'>Buy<span class='buyPriceData dealPrice'>" + d.Price + "</span></span><span class='orderBookAmount'>" + d.Amount + "</span></p>"
 					buyPendingBox.innerHTML += buyOrderList
 
@@ -304,20 +277,20 @@ function connect() {
 
 			}
 			//orderBook sell
-			if (orderBook.Sell != undefined) {
+			if(orderBook.Sell != undefined) {
 				$(sellPendingBox).html('')
-				for (var i = 0; i < orderBook.Sell.length; i++) {
-					if (orderBook.Sell[i].Price == 0 || orderBook.Sell[i].Amount == 0) {
+				for(var i = 0; i < orderBook.Sell.length; i++) {
+					if(orderBook.Sell[i].Price == 0 || orderBook.Sell[i].Amount == 0) {
 						orderBook.Sell.splice(i, 1)
 					}
 				}
-				$.each(orderBook.Sell, function (i, d) {
+				$.each(orderBook.Sell, function(i, d) {
 					var sellOrderList = "<p><span class='sellPriceRow'>Sell<span class='sellPriceData dealPrice'>" + d.Price + "</span></span><span class='orderBookAmount'>" + d.Amount + "</span></p>"
 					sellPendingBox.innerHTML += sellOrderList
 				});
 			}
-			$('.dealPending p').each(function (i, el) { //点击订单簿，将点击的值设置为交易价格
-				$(el).click(function (e) {
+			$('.dealPending p').each(function(i, el) { //点击订单簿，将点击的值设置为交易价格
+				$(el).click(function(e) {
 					$.trim($('#buyPriceText').val($(this).find('.dealPrice').text()))
 					$.trim($('#sellPriceText').val($(this).find('.dealPrice').text()))
 
@@ -327,12 +300,12 @@ function connect() {
 
 		// 个人pending order 挂单
 		function pendingOrders() {
-			stompClient.subscribe('/gateway/userPendingOrders-' + sessionId, function (data) {
+			stompClient.subscribe('/gateway/userPendingOrders-' + sessionId, function(data) {
 
 				var pendingOrder = jQuery.parseJSON(data.body).SearchTradings
-				$('#openOrderTable').bootstrapTable('destroy')
+                  $('#openOrderTable').bootstrapTable('destroy')
 				$('#openOrderTable').bootstrapTable({
-					rowStyle: function (row, index) {
+					rowStyle: function(row, index) {
 						var style = {};
 						style = {
 							css: {
@@ -351,7 +324,7 @@ function connect() {
 						}, {
 							field: 'Time',
 							title: 'Time',
-							formatter: function (val, row, index) {
+							formatter: function(val, row, index) {
 								return timestampToTime(row.Time)
 							}
 						}, {
@@ -360,10 +333,10 @@ function connect() {
 						}, {
 							field: 'OrderType',
 							title: 'Order Type',
-							formatter: function (val, row, index) {
-								if (row.OrderType == 1) {
+							formatter: function(val, row, index) {
+								if(row.OrderType == 1) {
 									return 'Market Order'
-								} else if (row.OrderType == 2) {
+								} else if(row.OrderType == 2) {
 									return 'Limit Order'
 								}
 							}
@@ -371,10 +344,10 @@ function connect() {
 						{
 							field: 'TransType',
 							title: 'Trans Type',
-							formatter: function (val, row, index) {
-								if (row.TransType == 1) {
+							formatter: function(val, row, index) {
+								if(row.TransType == 1) {
 									return 'Buy'
-								} else if (row.TransType == 2) {
+								} else if(row.TransType == 2) {
 									return 'Sell'
 								}
 							}
@@ -390,30 +363,30 @@ function connect() {
 						{
 							field: 'Total',
 							title: 'Total',
-							formatter: function (val, row, index) {
+							formatter: function(val, row, index) {
 								return accMul(row.Price, row.Amount)
 							}
 						},
 						{
 							field: 'Action',
 							title: 'Action',
-							formatter: function (val, row, index) {
+							formatter: function(val, row, index) {
 								return '<button   class="deleteBtn" >Cancel</button>'
 							},
 							events: {
-								'click .deleteBtn': function (ev, value, row, index) {
+								'click .deleteBtn':function(ev,value,row,index){
 									$('#cancelModal').modal('show')
 
-									$('#cancelBtn').click(function () {
-										$('#cancelModal').modal('hide')
-
-										stompClient.send("/ws/token/cancelPendingOrder", {}, JSON.stringify({
-											"Tag": 16385,
-											"UserID": parseInt($.cookie('UserId')),
-											"OrderID": row.OrderID,
-											"RequestID": RequestId
-										}))
-									})
+						$('#cancelBtn').click(function() {
+							$('#cancelModal').modal('hide')
+		
+							stompClient.send("/ws/token/cancelPendingOrder", {}, JSON.stringify({
+								"Tag": 16385,
+								"UserID": parseInt($.cookie('UserId')),
+								"OrderID": row.OrderID,
+								"RequestID": RequestId
+							}))
+						})
 								}
 							}
 						}
@@ -428,13 +401,11 @@ function connect() {
 		}
 		// 历史订单
 		function historyOrders() {
-			stompClient.subscribe('/gateway/userHistoricalOrders-' + sessionId, function (data) {
+			stompClient.subscribe('/gateway/userHistoricalOrders-' + sessionId, function(data) {
 				var historytableData = jQuery.parseJSON(data.body)
-
-
-				$('#historyOrderTable').bootstrapTable('destroy')
+       $('#historyOrderTable').bootstrapTable('destroy')
 				$('#historyOrderTable').bootstrapTable({
-					rowStyle: function (row, index) {
+					rowStyle: function(row, index) {
 						var style = {};
 						style = {
 							css: {
@@ -457,10 +428,10 @@ function connect() {
 						{
 							field: 'Transtype',
 							title: 'Trans Type',
-							formatter: function (val, row, index) {
-								if (row.Transtype == 1) {
+							formatter: function(val, row, index) {
+								if(row.Transtype == 1) {
 									return 'Buy'
-								} else if (row.Transtype == 2) {
+								} else if(row.Transtype == 2) {
 									return 'Sell'
 								}
 							}
@@ -480,8 +451,8 @@ function connect() {
 						{
 							field: 'ordertime',
 							title: 'Order Time',
-							formatter: function (val, row, index) {
-								if (row.ordertime == 0) {
+							formatter: function(val, row, index) {
+								if(row.ordertime == 0) {
 									return 0
 								} else {
 									return timestampToTime(row.ordertime)
@@ -491,8 +462,8 @@ function connect() {
 						{
 							field: 'lasttradertime',
 							title: 'Last Traded Time',
-							formatter: function (val, row, index) {
-								if (row.lasttradertime == 0) {
+							formatter: function(val, row, index) {
+								if(row.lasttradertime == 0) {
 									return 0
 								} else {
 									return timestampToTime(row.lasttradertime)
@@ -503,10 +474,10 @@ function connect() {
 						, {
 							field: 'status',
 							title: 'Status',
-							formatter: function (val, row, index) {
-								if (row.status == 4) {
+							formatter: function(val, row, index) {
+								if(row.status == 4) {
 									return 'Completed'
-								} else if (row.status == 3) {
+								} else if(row.status == 3) {
 									return 'Canceled'
 								}
 							}
@@ -518,11 +489,11 @@ function connect() {
 		}
 		//币币可用余额
 		function userAsserts() {
-			stompClient.subscribe('/gateway/tokenAssets-' + sessionId, function (data) {
+			stompClient.subscribe('/gateway/tokenAssets-' + sessionId, function(data) {
 				$('#iconMark').removeClass('hide') //货币对斜杠显示
 				var d = jQuery.parseJSON(data.body)
 				var blanceArr = d.CoinBalance
-				$.each(blanceArr, function (i, el) {
+				$.each(blanceArr, function(i, el) {
 
 					$('#dealText1').text(el.TradeCoin)
 					$('#dealText2').text(el.TradeCoin)
@@ -538,8 +509,8 @@ function connect() {
 
 				function buyTotal() {
 
-					if (!isNaN($('#buyPriceText').val()) && !isNaN($('#buyAmountText').val())) {
-
+					if(!isNaN($('#buyPriceText').val()) && !isNaN($('#buyAmountText').val())) {
+						
 						$('#buyTotal').text(floatTool.multiply($('#buyPriceText').val(), $('#buyAmountText').val()).toFixed(8))
 					} else {
 						$('#buyTotal').text('')
@@ -549,9 +520,9 @@ function connect() {
 
 				function sellTotal() {
 
-					if (!isNaN($('#sellPriceText').val()) && !isNaN($('#sellAmountText').val())) {
-
-						var computeTotal = floatTool.multiply($('#sellPriceText').val(), $('#sellAmountText').val())
+					if(!isNaN($('#sellPriceText').val()) && !isNaN($('#sellAmountText').val())) {
+						
+	var computeTotal = floatTool.multiply($('#sellPriceText').val(),$('#sellAmountText').val())
 
 						//                      
 						$('#sellTotal').text(computeTotal)
@@ -561,13 +532,13 @@ function connect() {
 					}
 				}
 				//buy 计算总数
-				$('#buyPriceText').on("input propertychange", function () {
+				$('#buyPriceText').on("input propertychange", function() {
 
 					computedFloat($('#buyPriceText'))
 
 					buyTotal()
 				})
-				$('#buyAmountText').on("input propertychange", function () {
+				$('#buyAmountText').on("input propertychange", function() {
 					computedFloat($('#buyAmountText'))
 					buyTotal()
 				})
@@ -576,21 +547,21 @@ function connect() {
 					tooltip: 'show',
 					min: 0,
 					max: 100,
-					formatter: function (value) {
+					formatter: function(value) {
 						return value + '%';
 					},
 
-				}).on('change', function (e) {
+				}).on('change', function(e) {
 					$('#buyAmountText').val(accMul((e.value.newValue / 100), $('#TradeCoinAvailable').text()))
 					buyTotal()
 				});
 
 				//sell 计算总数
-				$('#sellPriceText').on("input propertychange", function () {
+				$('#sellPriceText').on("input propertychange", function() {
 					computedFloat($('#sellPriceText'))
 					sellTotal()
 				})
-				$('#sellAmountText').on("input propertychange", function () {
+				$('#sellAmountText').on("input propertychange", function() {
 					computedFloat($('#sellAmountText'))
 					sellTotal()
 				})
@@ -599,11 +570,11 @@ function connect() {
 					tooltip: 'show',
 					min: 0,
 					max: 100,
-					formatter: function (value) {
+					formatter: function(value){
 						return value + '%';
 					},
 
-				}).on('change', function (e) {
+				}).on('change', function(e){
 					$('#sellAmountText').val(accMul((e.value.newValue / 100), $('#TradeCoinAvailable').text()))
 					sellTotal()
 				});
@@ -611,25 +582,33 @@ function connect() {
 			});
 		}
 		//交易密码错误
-		stompClient.subscribe('/gateway/orderFailByTransPwd-' + sessionId, function (data) {
+		stompClient.subscribe('/gateway/orderFailByTransPwd-' + sessionId, function(data) {
 			var status = jQuery.parseJSON(data.body).Status
-			if (status == -1) {
+			if(status == -1) {
 				alert('Not sufficient funds')
-			} else if (status == -2) {
+			} else if(status == -2) {
 				alert('Wrong Password')
-			} else if (status == -3) {
+			} else if(status == -3) {
 				alert('Misplaced else')
 			}
 		})
+		stompClient.subscribe('/gateway/wrangTradeTime-' + sessionId, function(data) {
+			var data=jQuery.parseJSON(data.body)
+			    if(data.status==-1){
+			    	alert('不在指定的交易日期!')
+			    }else if(data.status==-2){
+			    	alert('不在指定交易时间!')
+			    }
+		})
 
 		// 历史行情
-		stompClient.subscribe('/gateway/historicalBars-' + sessionId, function (data) {
+		stompClient.subscribe('/gateway/historicalBars-' + sessionId, function(data) {
 			var newData = jQuery.parseJSON(data.body); // 解析数据
 			var history = newData.MarketHistory;
 			var data = new Array();
-			for (var i = 0; i < history.length; i++) {
+			for(var i = 0; i < history.length; i++) {
 				data[i] = new Array(i);
-				for (var j = 0; j < 5; j++) {
+				for(var j = 0; j < 5; j++) {
 					data[i][0] = history[i]['startTime'];
 					data[i][1] = history[i]['open'];
 					data[i][2] = history[i]['close'];
@@ -713,13 +692,13 @@ function connect() {
 				}]
 			};
 			myChart.setOption(option);
-			window.onresize = function () {
+			window.onresize = function() {
 				myChart.resize();
 			}
 		});
 		init()
 		//
-		$('.coins').click(function (e) {
+		$('.coins').click(function(e) {
 			var token = $.trim($(e.target).text())
 
 			$(upDownList).html('')
@@ -740,6 +719,10 @@ function connect() {
 				"RequestID": RequestId,
 				"Token": null
 			}));
+			
+			
+			
+			
 		}
 
 		function sendBuyData() {
@@ -750,6 +733,9 @@ function connect() {
 				"Symbol": $('#dealText2').attr('data-Symbol'),
 				"OrderType": 2,
 				"TransType": 1,
+
+				 "OrderTerm":Number($("input:radio[name='buyOrderTerm']:checked").val()),
+
 				"OrderNumber": Number($('#buyAmountText').val()).toFixed(5),
 				"Price": Number($('#buyPriceText').val()).toFixed(5),
 				"RequestID": RequestId
@@ -764,6 +750,9 @@ function connect() {
 				"Symbol": $('#dealText2').attr('data-Symbol'),
 				"OrderType": 2,
 				"TransType": 2,
+
+				 "OrderTerm":Number($("input:radio[name='sellOrderTerm']:checked").val()),
+
 				"OrderNumber": Number($('#sellAmountText').val()).toFixed(5),
 				"Price": Number($('#sellPriceText').val()).toFixed(5),
 				"RequestID": RequestId
@@ -773,7 +762,7 @@ function connect() {
 
 		//监听删除订单
 		//         function monitorDelOrder(){
-		stompClient.subscribe('/gateway/cancelOrder-' + sessionId, function (data) {
+		stompClient.subscribe('/gateway/cancelOrder-' + sessionId, function(data) {
 
 			var cancelData = jQuery.parseJSON(data.body)
 			console.log(cancelData)
@@ -808,7 +797,7 @@ connect();
 function splitData(rawData) {
 	var categoryData = [];
 	var values = []
-	for (var i = 0; i < rawData.length; i++) {
+	for(var i = 0; i < rawData.length; i++) {
 		categoryData.push(rawData[i].splice(0, 1)[0]);
 		values.push(rawData[i])
 	}
@@ -818,7 +807,7 @@ function splitData(rawData) {
 	};
 }
 /*** timeframe切换事件*/
-getTimeFrame = function (time) {
+getTimeFrame = function(time) {
 	symbol = $("#currencyTextContent").html();
 
 	stompClient.send("/ws/token/reportService", {}, JSON.stringify({
@@ -832,27 +821,27 @@ getTimeFrame = function (time) {
 
 }
 
-$('#selectTime li').click(function (e) {
+$('#selectTime li').click(function(e) {
 
-	if (e.target.innerText == '1M') {
+	if(e.target.innerText == '1M') {
 		getTimeFrame(M1)
-	} else if (e.target.innerText == '5M') {
+	} else if(e.target.innerText == '5M') {
 		getTimeFrame(M5)
-	} else if (e.target.innerText == '15M') {
+	} else if(e.target.innerText == '15M') {
 		getTimeFrame(M15)
-	} else if (e.target.innerText == '30M') {
+	} else if(e.target.innerText == '30M') {
 		getTimeFrame(M30)
-	} else if (e.target.innerText == '1H') {
+	} else if(e.target.innerText == '1H') {
 		getTimeFrame(H1)
-	} else if (e.target.innerText == '4H') {
+	} else if(e.target.innerText == '4H') {
 		getTimeFrame(H4)
-	} else if (e.target.innerText == '12H') {
+	} else if(e.target.innerText == '12H') {
 		getTimeFrame(H12)
-	} else if (e.target.innerText == '1D') {
+	} else if(e.target.innerText == '1D') {
 		getTimeFrame(D1)
-	} else if (e.target.innerText == '1W') {
+	} else if(e.target.innerText == '1W') {
 		getTimeFrame(W1)
-	} else if (e.target.innerText == 'MN') {
+	} else if(e.target.innerText == 'MN') {
 		getTimeFrame(MN)
 	}
 

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
@@ -23,7 +23,7 @@
 		<header class="header">
 			
 			<div class="topBox">
-				<span>Welcome to ContractBase Exchange !</span>
+				<span>Welcome  to  Company  Exchange  website!</span>
 				 <ul class="ulList">
 				 	<li>
 				 		<div class="dropdown">
@@ -269,12 +269,11 @@
 		  	  		  				<input type="text" id="buyAmountText" class='grayBorder form-control' name="amount" placeholder="Amount :" />
 		  	  		  				<span class="glyphicon tradeToken form-control-feedback defToken" id="tradeText">RKT</span>
 		  	  		  			</div>
-		  	  		  			
-		  	  		  			<div class="col-sm-8 dealTextBox sliderMargin">
+		  	  		  		    <div class="col-sm-8 dealTextBox sliderMargin">
 		  	  		  				<div class='slider-example'>
-      		               <input id="buySlide" type="text"  data-slider-min="0" data-slider-max="" data-slider-step="1" data-slider-value="0"/>
-                      	</div>
-			  	  		  			</div>
+      		                        		 <input id="buySlide" type="text"  data-slider-min="0" data-slider-max="" data-slider-step="1" data-slider-value="0"/>
+                                 	</div>
+			  	  		  		</div>
 		  	  		  		<span class="rangeNumber pull-left">0%</span><span class="rangeNumber pull-right" id="buyRangeMaxNumber">100%</span>
 		  	  		  		  <div>
 		  	  		         
@@ -282,9 +281,14 @@
 		  	  		  			
 		  	  		  	Total:<span class="totalText" id="buyTotal"></span>
 		  	  		  		</div>
-		  	  		  		  <div class="col-sm-8 dealTextBox ">
-		  	  		  				<input type="password" id="buyPassword" name="password" class='grayBorder form-control ' name="amount" placeholder="Password:" />
-		  	  		  			</div>
+		  	  		  		
+		  	  		        <div class="col-sm-12 orderType ">
+		  	  					<span>当日单：</span>
+								<input type="radio" name="buyOrderTerm" checked="checked" value="1" />
+								<span>长期单：</span>
+			                	<input type="radio" name="buyOrderTerm" value="2" />
+		  	  		 
+		  	  		  		</div>
 		  	  		  		  </div>
                                <div class="col-sm-12 tradeTextBox">
                                	   <button data-toggle="modal"  form="trade_buyForm"  class="buyButton" id="buyBtn">Buy <span id="dealText2" data-Symbol='RKT/BTC'>RKT</span></button>
@@ -324,10 +328,13 @@
 		  	  		  		<div class="col-sm-8 tradeTextBox totalBox">
 		  	  		  			Total:<span class="totalText" id="sellTotal"></span>
 		  	  		  		</div>
+		  	  		  	<div class="col-sm-12 orderType">
+		  	  		        <span>当日单：</span>
+                            <input type="radio" name="sellOrderTerm" checked="checked" value="1" />
+                            <span>长期单：</span>
+		  	                <input type="radio" name="sellOrderTerm"  value="2" />
+                       </div>
 		  	  		  		
-		  	  		  		 <div class="col-sm-8 dealTextBox">
-		  	  		  				<input type="password" id="sellPassword" name="password" class='grayBorder form-control ' name="amount" placeholder="Password:" />
-		  	  		  			</div>
 		  	  		  		
 		  	  		  		
 		  	  		  		 	<div class="col-sm-12 tradeTextBox">
@@ -557,7 +564,7 @@
 	
 	<!--<script src="../dist/libs/layui-v2.2.5/layui.js"></script>-->
 	 
-	 <script src="../dist/plugs/jquery.cookie.js"></script>
+	 <script src="http://apps.bdimg.com/libs/jquery.cookie/1.4.1/jquery.cookie.min.js"></script>
 	<script src="../dist/plugs/jquery.validate.min.js"></script>
 	 
 	<script src="../dist/libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
