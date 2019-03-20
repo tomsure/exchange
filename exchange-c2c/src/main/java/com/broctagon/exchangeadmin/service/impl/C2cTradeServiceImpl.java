@@ -153,30 +153,41 @@ public class C2cTradeServiceImpl implements C2cTradeService{
 			baseMsg.setReason("Update Trade Status failed");
 		}
 		else{
+			
 			// notify the trade confirm to manager
 			C2cTradeAccountModel c2cTradeAccountModel = c2cTradeDao.findTradeDetailById(tradeId);				
 			logger.info("JSON.toJSONString(c2cTradeAccountModel):" + JSON.toJSONString(c2cTradeAccountModel));
-			
-			ManagerTradeReq managerTradeReq = new ManagerTradeReq();
-			managerTradeReq.setTag(RabbitmqConstants.TAG_MANAGER_C2C_DEAL_REQ);			
-			managerTradeReq.setSymbol(c2cTradeAccountModel.getCoinName());
-			managerTradeReq.setDealNum(c2cTradeAccountModel.getAmount());
-			managerTradeReq.setDealPrice(c2cTradeAccountModel.getPrice());			
-			managerTradeReq.setAskOrderID(c2cTradeAccountModel.getTradeid());
-			managerTradeReq.setBidOrderID(c2cTradeAccountModel.getTradeid());
-			managerTradeReq.setSymbol(c2cTradeAccountModel.getCoinName());
-			managerTradeReq.setTransType(c2cTradeAccountModel.getEntrustType());
-			managerTradeReq.setTransactionTime(c2cTradeAccountModel.getUpdatetime());
-			if(c2cTradeAccountModel.getEntrustType()==C2cConstants.ENTRUST_TYPE_SELL){
-				managerTradeReq.setAskUserID(c2cTradeAccountModel.getEntrusterId());
-				managerTradeReq.setBidUserID(c2cTradeAccountModel.getTraderId());
+			if(c2cTradeAccountModel.getEntrustType() == 1) {
+				c2cEntrustDao.updateAssets(c2cTradeAccountModel.getTraderId(),c2cTradeAccountModel.getAmount(),c2cTradeAccountModel.getCoinName());
+				c2cEntrustDao.updateAssets1(c2cTradeAccountModel.getEntrusterId(),c2cTradeAccountModel.getAmount(),c2cTradeAccountModel.getCoinName());
+			}else if(c2cTradeAccountModel.getEntrustType() == 0) {
+				c2cEntrustDao.updateAssets(c2cTradeAccountModel.getEntrusterId(),c2cTradeAccountModel.getAmount(),c2cTradeAccountModel.getCoinName());
+				c2cEntrustDao.updateAssets1(c2cTradeAccountModel.getTraderId(),c2cTradeAccountModel.getAmount(),c2cTradeAccountModel.getCoinName());
 			}
-			else{
-				managerTradeReq.setAskUserID(c2cTradeAccountModel.getTraderId());
-				managerTradeReq.setBidUserID(c2cTradeAccountModel.getEntrusterId());
-			}
+//			
+//			ManagerTradeReq managerTradeReq = new ManagerTradeReq();
+//			managerTradeReq.setTag(RabbitmqConstants.TAG_MANAGER_C2C_DEAL_REQ);			
+//			managerTradeReq.setSymbol(c2cTradeAccountModel.getCoinName());
+//			managerTradeReq.setDealNum(c2cTradeAccountModel.getAmount());
+//			managerTradeReq.setDealPrice(c2cTradeAccountModel.getPrice());			
+//			managerTradeReq.setAskOrderID(c2cTradeAccountModel.getTradeid());
+//			managerTradeReq.setBidOrderID(c2cTradeAccountModel.getTradeid());
+//			managerTradeReq.setSymbol(c2cTradeAccountModel.getCoinName());
+//			managerTradeReq.setTransType(c2cTradeAccountModel.getEntrustType());
+//			managerTradeReq.setTransactionTime(c2cTradeAccountModel.getUpdatetime());
+//			if(c2cTradeAccountModel.getEntrustType()==C2cConstants.ENTRUST_TYPE_SELL){
+//				managerTradeReq.setAskUserID(c2cTradeAccountModel.getEntrusterId());
+//				managerTradeReq.setBidUserID(c2cTradeAccountModel.getTraderId());
+//			}
+//			else{
+//				managerTradeReq.setAskUserID(c2cTradeAccountModel.getTraderId());
+//				managerTradeReq.setBidUserID(c2cTradeAccountModel.getEntrusterId());
+//			}
 			
-			messageDispatcher.sendToManager(JSON.toJSONString(managerTradeReq));
+//			messageDispatcher.sendToManager(JSON.toJSONString(managerTradeReq));
+			
+			
+			
 		}
 		
 		return baseMsg;
