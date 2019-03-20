@@ -272,7 +272,7 @@ public class C2cTradeServiceImpl implements C2cTradeService{
 	public BaseMsg selUserAsset(String req) {
 		c2cObject c2cO = new c2cObject();
 		Map<String,Object> map = JSON.parseObject(req);
-		if(map.get("UserID") != null && map.get("CoinName") != null) {
+		if(map.get("UserID") != null && map.get("coinName") != null) {
 			Integer userId =  Integer.valueOf(map.get("UserID").toString());
 			String coinName = map.get("CoinName").toString();
 			System.err.println("userId = " + userId+" coinName = "+coinName);
