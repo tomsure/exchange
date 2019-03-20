@@ -277,7 +277,10 @@ function connect() {
 						field: 'Action',
 						title: 'Action',
 						formatter: function (val, row, index) {
-							return '<button   class="confirmBtn1" >Confirm</button>'
+							 if(row.TradeStatus==0){
+                return '<button   class="confirmBtn1" >Confirm</button>'
+							 }
+							
 						},
 						events: {
 							'click .confirmBtn1': function (ev, value, row, index) {
@@ -287,7 +290,7 @@ function connect() {
 								$('#modalUserName').text(row.OppositUserName)
 								$('#modalTradeId').text(row.TradeId)
 								$('#modalTelPhone').text(11111)
-								var data1 = 10
+								var data1 = 60
 								var id = setInterval(frame, 1000);
 
 								function frame() {
@@ -365,6 +368,11 @@ function connect() {
 					{
 						field: 'Price',
 						title: 'Price',
+
+					},
+					{
+						field: 'Amount',
+						title: 'Amount',
 
 					},
 					{
@@ -467,7 +475,7 @@ function connect() {
 				$('#modalUserName').text(res.Banklist.UserName)
 				$('#modalTradeId').text(res.Banklist.TradeId)
 				$('#modalTelPhone').text(res.Banklist.MobilePhoneNum)
-				var data1 = 10
+				var data1 = 60
 				var id = setInterval(frame, 1000);
 
 				function frame() {
@@ -528,7 +536,7 @@ function connect() {
 			$('#totalInfo').text(response.Banklist.Total)
 			$('#sellStatusModal').modal('show')
 			//
-			var data1 = 10
+			var data1 = 60
 			var id = setInterval(frame, 1000);
 
 			function frame() {
