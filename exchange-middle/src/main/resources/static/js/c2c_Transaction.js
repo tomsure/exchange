@@ -693,18 +693,4 @@ function tradePadelogout() {
 	})
 	alert($.cookie('sessionId'))
 }
-// function buy() {
-// 	alert("buy");
-// }
 
-
-
-function sell() {
-
-	alert("sell");
-}
-
-// $(function () {
-	// connect();
-
-// });
