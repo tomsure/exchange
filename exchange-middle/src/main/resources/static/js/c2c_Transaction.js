@@ -558,8 +558,9 @@ function init() {
 		'Token': null,
 	}));
 	stompClient.send("/ws/c2c/userAssets", {}, JSON.stringify({
-		'RequestID': 'testtesttest',
+		'RequestID': 'testtesttest111',
 		'UserID': $.cookie('UserId'),
+		 "CoinName":'BTC',
 		'Tag': 20987,
 	}));
 }
