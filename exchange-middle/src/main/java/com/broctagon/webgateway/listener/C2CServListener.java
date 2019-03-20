@@ -76,6 +76,15 @@ public class C2CServListener {
 				messageSender.convertAndSend(Path.PREFIX + Path.C2C_COIN_HISTORICAL_MARKET + sessionId, message);
 				break;
 			case Tag.C2C_USER_ASSETS_RES:
+				
+				String userID = MessageUtil.getContentFromMsg(message,"userId");
+				if(userID != null){
+					System.out.println("最终获取+"+PushService.selectSessionId(userID));;
+					if(PushService.selectSessionId(userID) != null){
+						messageSender.convertAndSend(Path.PREFIX + Path.C2C_USER_ASSETS_RES + PushService.selectSessionId(userID), message);
+					}
+				}
+				
 				messageSender.convertAndSend(Path.PREFIX + Path.C2C_USER_ASSETS_RES + sessionId, message);
 				break;
 			default:

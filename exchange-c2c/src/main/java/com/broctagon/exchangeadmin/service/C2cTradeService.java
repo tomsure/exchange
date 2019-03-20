@@ -23,4 +23,6 @@ public interface C2cTradeService {
 	
 	public BaseMsg selUserAsset(String req);
 	
+	public BaseMsg getUserAsset(String req, Integer toUserId);
+	
 }

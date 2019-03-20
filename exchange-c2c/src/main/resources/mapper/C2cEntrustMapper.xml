@@ -31,7 +31,7 @@
 	insert into t_c2c_entrust(coinName, userId, price, amount, entrustType, status) values(#{coinName}, #{userId}, #{price}, #{amount}, #{entrustType}, #{status});
 	</insert>
 	
-	<update id="subtractAmount"  parameterType="C2cEntrustModel">
+	<update id="subtractAmount"  parameterType="C2cEntrustModel" keyProperty="id" useGeneratedKeys="true">
 	update t_c2c_entrust e set amount=e.amount-#{amount} where id=#{id};
 	</update>
 	

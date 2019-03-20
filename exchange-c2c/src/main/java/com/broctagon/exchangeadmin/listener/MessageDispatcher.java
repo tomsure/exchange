@@ -118,13 +118,11 @@ public class MessageDispatcher {
 	}
 	
 	
-	public void userAssets(String req){
+	public void userAssets(String req, Integer toUserId){
 		logger.info("主动推送用户资产信息");
 		BaseMsg baseMsgReq = JSON.parseObject(req, BaseMsg.class);
-		BaseMsg baseMsgRes = null;
 		
-		baseMsgRes = c2cTradeService.selUserAsset(req);
-		
+		BaseMsg baseMsgRes = c2cTradeService.getUserAsset(req, toUserId);
 		baseMsgRes.setRequestID(baseMsgReq.getRequestID());
 		baseMsgRes.setSessionID(baseMsgReq.getSessionID());
 		baseMsgRes.setWSID(baseMsgReq.getWSID());
@@ -135,7 +133,7 @@ public class MessageDispatcher {
 		Message resMessage = new Message(res.getBytes(), properties);
 		rabbitTemplate.send(RabbitmqConstants.MQ_KEY_C2C_RES + baseMsgReq.getWSID(), resMessage);
 		
-		logger.info("userAssets response content:" + res);
+		logger.info("UserAssets response content:" + res);
 	}
 	
 	public void sendToManager(String req){

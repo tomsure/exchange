@@ -1,7 +1,6 @@
 
 package com.broctagon.exchangeadmin.service.impl;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -12,7 +11,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.alibaba.fastjson.JSON;
-import com.broctagon.exchangeadmin.constant.RabbitmqConstants;
 import com.broctagon.exchangeadmin.dao.C2cEntrustDao;
 import com.broctagon.exchangeadmin.dao.C2cTradeDao;
 import com.broctagon.exchangeadmin.listener.MessageDispatcher;
@@ -22,11 +20,8 @@ import com.broctagon.exchangeadmin.message.C2cEntrustListRes;
 import com.broctagon.exchangeadmin.message.C2cEntrustReq;
 import com.broctagon.exchangeadmin.message.C2cResultRes;
 import com.broctagon.exchangeadmin.message.C2cUserEntrustListRes;
-import com.broctagon.exchangeadmin.message.ManagerFreezeReq;
 import com.broctagon.exchangeadmin.message.ManagerFreezeRes;
 import com.broctagon.exchangeadmin.model.C2cEntrustModel;
-import com.broctagon.exchangeadmin.model.C2cTradeAccountModel;
-import com.broctagon.exchangeadmin.model.C2cTradeModel;
 import com.broctagon.exchangeadmin.service.C2cEntrustService;
 import com.broctagon.exchangeadmin.util.C2cConstants;
 
@@ -92,7 +87,7 @@ public class C2cEntrustServiceImpl implements C2cEntrustService{
 					String coinName = c2cEntrustModel.getCoinName();
 					c2cEntrustDao.updateAssets1(userId,count,coinName);
 					
-					messageDispatcher.userAssets(req);
+					messageDispatcher.userAssets(req, null);
 				}
 			}
 			
@@ -134,7 +129,7 @@ public class C2cEntrustServiceImpl implements C2cEntrustService{
 				String coinName = c2cEntrustModel.getCoinName();
 				c2cEntrustDao.updateAssets(userId,count,coinName);
 				
-				messageDispatcher.userAssets(req);
+				messageDispatcher.userAssets(req, null);
 				
 			}
 			
