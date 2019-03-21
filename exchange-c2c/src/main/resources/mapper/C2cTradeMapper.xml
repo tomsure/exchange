@@ -20,7 +20,19 @@
 	</insert>
 	
 	<update id="updateTradeStatus" parameterType="C2cTradeModel">
-	update t_c2c_trade set tradeStatus=#{tradeStatus} where id=#{id};
+	update t_c2c_trade 
+		<set>
+			<if test="tradeStatus != null">
+				tradeStatus=#{tradeStatus},
+			</if>
+			<if test="end1time != null">
+				end1time=#{end1time},
+			</if>
+			<if test="end2time != null">
+				end1time=#{end2time},
+			</if>
+		</set> 
+		where id=#{id};
 	</update>
 	
 	<update id="cancelTrade" parameterType="C2cTradeModel">
@@ -115,13 +127,17 @@
 	
 	<select id="selectTradeStatus" parameterType="java.util.Map" resultType="java.util.Map">
 	SELECT
-		t.id as tradeId,
-		t.entrustId,
+		t.id AS tradeUserId,
+		t.entrustId as orderId,
 		t.tradeUserId,
 		t.amount,
 		t.tradeStatus,
-		t.updatetime,
-		u.UserName
+		t.createtime as buyerStartTime,
+		u.UserName,
+		e.price,
+		t.amount * e.price as total,
+		t.end1time as buyerEndTime,
+		t.end2time as sellerEndTime
 	FROM
 		t_c2c_trade t
 	LEFT JOIN t_c2c_entrust e ON t.entrustId = e.id

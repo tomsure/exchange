@@ -2,6 +2,7 @@
 package com.broctagon.exchangeadmin.service.impl;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -126,6 +127,7 @@ public class C2cTradeServiceImpl implements C2cTradeService{
 		
 		C2cTradeModel c2cTradeModel = new C2cTradeModel();
 		c2cTradeModel.setId(tradeId);
+		c2cTradeModel.setEnd1time(new Date());
 		c2cTradeModel.setTradeStatus(C2cConstants.TRADE_STATUS_PAID);
 		int updateResult = c2cTradeDao.updateTradeStatus(c2cTradeModel);
 		if(updateResult<1){
@@ -148,6 +150,7 @@ public class C2cTradeServiceImpl implements C2cTradeService{
 		C2cTradeModel c2cTradeModel = new C2cTradeModel();
 		c2cTradeModel.setId(tradeId);
 		c2cTradeModel.setTradeStatus(C2cConstants.TRADE_STATUS_RECEIVED);
+		c2cTradeModel.setEnd2time(new Date());
 		int updateResult = c2cTradeDao.updateTradeStatus(c2cTradeModel);
 		if(updateResult<1){
 			baseMsg.setResult(false);
