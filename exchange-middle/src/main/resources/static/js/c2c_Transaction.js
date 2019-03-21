@@ -299,7 +299,7 @@ function connect() {
 		stompClient.subscribe('/gateway/c2cGetUserHistoricalOrder-' + sessionId, function (data) {
 			var response = jQuery.parseJSON(data.body);
 			var historyOrderData = response.HistoryMarket
-			console.log(historyOrderData)
+			
 			$('#c2cUserHistoryOrderTable').bootstrapTable('destroy')
 			$('#c2cUserHistoryOrderTable').bootstrapTable({
 				rowStyle: function (row, index) {
@@ -489,12 +489,17 @@ function connect() {
 		stompClient.subscribe('/gateway/c2cOpenOrder-' + sessionId, function (data) {
 			var response = jQuery.parseJSON(data.body);
 		});
-		stompClient.subscribe('/gateway/confirmationPrompt-' + sessionId, function (data) { //卖家收到卖家买入信息
+		stompClient.subscribe('/gateway/confirmationPrompt-' + sessionId, function (data) { //卖家收到买家买入信息
 			var response = jQuery.parseJSON(data.body);
-			$('#orderIdInfo').text(response.Banklist.OrderId)
-			$('#priceInfo').text(response.Banklist.Price)
-			$('#amountInfo').text(response.Banklist.Amount)
-			$('#totalInfo').text(response.Banklist.Total)
+			   let data={
+					 "OrderId":response.Banklist.OrderId,
+					 "Price":response.Banklist.Price,
+					 "Amount":response.Banklist.Amount,
+					 "Total":response.Banklist.Total
+
+				 }
+
+			  getTradeInfo(data)
 			$('#sellStatusModal').modal('show')
 			//
 			var data1 = 180
@@ -547,8 +552,80 @@ function connect() {
 			//
 
 		})
-    stompClient.subscribe('  /gateway/c2cTradingStatus-' + sessionId, function (data) {
-      alert('已登录')
+    stompClient.subscribe('/gateway/c2cTradingStatus-' + sessionId, function (data) {
+			alert('已登录')
+			 $('#stradeStatusModal').modal('show')
+			 
+			var response = jQuery.parseJSON(data.body);
+		  var statusTableData=response.ResData
+			$('#statusTable').bootstrapTable('destroy')
+			$('#statusTable').bootstrapTable({
+				rowStyle: function (row, index) {
+					var style = {};
+					style = {
+						css: {
+							'text-align': 'center'
+						}
+					};
+					return style;
+				},
+				striped: true,
+				pagination: 'true',
+				pageSize: 6,
+				columns: [{
+						field: 'Amount',
+						title: 'Amount'
+					},
+					{
+						field: 'UserName',
+						title: 'UserName',
+					}, {
+						field: 'TradeUserId',
+						title: 'TradeUserId',
+					
+					},
+					{
+						field: 'TradeStatus',
+						title: 'TradeStatus',
+					},
+					{
+						field: 'TradeId',
+						title: 'TradeId',
+					},
+					{
+						field: 'Action',
+						title: 'Action',
+						formatter:function(val, row, index){
+               return "<button class='dialogConfirmBtn'>Confirm</button>"
+						},
+						events:{
+							"click .dialogConfirmBtn":function(ev, value, row, index){
+								$('#stradeStatusModal').modal('hide')
+								let data={
+									"OrderId":row.OrderId,
+									"Price":row.Price,
+									"Amount":row.Amount,
+									"Total":row.Total
+			 
+								}
+			 
+							 getTradeInfo(data)
+								$('#sellStatusModal').modal('show')
+								  
+								$('#confirmBtn').click(function (ev) {
+									confirm(row.TradeId)
+								   
+									ev.stopImmediatePropagation()
+								})
+							}
+						}
+
+					}
+				  
+				],
+				data: statusTableData
+			});
+			   
 		})
 
 	});
@@ -665,12 +742,19 @@ function confirm(tradeId) {
 }
 
 function SendStatus(){
-	stompClient.send("/ws/c2c/tradeStatus ", {}, JSON.stringify({ //确认
+	stompClient.send("/ws/c2c/tradeStatus", {}, JSON.stringify({ //确认
 		"Tag":  21760,
 		'UserID': $.cookie('UserId'),
 		"RequestID": RequestId
 	
 	}));
+}
+
+function getTradeInfo(data){
+	$('#orderIdInfo').text(data.OrderId)
+	$('#priceInfo').text(data.Price)
+	$('#amountInfo').text(data.Amount)
+	$('#totalInfo').text(data.Total)
 }
 
 function tradePadelogout() {
