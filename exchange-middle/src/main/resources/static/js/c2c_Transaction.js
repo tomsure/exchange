@@ -62,6 +62,7 @@ function connect() {
 					$('#liLast').html('<span id="logout">Logout</span>')
 					resetStyle()
 					getAssets()
+					SendStatus()
 					$('#userItem').removeClass('hide')
 				} else if (status == -1) {
 					alert('Login Error!')
@@ -546,6 +547,10 @@ function connect() {
 			//
 
 		})
+    stompClient.subscribe('  /gateway/c2cTradingStatus-' + sessionId, function (data) {
+      alert('已登录')
+		})
+
 	});
 }
 connect();
@@ -657,6 +662,15 @@ function confirm(tradeId) {
 		tradeId:tradeId
 	}));
 	$('#confirmModal').modal('hide')
+}
+
+function SendStatus(){
+	stompClient.send("/ws/c2c/tradeStatus ", {}, JSON.stringify({ //确认
+		"Tag":  21760,
+		'UserID': $.cookie('UserId'),
+		"RequestID": RequestId
+	
+	}));
 }
 
 function tradePadelogout() {
