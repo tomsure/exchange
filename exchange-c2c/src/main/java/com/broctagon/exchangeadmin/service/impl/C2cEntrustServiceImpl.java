@@ -50,13 +50,10 @@ public class C2cEntrustServiceImpl implements C2cEntrustService{
 		C2cEntrustReq c2cEntrustMsg = JSON.parseObject(req, C2cEntrustReq.class);
 		C2cEntrustModel c2cEntrustModel = new C2cEntrustModel();
 		
-		int userId = c2cEntrustModel.getUserId();
-		double amount = c2cEntrustModel.getAmount();
-		String coinName = c2cEntrustModel.getCoinName();
-		C2cResultRes c2cResultRes = new C2cResultRes();	
 		
-		Map<String,Object> userAssetData = c2cTradeDao.selectUserAssets(userId,coinName);
-		if(Double.valueOf(userAssetData.get("Available").toString()) < amount) {
+		
+//		Map<String,Object> userAssetData = c2cTradeDao.selectUserAssets(userId,coinName);
+//		if(Double.valueOf(userAssetData.get("Available").toString()) < amount) {
 			c2cEntrustModel.setCoinName(c2cEntrustMsg.getCoinName());
 			c2cEntrustModel.setAmount(c2cEntrustMsg.getAmount());
 			c2cEntrustModel.setPrice(c2cEntrustMsg.getPrice());
@@ -65,6 +62,7 @@ public class C2cEntrustServiceImpl implements C2cEntrustService{
 			c2cEntrustModel.setStatus(C2cConstants.ENTRUST_STATUS_PENDING);
 			int result = c2cEntrustDao.save(c2cEntrustModel);
 			
+			C2cResultRes c2cResultRes = new C2cResultRes();	
 			if(result>0){
 				
 				c2cResultRes.setResult(true);
@@ -85,6 +83,10 @@ public class C2cEntrustServiceImpl implements C2cEntrustService{
 //						logger.info("JSON.toJSONString(managerUnfreezeReq):" + JSON.toJSONString(freezeReq));
 //						messageDispatcher.sendToManager(JSON.toJSONString(freezeReq));
 						
+						int userId = c2cEntrustModel.getUserId();
+						double amount = c2cEntrustModel.getAmount();
+						String coinName = c2cEntrustModel.getCoinName();
+						
 						c2cEntrustDao.updateAssets1(userId,amount,coinName);
 						
 						messageDispatcher.userAssets(req, null);
@@ -96,9 +98,9 @@ public class C2cEntrustServiceImpl implements C2cEntrustService{
 			else{
 				c2cResultRes.setResult(false);
 			}
-		}else{
-			c2cResultRes.setResult(false);
-		}
+//		}else{
+//			c2cResultRes.setResult(false);
+//		}
 				
 		return c2cResultRes;
 	}
