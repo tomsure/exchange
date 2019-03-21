@@ -91,7 +91,6 @@ public class MessageDispatcher {
 			case RabbitmqConstants.USER_ASSETS_REQ://用户资产
 				baseMsgRes = c2cTradeService.selUserAsset(req);
 				break;
-				
 			default: 
 				baseMsgRes = unkownTag(baseMsgReq);
 				break;
