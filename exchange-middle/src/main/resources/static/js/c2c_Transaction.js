@@ -276,13 +276,13 @@ function connect() {
 									} else {
 										data1--
 										$('#confirmBtn').click(function (ev) {
-											confirm()
+											confirm(row.TradeId)
 											clearInterval(id);
 											ev.stopImmediatePropagation()
 										})
 										$('#timeData').text(data1)
 										if ($('#timeData').text() == 0) {
-											TimeoutOutCancel()
+											TimeoutOutCancel(row.TradeId)
 										}
 									}
 								}
@@ -436,13 +436,19 @@ function connect() {
 					} else {
 						data1--
 						$('#confirmBtn').click(function (ev) {
-							confirm()
+							confirm(res.Banklist.TradeId)
 							clearInterval(id);
 							ev.stopImmediatePropagation()
 						})
 						$('#timeData').text(data1)
 						if ($('#timeData').text() == 0) {
-							TimeoutOutCancel()
+							TimeoutOutCancel(res.Banklist.TradeId)
+						  // stompClient.send("/ws/c2c/cancel", {}, JSON.stringify({ //超时取消
+							// 	'Tag': 20775,
+							// 	'RequestID': 'testtesttest',
+							// 	'UserID': $.cookie('UserId'),
+							// 	'tradeId': res.Banklist.TradeId,
+							// }));
 						}
 					}
 				}
@@ -589,12 +595,12 @@ function cancelPendingOrder(data) { //用户取消
 	}));
 }
 
-function TimeoutOutCancel() {
+function TimeoutOutCancel(tradeId) {
 	stompClient.send("/ws/c2c/cancel", {}, JSON.stringify({ //超时取消
 		'Tag': 20775,
 		'RequestID': 'testtesttest',
 		'UserID': $.cookie('UserId'),
-		'tradeId': $("#otcBuyEntrustId").val(),
+		'tradeId':tradeId ,
 	}));
 }
 console.log("stompClient:")
@@ -643,13 +649,12 @@ function sendLogoutData() {
 	}));
 }
 
-function confirm() {
+function confirm(tradeId) {
 	stompClient.send("/ws/c2c/entrust", {}, JSON.stringify({ //确认
 		"Tag": 20489,
 		'UserID': $.cookie('UserId'),
 
-		tradeId: $('#modalTradeId').text()
-
+		tradeId:tradeId
 	}));
 	$('#confirmModal').modal('hide')
 }

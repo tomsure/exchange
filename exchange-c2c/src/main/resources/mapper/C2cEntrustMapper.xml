@@ -36,7 +36,7 @@
 	</update>
 	
 	<update id="updateAmount"  parameterType="C2cEntrustModel">
-	update t_c2c_entrust e set amount=e.amount+#{amount} where id=#{id};
+	update t_c2c_entrust e set e.amount=e.amount+#{amount} where e.id=#{id};
 	</update>
 	
 	<update id="updateStatus"  parameterType="C2cEntrustModel">
