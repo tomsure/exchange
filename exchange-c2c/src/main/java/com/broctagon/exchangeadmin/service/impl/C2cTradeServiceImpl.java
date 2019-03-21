@@ -98,8 +98,8 @@ public class C2cTradeServiceImpl implements C2cTradeService{
 	public C2cResultRes cancelTrade(String req){
 		C2cUpdateTradeReq c2cUpdateTradeReq = JSON.parseObject(req, C2cUpdateTradeReq.class); 
 		int tradeId = c2cUpdateTradeReq.getTradeId();
-		
-		C2cTradeModel tradeData = c2cTradeDao.findById(tradeId);
+//		
+//		C2cTradeModel tradeData = c2cTradeDao.findById(tradeId);
 		
 		C2cResultRes baseMsg = new C2cResultRes();
 		C2cTradeModel c2cTradeModel = new C2cTradeModel();
@@ -108,12 +108,13 @@ public class C2cTradeServiceImpl implements C2cTradeService{
 		int result = c2cTradeDao.cancelTrade(c2cTradeModel);
 		if(result<1){
 			baseMsg.setResult(false);
-		}else{
-			C2cEntrustModel c2cEntrustModel = new C2cEntrustModel();
-			c2cEntrustModel.setId(tradeData.getEntrustId());
-			c2cEntrustModel.setAmount(tradeData.getAmount());
-			c2cEntrustDao.updateAmount(c2cEntrustModel);
-		}	
+		}
+//		else{
+//			C2cEntrustModel c2cEntrustModel = new C2cEntrustModel();
+//			c2cEntrustModel.setId(tradeData.getEntrustId());
+//			c2cEntrustModel.setAmount(tradeData.getAmount());
+//			c2cEntrustDao.updateAmount(c2cEntrustModel);
+//		}	
 		return baseMsg;
 	} 
 	
