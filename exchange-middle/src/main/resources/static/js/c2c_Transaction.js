@@ -4,6 +4,7 @@ var sessionId;
 function connect() {
 	var socket = new SockJS('/websocket');
 	stompClient = Stomp.over(socket);
+
 	stompClient.connect({}, function (frame) {
 		console.log('Connected: ' + frame);
 		sessionId = socket._transport.url.split("/")[5];
@@ -69,9 +70,6 @@ function connect() {
 			})
 			//
 			sendLoginData() //login	
-			// alert(123)
-
-
 		})
 		$('#liLast').click(function () { //logout
 
@@ -92,17 +90,9 @@ function connect() {
 			console.log($.cookie('UserId'))
 		})
 		//
-
-		//
-		// //
-
-
-		//
-
 		stompClient.subscribe('/gateway/kick' + sessionId, function (data) {
 			alert('被提出')
 		})
-
 		init();
 		stompClient.subscribe('/gateway/c2cGetOpenOrders-' + sessionId, function (data) {
 			var response = jQuery.parseJSON(data.body);
@@ -190,11 +180,6 @@ function connect() {
 						}
 
 					},
-					// {
-					// 	field: '',
-					// 	title: 'Status',
-
-					// },
 					{
 						field: 'Action',
 						title: 'Action',
@@ -204,17 +189,14 @@ function connect() {
 						events: {
 							'click .deleteBtn': function (ev, value, row, index) {
 								$('#cancelModal').modal('show')
-
-								$('#cancelBtn').click(function () {
+								$('#cancelBtn').click(function (ev) {
 									$('#cancelModal').modal('hide')
-									 let data={
-										 id:row.Id,
-										 coinName:row.CoinName
-									 }
-									  //  alert(row.CoinName)
+									let data = {
+										id: row.Id,
+										coinName: row.CoinName
+									}
 									cancelPendingOrder(data)
-									
-
+                  ev.stopImmediatePropagation()
 								})
 							}
 						}
@@ -264,23 +246,18 @@ function connect() {
 					{
 						field: 'Price',
 						title: 'Price',
-
 					},
 					{
 						field: 'Total',
 						title: 'Total',
-
 					},
-
-
 					{
 						field: 'Action',
 						title: 'Action',
 						formatter: function (val, row, index) {
-							 if(row.TradeStatus==0){
-                return '<button   class="confirmBtn1" >Confirm</button>'
-							 }
-							
+							if (row.TradeStatus == 0) {
+								return '<button   class="confirmBtn1" >Confirm</button>'
+							}
 						},
 						events: {
 							'click .confirmBtn1': function (ev, value, row, index) {
@@ -298,9 +275,10 @@ function connect() {
 										clearInterval(id);
 									} else {
 										data1--
-										$('#confirmBtn').click(function () {
+										$('#confirmBtn').click(function (ev) {
 											confirm()
 											clearInterval(id);
+											ev.stopImmediatePropagation()
 										})
 										$('#timeData').text(data1)
 										if ($('#timeData').text() == 0) {
@@ -308,30 +286,20 @@ function connect() {
 										}
 									}
 								}
+								ev.stopImmediatePropagation()
 							}
 						}
 					}
-
-
 				],
 				data: openOrderData,
-
 			});
-
 			//
-
-
-
-
 		});
 		stompClient.subscribe('/gateway/c2cGetUserHistoricalOrder-' + sessionId, function (data) {
 			var response = jQuery.parseJSON(data.body);
-
 			var historyOrderData = response.HistoryMarket
-
 			console.log(historyOrderData)
 			$('#c2cUserHistoryOrderTable').bootstrapTable('destroy')
-
 			$('#c2cUserHistoryOrderTable').bootstrapTable({
 				rowStyle: function (row, index) {
 					var style = {};
@@ -342,7 +310,6 @@ function connect() {
 					};
 					return style;
 				},
-
 				striped: true,
 				pagination: 'true',
 				pageSize: 6,
@@ -353,7 +320,6 @@ function connect() {
 					{
 						field: 'CoinName',
 						title: 'CoinName',
-
 					}, {
 						field: 'EntrustType',
 						title: 'TradeType',
@@ -368,20 +334,16 @@ function connect() {
 					{
 						field: 'Price',
 						title: 'Price',
-
 					},
 					{
 						field: 'Amount',
 						title: 'Amount',
-
 					},
 					{
 						field: 'Total',
 						title: 'Total',
 
 					},
-
-
 				],
 				data: historyOrderData
 			});
@@ -392,14 +354,12 @@ function connect() {
 			$('#coinlist').html('')
 			$.each(response.CoinList, function (i, el) {
 				coinlist.innerHTML += '<li ><a href="#' + response.CoinList[i].CoinName + '"' + 'data-toggle="tab">' + response.CoinList[i].CoinName + '</li>'
-
 			})
 			$('#coinlist').find('li a').click(function (e) {
 				$('#selfBuyBtn').text($(e.target).text())
 				$('#selfSellBtn').text($(e.target).text())
 				$('#selfSellTabText').text($(e.target).text())
 				$('#selfBuyTabText').text($(e.target).text())
-
 				stompClient.send("/ws/c2c/home", {}, JSON.stringify({
 					'RequestID': 'testtesttest',
 					'UserID': $.cookie('UserId'),
@@ -418,25 +378,17 @@ function connect() {
 			$('#ydVol').html(response.Yesterday.Volume);
 			$('#tdVol').html(response.Today.Volume);
 		});
-
 		stompClient.subscribe('/gateway/c2cUserAssetsQes-' + sessionId, function (data) { //监听资产
 			var res = jQuery.parseJSON(data.body);
-			   if(res.ResData){
-					$('#totalBox').text(res.ResData.Total)
-					$('#availableBox').text(res.ResData.Available)
-				 }
-			
-
-
+			if (res.ResData) {
+				$('#totalBox').text(res.ResData.Total)
+				$('#availableBox').text(res.ResData.Available)
+			}
 		})
 		stompClient.subscribe('/gateway/c2cCoinHistoricalMarket-' + sessionId, function (data) {
 			var response = jQuery.parseJSON(data.body);
 			var coinMarketTab = document.getElementById("coinMarketTab")
-
 		});
-
-
-
 		otcBuyform(function () {
 			trade(0)
 			$('#buyModal').modal('hide')
@@ -483,9 +435,10 @@ function connect() {
 						clearInterval(id);
 					} else {
 						data1--
-						$('#confirmBtn').click(function () {
+						$('#confirmBtn').click(function (ev) {
 							confirm()
 							clearInterval(id);
+							ev.stopImmediatePropagation()
 						})
 						$('#timeData').text(data1)
 						if ($('#timeData').text() == 0) {
@@ -520,6 +473,7 @@ function connect() {
 		});
 		stompClient.subscribe('/gateway/c2cPayConfirm-' + sessionId, function (data) {
 			var response = jQuery.parseJSON(data.body);
+			$('#sellStatusModal').modal('hide')			
 
 		});
 		stompClient.subscribe('/gateway/c2cCancelOpenOrder-' + sessionId, function (data) { //订阅用户取消
@@ -544,20 +498,26 @@ function connect() {
 					clearInterval(id);
 				} else {
 					data1--
-					$('#receivedBtn').one("click", function () { //卖家确认已收到
-						stompClient.send("/ws/c2c/trade", {}, JSON.stringify({
+
+					$('#receivedBtn').one("click", function (ev) { //卖家确认已收到
+						var a = stompClient.send("/ws/c2c/trade", {
+							transaction: stompClient.begin().id
+						}, JSON.stringify({
 							'Tag': 21001,
 							'requestID': '123456789',
 							'userID': $.cookie('UserId'),
 							'tradeId': response.Banklist.TradeId,
 						}));
+
 						clearInterval(id);
+						ev.stopImmediatePropagation();
 					})
-					$('#appealBtn').click(function () { //我要申诉（卖家）
+					$('#appealBtn').click(function (ev) { //我要申诉（卖家）
 
 						clearInterval(id);
 						alert('已申诉')
 						$('#sellStatusModal').modal('hide')
+						ev.stopImmediatePropagation()
 					})
 					$('#timeData1').text(data1)
 					if ($('#timeData1').text() == 0) {
@@ -566,7 +526,7 @@ function connect() {
 							'Tag': 21001,
 							'requestID': '123456789',
 							'userID': $.cookie('UserId'),
-							'tradeId':response.Banklist.TradeId,
+							'tradeId': response.Banklist.TradeId,
 						}));
 						$('#sellerTimeOutModal').modal('show')
 						setTimeout(function () {
@@ -619,13 +579,13 @@ function trade(type) {
 }
 
 function cancelPendingOrder(data) { //用户取消
-	  // alert(data.coinName)
+	// alert(data.coinName)
 	stompClient.send("/ws/c2c/cancel", {}, JSON.stringify({
 		'Tag': 20739,
 		'RequestID': 'testtesttest',
 		'UserID': $.cookie('UserId'),
 		'id': data.id,
-		'coinName':data.coinName
+		'coinName': data.coinName
 	}));
 }
 
@@ -637,22 +597,8 @@ function TimeoutOutCancel() {
 		'tradeId': $("#otcBuyEntrustId").val(),
 	}));
 }
-
-function sellerTimeOut() {
-
-	// stompClient.send("/ws/c2c/trade", {}, JSON.stringify({ 
-	// 	'Tag': 21001,
-	// 	'requestID': '123456789',
-	// 	'userID': $.cookie('UserId'),
-	// 	'tradeId': $("#otcBuyEntrustId").val(),
-	// }));
-	// 	 $('#sellerTimeOutModal').modal('show')
-	// 	 setTimeout(function(){
-	// 		$("#sellerTimeOutModal").modal("hide")
-	// 		$('#sellStatusModal').modal('hide')
-	// },1200);
-
-}
+console.log("stompClient:")
+console.log(stompClient)
 
 function entrust(type) {
 	var price;
