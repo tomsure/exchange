@@ -38,7 +38,9 @@ public class RabbitmqConstants {
 	public final static int TAG_TRADE_HISTORYMARKET_REQ = 0x5123;
 	public final static int TAG_TRADE_HISTORYMARKET_RES = TAG_TRADE_HISTORYMARKET_REQ + 1;
 	
-	public final static int USER_ASSETS_REQ = 20987;
+	public final static int TAG_USER_ASSETS_REQ = 20987; //20987;//查询用户资产
+	
+	public final static int TAG_TRADING_STATUS_REQ = 0x5500;//查询单据交易状态 21760
 	
 	public final static int TAG_COIN_LIST_REQ = 0x5011;
 	public final static int TAG_COIN_LIST_RES = TAG_COIN_LIST_REQ + 1;

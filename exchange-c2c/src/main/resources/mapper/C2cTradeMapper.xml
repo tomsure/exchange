@@ -112,4 +112,21 @@
 	select a.* from user_assets a left join coin c on c.ID = a.CoinID where a.UserID = #{userID} and c.CoinName = #{coinName}
 	</select>
 	
+	
+	<select id="selectTradeStatus" parameterType="java.util.Map" resultType="java.util.Map">
+	SELECT
+		t.id as tradeId,
+		t.entrustId,
+		t.tradeUserId,
+		t.amount,
+		t.tradeStatus,
+		t.updatetime,
+		u.UserName
+	FROM
+		t_c2c_trade t
+	LEFT JOIN t_c2c_entrust e ON t.entrustId = e.id
+	LEFT JOIN `user` u on t.tradeUserId = u.ID
+	where e.userId = #{userId} and t.tradeStatus = 2
+	</select>
+	
 </mapper> 

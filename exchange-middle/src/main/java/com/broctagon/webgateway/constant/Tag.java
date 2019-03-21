@@ -202,6 +202,8 @@ public class Tag {
 	
 	public static final int C2C_COIN_HISTORICAL_MARKET_RESPONSE = 20772;
 	
+	public static final int C2C_COIN_TRADING_STATUS_RESPONSE = 21761;
+	
 	public static final int C2C_USER_ASSETS_RES = 20988;
 	
 	
