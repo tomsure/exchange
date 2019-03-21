@@ -49,4 +49,6 @@ public interface C2cTradeDao {
 	
 	public Map<String,Object> selectUserAssets(@Param(value = "userID")Integer userID,@Param(value = "coinName")String coinName);
 	
+	public List<Map<String,Object>> selectTradeStatus(@Param(value = "userId")Integer userId);
+	
 }

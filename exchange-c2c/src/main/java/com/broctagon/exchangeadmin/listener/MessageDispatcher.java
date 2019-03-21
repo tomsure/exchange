@@ -88,8 +88,11 @@ public class MessageDispatcher {
 			case RabbitmqConstants.TAG_COIN_LIST_REQ://货币种类
 				baseMsgRes = c2cCoinService.findC2cCoinList();
 				break;
-			case RabbitmqConstants.USER_ASSETS_REQ://用户资产
+			case RabbitmqConstants.TAG_USER_ASSETS_REQ://用户资产
 				baseMsgRes = c2cTradeService.selUserAsset(req);
+				break;
+			case RabbitmqConstants.TAG_TRADING_STATUS_REQ://查询用户挂单成交单
+				baseMsgRes = c2cTradeService.selTradeStatus(req);
 				break;
 			default: 
 				baseMsgRes = unkownTag(baseMsgReq);

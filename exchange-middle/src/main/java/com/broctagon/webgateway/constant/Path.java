@@ -109,6 +109,8 @@ public class Path {
 	
 	public static final String CONFIRMATION_PROMPT = "/confirmationPrompt-";
 	
+	public static final String C2C_TRADINGSTATUS = "/c2cTradingStatus-";
+	
 	//邮箱验证码响应路径
 	public static final String USER_EMAIL_INFO = "/emailinfo-";
 			
