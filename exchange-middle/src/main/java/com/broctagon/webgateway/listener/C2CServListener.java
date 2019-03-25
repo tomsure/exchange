@@ -89,7 +89,7 @@ public class C2CServListener {
 				break;
 			case Tag.C2C_COIN_TRADING_STATUS_RESPONSE:
 				System.out.println("aaaaaaaaaaaaaaaB"+message);
-				String toUserId = MessageUtil.getContentFromMsg(message,"UserId");
+				String toUserId = MessageUtil.getContentFromMsg(message,"ToUserId");
 				if(toUserId != null){
 					System.out.println("最终获取+"+PushService.selectSessionId(toUserId));;
 					if(PushService.selectSessionId(toUserId) != null){

@@ -99,8 +99,17 @@ public class MessageUtil {
 			content = message.substring(message.indexOf(mark));
 			int start = content.indexOf(":");
 			int end = content.indexOf(",");
-			if(end == -1) {
+			int toEnd = content.indexOf("}");
+			if(end == -1 && toEnd == -1) {
 				end = content.length() - 1;
+			}
+			if(toEnd != -1 && end != -1) {
+				if(toEnd < end) {
+					end = toEnd;
+				}
+			}
+			if(toEnd != -1 && end == -1) {
+				end = toEnd;
 			}
 			content = content.substring(start + 1, end).trim().replaceAll("\"", "");
 		}

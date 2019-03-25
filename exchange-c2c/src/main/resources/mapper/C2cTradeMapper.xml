@@ -129,6 +129,7 @@
 	SELECT
 		t.id AS tradeUserId,
 		t.entrustId as orderId,
+		e.userId as toUserId,
 		t.tradeUserId,
 		t.amount,
 		t.tradeStatus,
