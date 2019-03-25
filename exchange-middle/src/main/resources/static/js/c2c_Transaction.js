@@ -192,7 +192,7 @@ function connect() {
 								$('#cancelModal').modal('show')
 								$('#cancelBtn').click(function (ev) {
 									$('#cancelModal').modal('hide')
-									let data = {
+									var data = {
 										id: row.Id,
 										coinName: row.CoinName
 									}
@@ -491,7 +491,7 @@ function connect() {
 		});
 		stompClient.subscribe('/gateway/confirmationPrompt-' + sessionId, function (data) { //卖家收到买家买入信息
 			var response = jQuery.parseJSON(data.body);
-			   let data={
+			   var data={
 					 "OrderId":response.Banklist.OrderId,
 					 "Price":response.Banklist.Price,
 					 "Amount":response.Banklist.Amount,
@@ -601,7 +601,7 @@ function connect() {
 						events:{
 							"click .dialogConfirmBtn":function(ev, value, row, index){
 								$('#stradeStatusModal').modal('hide')
-								let data={
+								var data={
 									"OrderId":row.OrderId,
 									"Price":row.Price,
 									"Amount":row.Amount,
