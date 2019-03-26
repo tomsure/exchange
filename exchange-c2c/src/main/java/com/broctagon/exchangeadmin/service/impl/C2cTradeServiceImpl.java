@@ -327,13 +327,11 @@ public class C2cTradeServiceImpl implements C2cTradeService{
 		Map<String,Object> map = JSON.parseObject(req);
 		if(map.get("UserID") != null) {
 			Integer userID =  Integer.valueOf(map.get("UserID").toString());
-			System.err.println("数据+++"+req);
+			System.err.println(req);
 			List<Map<String,Object>> tradeStatusData = c2cTradeDao.selectTradeStatus(userID);
 			if(tradeStatusData != null) {
 				c2cO.setResData(tradeStatusData);
-				System.out.println("数据+++"+tradeStatusData);
 			}
-			System.out.println("数据+++"+tradeStatusData);
 		}
 		return c2cO;
 	}
